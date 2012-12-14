@@ -11,11 +11,11 @@
     "swank-js": ">=0.0.1"
   },
   "devDependencies": {
-    "vows"    :  "0.5.x"
+    "vows"    :  "0.6.x"
   },
   "scripts": {
     "swank": "node node_modules/swank-js",
-    "test": "vows --spec --isolate"
+    "test": "vows test/lemonad-test.js --spec"
   },
   "main": "./lib/lemonad",
   "keywords": [
