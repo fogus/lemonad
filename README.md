@@ -1,7 +1,7 @@
 lemonad
 =======
 
-a functional programming library built on, and extending, Underscore.js.
+a functional programming library built on, and extending, [Underscore.js](http://underscorejs.org) -- inspired by the [Clojure](http://www.clojure.org) core and contrib libraries.
 
 ![lemonad](https://raw.github.com/fogus/lemonad/master/docs/logo.png)
 
@@ -9,9 +9,11 @@ currently available functions:
 
 ```javascript
 { [Function]
-  VERSION: '0.0.4',
+  VERSION: '0.0.6',
   existy: [Function],
   truthy: [Function],
+  isAssociative: [Function],
+  isReference: [Function],
   cat: [Function],
   cons: [Function],
   butLast: [Function],
@@ -20,9 +22,10 @@ currently available functions:
   second: [Function],
   increasing: [Function],
   decreasing: [Function],
-  increasingOrEq: [Function],
-  decreasingOrEq: [Function],
-  funWrap: [Function],
+  increasingOrEq: [Function]
+  decreasingOrEq: [Function]
+  meth: [Function],
+  assoc: [Function],
   k: [Function],
   constantly: [Function],
   t: [Function],
