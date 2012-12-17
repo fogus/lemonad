@@ -9,11 +9,15 @@ currently available functions:
 
 ```javascript
 { [Function]
-  VERSION: '0.0.6',
+  VERSION: '0.0.8',
   existy: [Function],
   truthy: [Function],
   isAssociative: [Function],
   isReference: [Function],
+  isZero: [Function],
+  isEven: [Function],
+  isOdd: [Function],
+  isPos: [Function],
   cat: [Function],
   cons: [Function],
   butLast: [Function],
@@ -22,8 +26,8 @@ currently available functions:
   second: [Function],
   increasing: [Function],
   decreasing: [Function],
-  increasingOrEq: [Function]
-  decreasingOrEq: [Function]
+  increasingOrEq: [Function],
+  decreasingOrEq: [Function],
   meth: [Function],
   assoc: [Function],
   k: [Function],
@@ -32,6 +36,10 @@ currently available functions:
   thrush: [Function],
   pipeline: [Function],
   compose: [Function],
+  everyPred: [Function],
+  conjoin: [Function],
+  someFun: [Function],
+  disjoin: [Function],
   mapcat: [Function],
   complement: [Function],
   accessor: [Function],
@@ -39,6 +47,8 @@ currently available functions:
   repeatedly: [Function],
   iterateUntil: [Function],
   reductions: [Function],
+  dropWhile: [Function],
+  takeWhile: [Function],
   curry2: [Function],
   curry3: [Function],
   '$': undefined,
@@ -47,17 +57,22 @@ currently available functions:
   partial2: [Function],
   def: [Function],
   actions: [Function],
-  Watchable:
+  WatchableProtocol:
    { notify: [Function],
      watch: [Function],
      unwatch: [Function] },
   addWatch: [Function],
   removeWatch: [Function],
   Ref: [Function],
+  RefProtocol:
+   { setValue: [Function],
+     swap: [Function],
+     snapshot: [Function] },
   setValue: [Function],
   swap: [Function],
   snapshot: [Function],
   CAS: [Function],
+  CASProtocol: { compareAndSet: [Function] },
   compareAndSet: [Function],
   L: [Circular] }
 ```
@@ -70,3 +85,10 @@ Influences / References
 * [Underscore.js](http://underscorejs.org/)
 * [Functional JavaScript](http://osteele.com/sources/javascript/functional/) by Oliver Steele
 
+Todo
+-----
+
+* Promises
+* The rest of the things
+* Moar monadology
+* Other things that I can't think of right now
