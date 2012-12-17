@@ -52,7 +52,10 @@ currently available functions:
   'iterateUntil',
   'juxt',
   'k',
+  'keep',
+  'keepIndexed',
   'mapcat',
+  'maxKey',
   'meth',
   'partial',
   'partial$',
@@ -92,3 +95,7 @@ Todo
 * Generators?
 * Futures?
 * Laziness?
+* Badass memoize
+* Some data generators?
+* merges
+
