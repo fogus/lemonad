@@ -1,5 +1,6 @@
 var vows = require('vows'),
     assert = require('assert'),
+    _ = require('underscore'),
     L = require('../lib/lemonad');
 
 vows.describe('iterateUntil').addBatch({
@@ -23,6 +24,12 @@ vows.describe('iterateUntil').addBatch({
         'just check if it gives us the array we expect': function(topic) {
             assert.isArray(topic);
             assert.deepEqual(topic, [9, 8, 7, 6, 5, 4, 3, 2, 1]);
+        }
+    },
+    'partial': {
+        topic: function() { return L.partial1(L.cons, 42); },
+        'check if partial1 works': function(topic) {
+            assert.isEqual([42,1,2,3], topic([1,2,3]));
         }
     }
 }).export(module);
