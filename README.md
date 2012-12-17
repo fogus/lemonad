@@ -3,6 +3,8 @@ lemonad
 
 a functional programming library built on, and extending, Underscore.js.
 
+![lemonad](https://github.com/fogus/lemonad/tree/master/docs/logo.png)
+
 currently available functions:
 
 ```javascript
@@ -20,6 +22,7 @@ currently available functions:
   decreasing: [Function],
   increasingOrEq: [Function],
   decreasingOrEq: [Function],
+  funWrap: [Function],
   k: [Function],
   constantly: [Function],
   t: [Function],
@@ -34,10 +37,23 @@ currently available functions:
   reductions: [Function],
   curry2: [Function],
   curry3: [Function],
+  '$': undefined,
+  'partial$': [Function],
   partial: [Function],
-  partial1: [Function],
   partial2: [Function],
-  '$': [Function],
+  def: [Function],
   actions: [Function],
+  Watchable:
+   { notify: [Function],
+     watch: [Function],
+     unwatch: [Function] },
+  addWatch: [Function],
+  removeWatch: [Function],
+  Ref: [Function],
+  setValue: [Function],
+  swap: [Function],
+  snapshot: [Function],
+  CAS: [Function],
+  compareAndSet: [Function],
   L: [Circular] }
 ```
