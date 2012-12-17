@@ -3,7 +3,7 @@ lemonad
 
 a functional programming library built on, and extending, Underscore.js.
 
-![lemonad](https://github.com/fogus/lemonad/tree/master/docs/logo.png)
+![lemonad](https://raw.github.com/fogus/lemonad/master/docs/logo.png)
 
 currently available functions:
 
@@ -57,3 +57,12 @@ currently available functions:
   compareAndSet: [Function],
   L: [Circular] }
 ```
+
+Influences / References
+-----------------------
+
+* [Clojure and ClojureScript](http://www.clojuredocs.org)
+* [Inheritance Patterns in JavaScript](http://bolinfest.com/javascript/inheritance.php) by Michael Bolin
+* [Underscore.js](http://underscorejs.org/)
+* [Functional JavaScript](http://osteele.com/sources/javascript/functional/) by Oliver Steele
+
