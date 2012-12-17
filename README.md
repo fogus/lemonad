@@ -6,7 +6,7 @@ a functional programming library built on, and extending, Underscore.js.
 currently available functions:
 
 ```javascript
-{ VERSION: '0.0.3',
+{ [Function]
   existy: [Function],
   truthy: [Function],
   cat: [Function],
@@ -15,6 +15,7 @@ currently available functions:
   interpose: [Function],
   mapcat: [Function],
   complement: [Function],
+  accessor: [Function],
   plucker: [Function],
   repeat: [Function],
   constantly: [Function],
@@ -27,6 +28,8 @@ currently available functions:
   second: [Function],
   increasing: [Function],
   decreasing: [Function],
+  increasingOrEq: [Function],
+  decreasingOrEq: [Function],
   '$': [Function],
   actions: [Function],
   L: [Circular] }
