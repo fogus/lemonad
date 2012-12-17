@@ -90,6 +90,7 @@ Influences / References
 * [Inheritance Patterns in JavaScript](http://bolinfest.com/javascript/inheritance.php) by Michael Bolin
 * [Underscore.js](http://underscorejs.org/)
 * [Functional JavaScript](http://osteele.com/sources/javascript/functional/) by Oliver Steele
+* Functional JavaScript (the book)
 
 Todo
 -----
