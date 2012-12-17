@@ -31,6 +31,7 @@ currently available functions:
   t: [Function],
   thrush: [Function],
   pipeline: [Function],
+  compose: [Function],
   mapcat: [Function],
   complement: [Function],
   accessor: [Function],
