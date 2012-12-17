@@ -46,6 +46,7 @@ currently available functions:
   'isAssociative',
   'isEven',
   'isOdd',
+  'isNeg',
   'isPos',
   'isReference',
   'isZero',
@@ -63,6 +64,7 @@ currently available functions:
   'pipeline',
   'plucker',
   'reductions',
+  'remove',
   'removeWatch',
   'repeat',
   'repeatedly',
@@ -70,11 +72,15 @@ currently available functions:
   'setValue',
   'snapshot',
   'someFun',
+  'splitAt',
+  'splitWith',
   'swap',
   't',
+  'takeSkipping',
   'takeWhile',
   'thrush',
-  'truthy' ]
+  'truthy',
+  'update' ]
 ```
 
 Influences / References
@@ -98,4 +104,6 @@ Todo
 * Badass memoize
 * Some data generators?
 * merges
-
+* partitions
+* walking
+* rel alg
