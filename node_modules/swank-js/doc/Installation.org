@@ -1,0 +1,70 @@
+* Installation
+
+** Prerequisites
+   - Emacs 
+   - Node.js
+   - NPM (for node)
+   - Marmalde Package Repository
+   - Slime
+
+   It is also suggested, but not absolutely nessicary, to use
+   js2-mode.  This dependency will be phased out soon.
+
+*** Installing swank JS
+
+This is super duper easy:
+
+#+begin_example
+npm install -g swank.js
+#+end_example
+
+*** Installing Slime
+
+Swank.js used to work on the version of slime inside of the ELPA.  Now
+it works against the latest slime from CVS (the preferred
+distribution).  So go get that instead from the [[http://common-lisp.net/project/slime/][Offical Slime Site]].
+If you don't want to install CVS you can use the [[http://git.boinkor.net/gitweb/slime.git][Slime git mirror]].
+
+*** Installing Slime.js
+
+Download and install slime.js via ELPA, which should (?) handle all
+the nessicary auto-loads. 
+
+If need be, add this to your init file:
+#+begin_example
+(require 'slime-js)
+#+end_example
+
+You may need to customize ~slime-js-swank-command~ and/or
+~slime-js-swank-args~ to properly execute NPM.
+
+Finally, you will want to set up slime-js-minor-mode when the
+javascript mode of your choice is enabled:
+
+#+begin-exmaple
+(add-hook 'js-mode-hook
+          (lambda ()
+            (slime-js-minor-mode 1)))
+#+end_example
+
+
+** Set Up Keybindings
+
+There are a few useful functions that you may want to set up
+keybindings for, in particular:
+
+#+begin_src
+(global-set-key [f5] 'slime-js-reload)
+
+(add-hook 'css-mode-hook
+          (lambda ()
+            (define-key css-mode-map "\M-\C-x" 'slime-js-refresh-css)
+            (define-key css-mode-map "\C-c\C-r" 'slime-js-embed-css)))
+#+end_src
+
+The first command does a full page refresh, which is not only
+applicable for javascript development, but also for any other web
+development, front-end or back end.
+
+the Second set of bindings is exclusive to CSS mode.
+

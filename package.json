@@ -1,0 +1,35 @@
+{
+  "name": "lemonad",
+  "version": "0.1.6",
+  "description": "JavaScript functional programming library, built on _.js",
+  "homepage": "http://www.fogus.me/",
+  "contributors": [
+    "Fogus <me@fogus.me> (<http://www.fogus.me>)"
+  ],
+  "dependencies": {
+    "underscore": ">= 1.4.2",
+    "swank-js": ">=0.0.1"
+  },
+  "devDependencies": {
+    "vows"    :  "0.6.x"
+  },
+  "scripts": {
+    "swank": "node node_modules/swank-js",
+    "test": "vows test/lemonad-test.js --spec"
+  },
+  "main": "./lib/lemonad",
+  "keywords": [
+    "underscore",
+    "functional programming",
+    "monads"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fogus/lemonad.git"
+  }
+}
+

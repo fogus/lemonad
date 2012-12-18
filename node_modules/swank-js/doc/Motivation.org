@@ -1,0 +1,27 @@
+* Motivation
+
+From my experience an ability to use REPL for JavaScript debugging and
+interactive development is very helpful when developing Web
+applications. Previously I was using a heavily patched [[https://github.com/bard/mozrepl/wiki/][Mozrepl]] version
+that was adapted for in-browser JavaScript. Primary downsides of that
+approach were extreme instability of communication between Emacs and
+the browser, the lack of cross-browser support and the lack of good
+RPC between Emacs and JS that can be used to develop some handy
+extensions.
+
+I knew there exists [[https://github.com/3b/slime-proxy][slime-proxy]] project that provides such
+functionality for [[http://common-lisp.net/project/parenscript/][Parenscript]]. The problem is that most of us
+including myself can't use Lisp all the time and a lot of code needs
+to be developed using languages like plain JavaScript [as opposed to
+Parenscript), Python and so on. My first thought was to adapt
+slime-proxy for use with plain JS, but then I decided to roll my own
+SWANK backend using Node.JS. I wanted to find out what this buzz
+around Node.JS is about and perhaps steal an idea or two from there
+for use in my Lisp projects. Another reason was availability of
+[[http://socket.io/][Socket.IO]] and an example of [[http://www.catonmat.net/http-proxy-in-nodejs][tiny http server proxy]].
+
+Some people may prefer Firebug or built-in browser development tools
+to Emacs-based development, but for example in case of mobile browsers
+you don't have much choice. At some point I did try swank-js with an
+colleague's iPhone and it worked, which is not too unexpected given
+that Socket.IO has good cross-browser support.

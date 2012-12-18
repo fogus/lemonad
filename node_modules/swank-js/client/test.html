@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+	<title> Swank JS test page </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <script type="text/javascript" src="/swank-js/swank-js-inject.js"></script>
+  </head>
+  <body>
+	<h1> You have connected to swank.js! </h1>
+	<p> you can use ,select-remote to select this browser now! </h2>
+	
+	<h2> Bookmarklets </h2>
+	<p> Here are some bookmarklets you can use to inject the swank
+	javascript on this page:</p>
+	<ul>
+	  <!--[[bookmarklets]]-->
+	  <li><a href="javascript:(function()%7BSwankJS.disconnect()%3B%7D)()%3B">swank
+		  disconnect</a> </li>
+	</ul>
+
+	<h3> Adding a bookmarklet on iOS </h3>
+	<p> It's kind of a pain to do this.  Thanks to <a href="http://static.chrisbray.com/bookmarklets/">Chris Bray</a> for
+	figuring this out! </p>
+	<ol>
+	  <li> Add this page as a bookmark </li>
+	  <li> Select and copy the bookmarklet text </li>
+	  <li> Go to your bookmarks and tap edit the one you just made </li>
+	  <li> Edit the name (if you like) and paste the URL.</li>
+      <li> Profit! </li>
+	</ol>
+  </body>
+</html>

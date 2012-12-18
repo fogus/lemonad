@@ -1,0 +1,143 @@
+* Connecting to a Browser
+
+The first step in connecting to a browser is to get a general instance
+of the swank server up.  For that run the command ~npm run swank~, or
+if you set it up, you can use ~slime-js-run-swank~ right from emacs. 
+
+Next you need to connect to the swank instance from slime, using ~M-x
+slime-connect~.  The defaults (localhost, 4005) should be fine.
+
+Point your bowser to:
+
+http://localhost:8009/swank-js/test.html
+
+You should see an HTML page with some bookmarklets and a message
+telling you that you have connected to Swank.js.
+
+Finally, in your slime window, type ~,select-remote~.  In actual fact,
+you can hit ,sel and use tab completion.
+
+You'll be promped for the name of hte remote you want to connect to,
+again, tab completion works here, so if you are unsure, you can hit
+tab to get a list.  You might see something like:
+
+#+begin_example
+Chrome17.0/browser
+node.js/direct
+iPad4.2.1/browser
+#+end_example
+
+That's right, you can connect to a swank browser from a remote mobile
+device.  In fact, using swank this way makes debugging javscript
+applications on mobile devices that much easier.
+
+** Sticky Remotes
+
+   Using ~,select-remote~ this way connects you to the current page, but
+   if you were to refresh the page, or navigate to a new page, then that
+   connection will be lost.
+
+   In order to maintain the connection, you can use
+   ~,sticky-select-remote~.  This will try to persist the connection
+   across slime intances, browser instances and *across swank instances*.  
+
+** Connecting to a remote page
+
+   This is where swank JS really shines.  There are 3 differnet methods
+   to connect a remote page to swank:
+   
+   1. Connecting by loading the swank client.js manually. 
+   2. Connecting via the swank.js proxy.
+   3. Connecting via a swank.js bookmarklet
+
+*** Loading client.js manually
+	
+	This is theoretical and untested... but...
+
+	You could embed the script tag right on the page:
+
+#+begin_src
+<script type="text/javascript" src="http://localhost:8009/swank-js/swank-js-inject.js"></script>
+#+end_src	
+	
+	Of course, you will want to remove that once your page goes live. 
+
+*** Loading Via a proxy
+
+You can set up swank as a proxy, so you can attach to any site you
+want. for example, even Reddit!  The rpoxy will inject the necessary
+script tags into HTML pages and avoid cross-domain HTTP request
+problems. 
+
+Let's point it to reddit (http://www.reddit.com). Type
+~,target-url~ and then ~http://www.reddit.com~ (www. part is
+important, otherwise it will redirect to www.reddit.com skipping the
+proxy). Point your browser to http://localhost:8009, you'll see reddit
+frontpage load. If you didn't do *,select-remote* or
+*,sticky-select-remote* yet do it now and select your browser from the
+list of remotes. Now you can execute JavaScript in the context of
+reddit:
+
+#+begin_example
+FIREFOX-3.6> $(".sitetable a.title").map(function(n) { return (n + 1) + ". " + $(this).text(); }).get().join("\n")
+1. Wikileaks currently under a mass DDOS attack
+2. Munich University - Jealous
+...
+#+end_example
+
+Let's make a function from it. Create a file test.js somewhere and
+make sure it uses js2-mode (if it doesn't, switch it to js2-mode using
+M-x js2-mode). Type the following there:
+
+#+begin_example
+function listRedditTitles () {
+  $(".sitetable a.title").map(
+    function (n) {
+      SwankJS.output((n + 1) + ". " + $(this).text() + "\n");
+    }).get().join("\n");
+}
+#+end_example
+
+Note SwankJS.output() function being used there. It allows you to send
+debug print to SLIME REPL.
+
+Move the point somewhere into the middle of the listRedditTitles() function
+and press C-M-x. Now you may try it out in the REPL:
+
+#+begin_example
+FIREFOX-3.6> listRedditTitles()
+1. Wikileaks currently under a mass DDOS attack
+2. Munich University - Jealous
+...
+#+end_example
+
+You may edit the function definition and update it using C-M-x any
+number of times.
+
+
+
+*** Troubleshooting
+
+	I've noticed that flashsocket Socket.IO transport does exhibit
+	some instability. You may want to try other transports by changing
+	the socketio cookie, e.g.:
+
+#+begin_example
+document.cookie = "socketio=xhr-polling"
+#+end_example
+
+Be careful not to lose connection to the browser though especially in
+case of REPL-less browser like IE6/7 or you'll have to type something
+like
+
+#+begin_example
+javascript:void(document.cookie = "socketio=flashsocket")
+#+end_example
+
+in the address bar.
+
+In case of IE, increasing the maximum number of HTTP connections may help with non-Flash transports, although I didn't try it yet. To do it add DWORD value MaxConnectionsPer1_0Server to the following registry key:
+
+#+begin_example
+HKEY\_CURRENT\_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+#+end_example

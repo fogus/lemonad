@@ -1,0 +1,28 @@
+* Swank.js is swank.
+
+Welcome to the Swank.js wiki!   As a wiki it is editable by anyone (with a github account).  We encourage other people to contribute to the wiki.
+
+
+swank-js provides [[http://common-lisp.net/project/slime/][Slime]] REPL and other development tools for
+in-browser JavaScript and [[http://nodejs.org][Node.js]]. It consists of SWANK backend and
+accompanying SLIME contrib. [[http://socket.io/][Socket.IO]] is used to communicate with wide
+range of web browsers.
+
+Currently Swank-js provides an REPL with an ability to work with multiple
+browser connections, supports dynamic updates of JavaScript code using
+C-c C-c / C-M-x, provides debug output function and an ability to
+reload web pages in the browser or refresh their CSS using Emacs
+commands.
+
+Many aspects of full-fledged SWANK backends aren't implemented yet,
+there's no debugger/completion/autodoc and so on, but as I plan to use
+swank-js a lot in future there's a good chance many of these features
+will be eventually added.
+
+- [[Motivation]]
+- [[Installation]]
+- [[ConnectingToABrowser]]
+  - [[UpdatingCSS]] on the fly!
+- [[ConnectingToNode]]
+- [[Roadmap]]
+- [[Hacking]]

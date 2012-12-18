@@ -1,0 +1,29 @@
+* Connecting To Node
+
+The simplest way to connect to node is to simply run:
+
+#+begin_src 
+npm run swank
+#+end_src
+
+This gives you a bog standard node instance that you can interact with
+using slime.
+
+** Connecting swank.js to your own projects
+
+It's simple, assuming that you are using NPM (and why aren't you?)
+just add the following ot your package.json file:
+
+#+begin_example
+    "devDependencies": {
+      "swank-js": ">=0.0.1"
+    },
+    "scripts": {
+      "swank": "node node_modules/swank-js"
+    }
+#+end_example
+
+Again, use ~npm run swank~ to start up the swank server in the context
+of your project.
+
+** TODO Maybe a deeper example here?
