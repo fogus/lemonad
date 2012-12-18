@@ -3,7 +3,7 @@ describe("Predicates", function() {
 
   });
 
-  describe("the operation of the existy predicate", function() {
+  describe("existy", function() {
     it("should know that null and undefined are not existy", function() {
       expect(L.existy(null)).toBeFalsy();
       expect(L.existy(undefined)).toBeFalsy();
@@ -24,7 +24,7 @@ describe("Predicates", function() {
     });
   });
 
-  describe("the operation of the truthy predicate", function() {
+  describe("truthy", function() {
     it("should know that null, false and undefined are not truthy", function() {
       expect(L.truthy(null)).toBeFalsy();
       expect(L.truthy(undefined)).toBeFalsy();
@@ -45,7 +45,7 @@ describe("Predicates", function() {
     });
   });
 
-  describe("the operation of the isAssociative predicate", function() {
+  describe("isAssociative", function() {
     it("should know that arrays, functions and objects are associative", function() {
       expect(L.isAssociative({})).toBeTruthy();
       expect(L.isAssociative(function(){})).toBeTruthy();
@@ -66,7 +66,7 @@ describe("Predicates", function() {
     });
   });
 
-  describe("the operation of the isReference predicate", function() {
+  describe("isReference", function() {
     it("should know that Refs and CAS are references", function() {
       expect(L.isReference(new L.Ref())).toBeTruthy();
       expect(L.isReference(new L.CAS())).toBeTruthy();
@@ -88,7 +88,7 @@ describe("Predicates", function() {
     });
   });
 
-  describe("the operation of the isEven predicate", function() {
+  describe("isEven", function() {
     it("should know even numbers", function() {
       expect(L.isEven(0)).toBeTruthy();
       expect(L.isEven(2)).toBeTruthy();
@@ -97,7 +97,7 @@ describe("Predicates", function() {
     });
   });
 
-  describe("the operation of the isOdd predicate", function() {
+  describe("isOdd", function() {
     it("should know odd numbers", function() {
       expect(L.isOdd(1)).toBeTruthy();
       expect(L.isOdd(-1)).toBeTruthy();
@@ -105,7 +105,7 @@ describe("Predicates", function() {
     });
   });
 
-  describe("the operation of the isPos predicate", function() {
+  describe("isPos", function() {
     it("should know positive numbers", function() {
       expect(L.isPos(1)).toBeTruthy();
       expect(L.isPos(-1)).toBeFalsy();
@@ -114,7 +114,7 @@ describe("Predicates", function() {
     });
   });
 
-  describe("the operation of the isNeg predicate", function() {
+  describe("isNeg", function() {
     it("should know negative numbers", function() {
       expect(L.isNeg(-1)).toBeTruthy();
       expect(L.isNeg(1)).toBeFalsy();
@@ -123,7 +123,7 @@ describe("Predicates", function() {
     });
   });
 
-  describe("the operation of the isZero predicate", function() {
+  describe("isZero", function() {
     it("should know zero", function() {
       expect(L.isZero(0)).toBeTruthy();
       expect(L.isZero(-0)).toBeTruthy();
