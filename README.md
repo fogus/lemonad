@@ -43,6 +43,7 @@ currently available functions:
   'increasingOrEq',
   'interleave',
   'interpose',
+  'into',
   'isAssociative',
   'isEven',
   'isOdd',
@@ -63,6 +64,7 @@ currently available functions:
   'partial2',
   'pipeline',
   'plucker',
+  'pour',
   'reductions',
   'remove',
   'removeWatch',
@@ -108,3 +110,4 @@ Todo
 * partitions
 * walking
 * rel alg
+* `into` for objects
