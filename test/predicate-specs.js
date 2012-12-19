@@ -88,6 +88,28 @@ describe("Predicates", function() {
     });
   });
 
+  describe("isSeq", function() {
+    it("should know that arrays and arguments are sequences", function() {
+      expect(L.isSeq(new Array(10))).toBeTruthy();
+      expect(L.isSeq([1,2])).toBeTruthy();
+      expect(L.isSeq(arguments)).toBeTruthy();
+    });
+
+    it("should know that everything else is not a reference", function() {
+      expect(L.isSeq({})).toBeFalsy();
+      expect(L.isSeq(function(){})).toBeFalsy();
+      expect(L.isSeq(1)).toBeFalsy();
+      expect(L.isSeq(0)).toBeFalsy();
+      expect(L.isSeq(-1)).toBeFalsy();
+      expect(L.isSeq(3.14)).toBeFalsy();
+      expect(L.isSeq('undefined')).toBeFalsy();
+      expect(L.isSeq('')).toBeFalsy();
+      expect(L.isSeq(NaN)).toBeFalsy();
+      expect(L.isSeq(Infinity)).toBeFalsy();
+      expect(L.isSeq(true)).toBeFalsy();
+    });
+  });
+
   describe("isEven", function() {
     it("should know even numbers", function() {
       expect(L.isEven(0)).toBeTruthy();

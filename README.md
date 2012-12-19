@@ -50,6 +50,7 @@ currently available functions:
   'isNeg',
   'isPos',
   'isReference',
+  'isSeq',
   'isZero',
   'iterateUntil',
   'juxt',
@@ -111,3 +112,4 @@ Todo
 * walking
 * rel alg
 * `into` for objects
+* make sure that anything that works for array also works for `arguments`
