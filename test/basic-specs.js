@@ -249,4 +249,75 @@ describe("Basic functions", function() {
     });
   });
 
+  describe("increasing / increasingOrEq / decreasing / decreasingOrEq", function() {
+    it("should recognize if the arguments are monotonically increasing or decreasing", function() {
+      var inc = [1,2,3];
+      var incAlso = [1,2,3,3,4];
+      var dec = [5,4,3,2,1];
+      var decAlso = [5,4,3,3,2,1];
+
+      expect(L.increasing.apply(null, inc)).toBeTruthy();
+      expect(L.increasingOrEq.apply(null, incAlso)).toBeTruthy();
+      expect(L.increasing.apply(null, dec)).toBeFalsy();
+      expect(L.decreasing.apply(null, dec)).toBeTruthy();
+      expect(L.decreasingOrEq.apply(null, decAlso)).toBeTruthy();
+      expect(L.decreasing.apply(null, inc)).toBeFalsy();
+    });
+  });
+
+  describe("meth", function() {
+    it("should wrap a method as a function and allow the target as the first arg", function() {
+      var str = L.meth(toString);
+
+      expect(str(42)).toEqual('[object Number]');
+    });
+  });
+
+  describe("assoc", function() {
+    it("should allow the placement of a value at any depth in an associative structure", function() {
+      var obj = {a: {b: {c: 42, d: 108}}};
+      var ary = ['a', ['b', ['c', 'd'], 'e']];
+
+      expect(L.assoc(obj, ['a', 'b', 'c'], 9)).toEqual({a: {b: {c: 9, d: 108}}});
+      expect(L.assoc(ary, [1, 1, 0], 9)).toEqual(['a', ['b', [9, 'd'], 'e']]);
+
+      expect(L.assoc(obj, 'a', 9)).toEqual({a: 9});
+      expect(L.assoc(ary, 1, 9)).toEqual(['a', 9]);
+    });
+
+    it("should not modify the original", function() {
+      var obj = {a: {b: {c: 42, d: 108}}};
+      var ary = ['a', ['b', ['c', 'd'], 'e']];
+      var _   = L.assoc(obj, ['a', 'b', 'c'], 9);
+      var __  = L.assoc(ary, [1, 1, 0], 9);
+
+      expect(obj).toEqual({a: {b: {c: 42, d: 108}}});
+      expect(ary).toEqual(['a', ['b', ['c', 'd'], 'e']]);
+    });
+  });
+
+  describe("update", function() {
+    it("should allow update via some function of a value at any depth in an associative structure", function() {
+      var obj = {a: {b: {c: 42, d: 108}}};
+      var ary = ['a', ['b', ['c', 'd'], 'e']];
+      var inc = function(n) { return n+1; };
+
+      expect(L.update(obj, ['a', 'b', 'c'], inc)).toEqual({a: {b: {c: 43, d: 108}}});
+      expect(L.update(ary, [1, 1, 0], _.isNumber)).toEqual(['a', ['b', [false, 'd'], 'e']]);
+
+      expect(L.update(obj, 'a', L.plucker('b'))).toEqual({a: {c: 42, d: 108}});
+      expect(L.update(ary, 1, _.first)).toEqual(['a', 'b']);
+    });
+
+    it("should not modify the original", function() {
+      var obj = {a: {b: {c: 42, d: 108}}};
+      var ary = ['a', ['b', ['c', 'd'], 'e']];
+
+      var _   = L.update(obj, ['a', 'b', 'c'], L.k(9));
+      var __  = L.update(ary, [1, 1, 0], L.k(9));
+
+      expect(obj).toEqual({a: {b: {c: 42, d: 108}}});
+      expect(ary).toEqual(['a', ['b', ['c', 'd'], 'e']]);
+    });
+  });
 });
