@@ -114,4 +114,3 @@ Todo
 * `into` for objects
 * make sure that anything that works for array also works for `arguments`
 * Make sure I say, *sequence* on input and *array* on output
-
