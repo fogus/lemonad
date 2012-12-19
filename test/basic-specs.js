@@ -296,31 +296,6 @@ describe("Basic functions", function() {
     });
   });
 
-  describe("update", function() {
-    it("should allow update via some function of a value at any depth in an associative structure", function() {
-      var obj = {a: {b: {c: 42, d: 108}}};
-      var ary = ['a', ['b', ['c', 'd'], 'e']];
-      var inc = function(n) { return n+1; };
-
-      expect(L.update(obj, ['a', 'b', 'c'], inc)).toEqual({a: {b: {c: 43, d: 108}}});
-      expect(L.update(ary, [1, 1, 0], _.isNumber)).toEqual(['a', ['b', [false, 'd'], 'e']]);
-
-      expect(L.update(obj, 'a', L.plucker('b'))).toEqual({a: {c: 42, d: 108}});
-      expect(L.update(ary, 1, _.first)).toEqual(['a', 'b']);
-    });
-
-    it("should not modify the original", function() {
-      var obj = {a: {b: {c: 42, d: 108}}};
-      var ary = ['a', ['b', ['c', 'd'], 'e']];
-
-      var _   = L.update(obj, ['a', 'b', 'c'], L.k(9));
-      var __  = L.update(ary, [1, 1, 0], L.k(9));
-
-      expect(obj).toEqual({a: {b: {c: 42, d: 108}}});
-      expect(ary).toEqual(['a', ['b', ['c', 'd'], 'e']]);
-    });
-  });
-
   describe("splitAt", function() {
     it("should bifurcate an array at a given index, returning an array of the parts", function() {
       var a = [1,2,3,4,5];
