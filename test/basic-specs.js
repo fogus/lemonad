@@ -320,4 +320,49 @@ describe("Basic functions", function() {
       expect(ary).toEqual(['a', ['b', ['c', 'd'], 'e']]);
     });
   });
+
+  describe("splitAt", function() {
+    it("should bifurcate an array at a given index, returning an array of the parts", function() {
+      var a = [1,2,3,4,5];
+
+      expect(L.splitAt(2, a)).toEqual([[1,2], [3,4,5]]);
+      expect(L.splitAt(0, a)).toEqual([[], [1,2,3,4,5]]);
+      expect(L.splitAt(5, a)).toEqual([[1,2,3,4,5], []]);
+      expect(L.splitAt(2, [])).toEqual([[], []]);
+    });
+
+    it("should not modify the original", function() {
+      var a = [1,2,3,4,5];
+      var _ = L.splitAt(2, a);
+
+      expect(a).toEqual([1,2,3,4,5]);
+    });
+
+    it("should throw an exception if not given a number as the first arg or an array as the second", function() {
+      expect(function() { L.splitAt('a', []); }).toThrow();
+      expect(function() { L.splitAt(1); }).toThrow();
+      expect(function() { L.splitAt(); }).toThrow();
+    });
+  });
+
+  describe("takeSkipping", function() {
+    it("should take every nth element in an array", function() {
+      var a = _.range(10);
+
+      expect(L.takeSkipping(2, a)).toEqual([0, 2, 4, 6, 8]);
+    });
+
+    it("should not modify the original", function() {
+      var a = [1,2,3];
+      var _ = L.takeSkipping(2, a);
+
+      expect(a).toEqual([1,2,3]);
+    });
+
+    it("should throw an exception if not given a number as the first arg or an array as the second", function() {
+      expect(function() { L.takeSkipping('a', []); }).toThrow();
+      expect(function() { L.takeSkipping(1); }).toThrow();
+      expect(function() { L.takeSkipping(); }).toThrow();
+    });
+  });
 });
