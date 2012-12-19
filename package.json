@@ -1,7 +1,7 @@
 {
   "name": "lemonad",
-  "version": "0.1.6",
-  "description": "JavaScript functional programming library, built on _.js",
+  "version": "0.2.0",
+  "description": "JavaScript functional programming library, inspired by the Clojure core and contrib libraries",
   "homepage": "http://www.fogus.me/",
   "contributors": [
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"

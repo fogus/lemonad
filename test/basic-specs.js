@@ -249,4 +249,95 @@ describe("Basic functions", function() {
     });
   });
 
+  describe("increasing / increasingOrEq / decreasing / decreasingOrEq", function() {
+    it("should recognize if the arguments are monotonically increasing or decreasing", function() {
+      var inc = [1,2,3];
+      var incAlso = [1,2,3,3,4];
+      var dec = [5,4,3,2,1];
+      var decAlso = [5,4,3,3,2,1];
+
+      expect(L.increasing.apply(null, inc)).toBeTruthy();
+      expect(L.increasingOrEq.apply(null, incAlso)).toBeTruthy();
+      expect(L.increasing.apply(null, dec)).toBeFalsy();
+      expect(L.decreasing.apply(null, dec)).toBeTruthy();
+      expect(L.decreasingOrEq.apply(null, decAlso)).toBeTruthy();
+      expect(L.decreasing.apply(null, inc)).toBeFalsy();
+    });
+  });
+
+  describe("meth", function() {
+    it("should wrap a method as a function and allow the target as the first arg", function() {
+      var str = L.meth(toString);
+
+      expect(str(42)).toEqual('[object Number]');
+    });
+  });
+
+  describe("assoc", function() {
+    it("should allow the placement of a value at any depth in an associative structure", function() {
+      var obj = {a: {b: {c: 42, d: 108}}};
+      var ary = ['a', ['b', ['c', 'd'], 'e']];
+
+      expect(L.assoc(obj, ['a', 'b', 'c'], 9)).toEqual({a: {b: {c: 9, d: 108}}});
+      expect(L.assoc(ary, [1, 1, 0], 9)).toEqual(['a', ['b', [9, 'd'], 'e']]);
+
+      expect(L.assoc(obj, 'a', 9)).toEqual({a: 9});
+      expect(L.assoc(ary, 1, 9)).toEqual(['a', 9]);
+    });
+
+    it("should not modify the original", function() {
+      var obj = {a: {b: {c: 42, d: 108}}};
+      var ary = ['a', ['b', ['c', 'd'], 'e']];
+      var _   = L.assoc(obj, ['a', 'b', 'c'], 9);
+      var __  = L.assoc(ary, [1, 1, 0], 9);
+
+      expect(obj).toEqual({a: {b: {c: 42, d: 108}}});
+      expect(ary).toEqual(['a', ['b', ['c', 'd'], 'e']]);
+    });
+  });
+
+  describe("splitAt", function() {
+    it("should bifurcate an array at a given index, returning an array of the parts", function() {
+      var a = [1,2,3,4,5];
+
+      expect(L.splitAt(2, a)).toEqual([[1,2], [3,4,5]]);
+      expect(L.splitAt(0, a)).toEqual([[], [1,2,3,4,5]]);
+      expect(L.splitAt(5, a)).toEqual([[1,2,3,4,5], []]);
+      expect(L.splitAt(2, [])).toEqual([[], []]);
+    });
+
+    it("should not modify the original", function() {
+      var a = [1,2,3,4,5];
+      var _ = L.splitAt(2, a);
+
+      expect(a).toEqual([1,2,3,4,5]);
+    });
+
+    it("should throw an exception if not given a number as the first arg or an array as the second", function() {
+      expect(function() { L.splitAt('a', []); }).toThrow();
+      expect(function() { L.splitAt(1); }).toThrow();
+      expect(function() { L.splitAt(); }).toThrow();
+    });
+  });
+
+  describe("takeSkipping", function() {
+    it("should take every nth element in an array", function() {
+      var a = _.range(10);
+
+      expect(L.takeSkipping(2, a)).toEqual([0, 2, 4, 6, 8]);
+    });
+
+    it("should not modify the original", function() {
+      var a = [1,2,3];
+      var _ = L.takeSkipping(2, a);
+
+      expect(a).toEqual([1,2,3]);
+    });
+
+    it("should throw an exception if not given a number as the first arg or an array as the second", function() {
+      expect(function() { L.takeSkipping('a', []); }).toThrow();
+      expect(function() { L.takeSkipping(1); }).toThrow();
+      expect(function() { L.takeSkipping(); }).toThrow();
+    });
+  });
 });
