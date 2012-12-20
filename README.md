@@ -20,6 +20,7 @@ currently available functions:
   'actions',
   'addWatch',
   'assoc',
+  'best',
   'butLast',
   'cat',
   'compareAndSet',
