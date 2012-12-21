@@ -144,7 +144,7 @@ describe("Applicative functions", function() {
 
   describe("iterateUntil", function() {
     it("should call a function recursively f(f(f(args))) until a given function goes falsey", function() {
-      expect(L.iterateUntil(function(n){ return n-1; }, L.isPos, 5)).toEqual([4,3,2,1]);
+      expect(L.iterateUntil(function(n){ return n-1; }, L.isPos, 6)).toEqual([5,4,3,2,1]);
     });
   });
 
