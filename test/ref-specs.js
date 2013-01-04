@@ -1,0 +1,143 @@
+describe("Reference types and functions", function() {
+  describe("the Ref type", function() {
+    describe("the Ref constructor", function() {
+      it("should create a mutable 'cell' with a value field", function() {
+        var v = new L.Ref(42);
+
+        expect(v.__value__).toEqual(42);
+      });
+
+      it("should not allow creation of a mutable 'cell' with a value that fails a validator", function() {
+        expect(function(){ new L.Ref(42, constantly(false)); }).toThrow();
+      });
+
+      it("should allow creation of a mutable 'cell' with a value that passes a validator", function() {
+        expect(function(){ new L.Ref(42, constantly(true)); }).toThrow();
+      });
+    });
+
+    describe("setValue", function() {
+      it("should set a Ref's value", function() {
+        var v = new L.Ref(42);
+        L.setValue(v, 36);
+
+        expect(v.__value__).toEqual(36);
+      });
+
+      it("should return the new value", function() {
+        var v = new L.Ref(42);        
+
+        expect(L.setValue(v, 36)).toEqual(36);
+      });
+
+      it("should fail if an invalid value is provided", function() {
+        var v = new L.Ref("", _.isString); 
+
+        expect(function(){ L.setValue(v, 36); }).toThrow();
+      });
+    });
+
+    describe("swap", function() {
+      it("should set a Ref's value based on the result of a function given its current value", function() {
+        var v = new L.Ref(42);
+
+        L.swap(v, L.k(36));
+        expect(v.__value__).toEqual(36);
+
+        L.swap(v, L.inc);
+        expect(v.__value__).toEqual(37);
+      });
+
+      it("should return the new value", function() {
+        var v = new L.Ref(42);        
+
+        expect(L.swap(v, L.inc)).toEqual(43);
+      });
+
+      it("should fail if an invalid value is provided", function() {
+        var v = new L.Ref("", _.isString); 
+
+        expect(function(){ L.swap(v, k(36)); }).toThrow();
+      });
+    });
+
+  });
+
+  describe("the CAS type", function() {
+    describe("compareAndSwap", function() {
+      it("should set a CAS value based on a presumed current value the result of a function given its current value", function() {
+        var v = new L.CAS(42);
+
+        L.compareAndSwap(v, 42, L.k(36));
+        expect(v.__value__).toEqual(36);
+
+        L.compareAndSwap(v, 36, L.inc);
+        expect(v.__value__).toEqual(37);
+      });
+
+      it("should return true if successful", function() {
+        var v = new L.CAS(42);        
+
+        expect(L.compareAndSwap(v, 42, L.inc)).toBeTruthy();
+      });
+
+      it("should also work with Refs (i.e. define in terms of Ref as base)", function() {
+        var v = new L.Ref(42);
+
+        expect(L.compareAndSwap(v, 42, L.inc)).toBeTruthy();
+        expect(L.compareAndSwap(v, 0,  L.inc)).toBeFalsy();
+      });
+
+      it("should fail if an invalid value is provided", function() {
+        var v = new L.CAS("", _.isString); 
+
+        expect(function(){ L.compareAndSwap(v, k(36)); }).toThrow();
+      });      
+    });
+
+    describe("swap", function() {
+      it("should set a CAS's value based on the result of a function given its current value", function() {
+        var v = new L.CAS(42);
+
+        L.swap(v, L.k(36));
+        expect(v.__value__).toEqual(36);
+
+        L.swap(v, L.inc);
+        expect(v.__value__).toEqual(37);
+      });
+
+      it("should return the new value", function() {
+        var v = new L.CAS(42);        
+
+        expect(L.swap(v, L.inc)).toEqual(43);
+      });
+
+      it("should fail if an invalid value is provided", function() {
+        var v = new L.CAS("", _.isString); 
+
+        expect(function(){ L.swap(v, k(36)); }).toThrow();
+      });
+    });
+
+    describe("setValue", function() {
+      it("should set a CAS's value", function() {
+        var v = new L.CAS(42);
+        L.setValue(v, 36);
+
+        expect(v.__value__).toEqual(36);
+      });
+
+      it("should return the new value", function() {
+        var v = new L.CAS(42);        
+
+        expect(L.setValue(v, 36)).toEqual(36);
+      });
+
+      it("should fail if an invalid value is provided", function() {
+        var v = new L.CAS("", _.isString); 
+
+        expect(function(){ L.setValue(v, 36); }).toThrow();
+      });
+    });
+  });
+});

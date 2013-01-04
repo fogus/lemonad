@@ -35,4 +35,12 @@ describe("Higher-order functions", function() {
       expect(_.reduce(b, safeMult)).toEqual(30);
     });
   });
+
+  describe("frequencies", function() {
+    it("should return an object of the elements in an array keyed to their counts.", function() {
+      var a = ['a','a','b','a'];
+
+      expect(L.frequencies(a)).toEqual({a: 3, b: 1});
+    });
+  });
 });
