@@ -1,0 +1,40 @@
+/* Org-HTML-Slideshow projection styles.
+ *
+ * These styles will apply only to the slide-show view.
+ */
+
+body {
+   margin: 18pt;
+   font-size: 20pt;
+}
+
+/* Use all headings as slide titles, regardless of level. */
+h1,h2,h3,h4,h5,h6,h7,h8 {
+   font-size: 32pt;
+   margin: 18pt;
+   text-align: center;
+}
+
+li {
+   margin: 12pt;
+}
+
+/* Center embedded images. */
+p.image {
+   text-align: center;
+}
+
+/* Hide Org-Mode tags in slide-show view. */
+span.tag {
+   display: none;
+}
+
+/* Hide Org-Mode section numbers in slide-show view. */
+span.section-number-1,span.section-number-2,span.section-number-3,span.section-number-4,span.section-number-5,span.section-number-6,span.section-number-7,span.section-number-8 {
+   display: none;
+}
+
+.blue_background {
+   background: blue;
+   color: white;
+}

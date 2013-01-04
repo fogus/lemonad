@@ -1,0 +1,9 @@
+#+BEGIN_HTML
+<center>
+#+END_HTML
+[[file:logo.png]]
+
+[[http://fogus.github.com/lemonad][home page]] | [[http://www.github.com/fogus/lemonad][source code]] | [[http://fogus.github.com/lemonad/test.html][test status]] | [[https://github.com/fogus/lemonad/issues][tickets]]
+#+BEGIN_HTML
+</center>
+#+END_HTML
