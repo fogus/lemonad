@@ -67,8 +67,8 @@ describe("Predicates", function() {
   });
 
   describe("isReference", function() {
-    it("should know that Refs and CAS are references", function() {
-      expect(L.isReference(new L.Ref())).toBeTruthy();
+    it("should know that Holes and CAS are references", function() {
+      expect(L.isReference(new L.Hole())).toBeTruthy();
       expect(L.isReference(new L.CAS())).toBeTruthy();
     });
 

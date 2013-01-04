@@ -12,7 +12,7 @@ currently available functions:
   'CAS',
   'CASProtocol',
   'L',
-  'Ref',
+  'Hole',
   'RefProtocol',
   'VERSION',
   'WatchableProtocol',
