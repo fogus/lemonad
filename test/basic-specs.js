@@ -267,9 +267,9 @@ describe("Basic functions", function() {
 
   describe("meth", function() {
     it("should wrap a method as a function and allow the target as the first arg", function() {
-      var str = L.meth(toString);
+      var str = L.meth(Array.prototype.toString);
 
-      expect(str(42)).toEqual('[object Number]');
+      expect(str([1])).toEqual('1');
     });
   });
 

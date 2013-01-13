@@ -47,6 +47,7 @@ currently available functions:
   'interleave',
   'interpose',
   'into',
+  'invokeAll',
   'isAssociative',
   'isEven',
   'isOdd',
