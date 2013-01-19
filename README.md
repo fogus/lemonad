@@ -108,6 +108,8 @@ Todo
 
 * Promises
 * The rest of the things
+  - nth
+  - ...
 * Moar monadology
 * Other things that I can't think of right now
 * Generators?
