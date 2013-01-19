@@ -188,11 +188,16 @@ describe("Basic functions", function() {
     it("should inject the first arg in-between the elements of the second array arg", function() {
       var a = [1,2,3];
       var b = [1,2];
+      var c = [1];
 
       expect(L.interpose(0, a)).toEqual([1,0,2,0,3]);
-      expect(L.interpose(0, [])).toEqual([]);
       expect(L.interpose(0, [1])).toEqual([1]);
       expect(L.interpose(0, b)).toEqual([1,0,2]);
+      expect(L.interpose(0, c)).toEqual([1]);
+    });
+
+    it("should properly handle empty array arguments", function() {
+      expect(L.interpose(0, [])).toEqual([]);
     });
 
     it("should not modify the original", function() {
