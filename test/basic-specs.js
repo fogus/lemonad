@@ -10,6 +10,7 @@ describe("Basic functions", function() {
       expect(L.ctor([])).toBe(Array);
       expect(L.ctor({})).toBe(Object);
       expect(L.ctor(new O())).toBe(O);
+      expect(L.ctor(null)).toBe(null);
     });
   });
 
