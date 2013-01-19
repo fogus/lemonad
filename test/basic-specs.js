@@ -3,12 +3,44 @@ describe("Basic functions", function() {
 
   });
 
+  describe("ctor", function() {
+    it("should return the constructor of the object", function() {
+      var O = function() { this.foo = 42; };
+
+      expect(L.ctor([])).toBe(Array);
+      expect(L.ctor({})).toBe(Object);
+      expect(L.ctor(new O())).toBe(O);
+      expect(L.ctor(null)).toBe(null);
+    });
+  });
+
   describe("cat", function() {
+    it("should return an empty array when given no args", function() {
+      expect(L.cat()).toEqual([]);
+    });
+
+    it("should concatenate one array", function() {
+      var a = [];
+      var b = [1,2,3];
+
+      expect(L.cat(a)).toEqual([]);
+      expect(L.cat(b)).toEqual([1,2,3]);
+    });
+
     it("should concatenate two arrays", function() {
       var a = [1,2,3];
       var b = [4,5,6];
 
       expect(L.cat(a,b)).toEqual([1,2,3,4,5,6]);
+    });
+
+    it("should concatenate any number of arrays", function() {
+      var a = [1,2,3];
+      var b = [4,5,6];
+      var c = [7,8,9];
+
+      expect(L.cat(a,b,c)).toEqual([1,2,3,4,5,6,7,8,9]);
+      expect(L.cat(a,b,c,a,b,c)).toEqual([1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]);
     });
 
     it("should not modify the originals", function() {
@@ -135,6 +167,10 @@ describe("Basic functions", function() {
       var a = [1,2,3];
 
       expect(L.butLast(a)).toEqual([1,2]);
+      expect(L.butLast([1])).toEqual([]);
+    });
+
+    it("should properly handle empty array arguments", function() {
       expect(L.butLast([])).toEqual([]);
     });
 
@@ -177,11 +213,16 @@ describe("Basic functions", function() {
     it("should inject the first arg in-between the elements of the second array arg", function() {
       var a = [1,2,3];
       var b = [1,2];
+      var c = [1];
 
       expect(L.interpose(0, a)).toEqual([1,0,2,0,3]);
-      expect(L.interpose(0, [])).toEqual([]);
       expect(L.interpose(0, [1])).toEqual([1]);
       expect(L.interpose(0, b)).toEqual([1,0,2]);
+      expect(L.interpose(0, c)).toEqual([1]);
+    });
+
+    it("should properly handle empty array arguments", function() {
+      expect(L.interpose(0, [])).toEqual([]);
     });
 
     it("should not modify the original", function() {
@@ -207,6 +248,12 @@ describe("Basic functions", function() {
       expect(L.interleave(a,a)).toEqual([1,1,2,2,3,3]);
       expect(L.interleave(c,a)).toEqual(['a',1,'b',2,'c',3]);
       expect(L.interleave(a,b,c)).toEqual([1,1,'a',2,2,'b',3,'c']);
+    });
+
+    it("should properly handle empty arguments", function() {
+      expect(L.interleave([], [])).toEqual([]);
+      expect(L.interleave([1,2,3], [])).toEqual([1,2,3]);
+      expect(L.interleave([], [1,2,3])).toEqual([1,2,3]);
     });
 
     it("should not modify the original", function() {
@@ -267,9 +314,9 @@ describe("Basic functions", function() {
 
   describe("meth", function() {
     it("should wrap a method as a function and allow the target as the first arg", function() {
-      var str = L.meth(toString);
+      var str = L.meth(Array.prototype.toString);
 
-      expect(str(42)).toEqual('[object Number]');
+      expect(str([1])).toEqual('1');
     });
   });
 
