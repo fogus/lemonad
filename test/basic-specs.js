@@ -220,6 +220,12 @@ describe("Basic functions", function() {
       expect(L.interleave(a,b,c)).toEqual([1,1,'a',2,2,'b',3,'c']);
     });
 
+    it("should properly handle empty arguments", function() {
+      expect(L.interleave([], [])).toEqual([]);
+      expect(L.interleave([1,2,3], [])).toEqual([1,2,3]);
+      expect(L.interleave([], [1,2,3])).toEqual([1,2,3]);
+    });
+
     it("should not modify the original", function() {
       var a = [1,2,3];
       var _ = L.interleave(a, a);
