@@ -165,7 +165,15 @@ describe("Applicative functions", function() {
   describe("dropWhile", function() {
     it("should drop all elements from an array until a given function goes truthy", function() {
       expect(L.dropWhile(L.isNeg, [-2,-1,0,1,2])).toEqual([0,1,2]);
+      expect(L.dropWhile(L.isNeg, [0,1,2])).toEqual([0,1,2]);
+      expect(L.dropWhile(L.isNeg, [-2,-1])).toEqual([]);
+      expect(L.dropWhile(L.isNeg, [1, -2,-1,0,1,2])).toEqual([1,-2,-1,0,1,2]);
     });
+
+    it("should properly handle empty array arguments", function() {
+      expect(L.dropWhile(L.isNeg, [])).toEqual([]);
+    });
+
   });
 
   describe("takeWhile", function() {
