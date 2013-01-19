@@ -34,6 +34,15 @@ describe("Basic functions", function() {
       expect(L.cat(a,b)).toEqual([1,2,3,4,5,6]);
     });
 
+    it("should concatenate any number of arrays", function() {
+      var a = [1,2,3];
+      var b = [4,5,6];
+      var c = [7,8,9];
+
+      expect(L.cat(a,b,c)).toEqual([1,2,3,4,5,6,7,8,9]);
+      expect(L.cat(a,b,c,a,b,c)).toEqual([1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]);
+    });
+
     it("should not modify the originals", function() {
       var a = [1,2,3];
       var b = [4,5,6];
