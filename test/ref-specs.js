@@ -75,6 +75,15 @@ describe("Reference types and functions", function() {
         expect(v.__value__).toEqual(37);
       });
 
+      it("should be a Hole and CAS type", function() {
+        var v = new L.CAS(42);        
+
+        expect(L.isInst((new L.CAS(42)), L.Hole)).toBeTruthy();
+        expect(L.isInst((new L.CAS(42)), L.CAS)).toBeTruthy();
+        expect(L.isInst((new L.CAS(42)), Object)).toBeTruthy();
+        expect(L.isInst((new L.CAS(42)), Array)).toBeFalsy();
+      });
+
       it("should return true if successful", function() {
         var v = new L.CAS(42);        
 
