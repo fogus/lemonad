@@ -4,6 +4,10 @@ describe("Applicative functions", function() {
   });
 
   describe("splitWith", function() {
+    it("should return an array", function() {
+      expect(L.splitWith(L.isPos, []).constructor).toBe(Array);
+    });
+
     it("should split a sequence at the point when the given function goes falsey", function() {
       var a = [1,2,3,4,5];
       var lessThanEq3p = function(n) { return n <= 3; };
@@ -25,6 +29,10 @@ describe("Applicative functions", function() {
       expect(function() { L.splitWith(function(){}, 2); }).toThrow();
       expect(function() { L.splitWith(function(){}); }).toThrow();
       expect(function() { L.splitWith(); }).toThrow();
+    });
+
+    it("should split an empty array to [[],[]]]", function() {
+      expect(L.splitWith(L.isPos, [])).toEqual([[],[]]);
     });
   });
 
