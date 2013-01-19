@@ -167,6 +167,10 @@ describe("Basic functions", function() {
       var a = [1,2,3];
 
       expect(L.butLast(a)).toEqual([1,2]);
+      expect(L.butLast([1])).toEqual([]);
+    });
+
+    it("should properly handle empty array arguments", function() {
       expect(L.butLast([])).toEqual([]);
     });
 
