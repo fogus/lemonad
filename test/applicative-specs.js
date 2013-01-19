@@ -173,12 +173,16 @@ describe("Applicative functions", function() {
     it("should properly handle empty array arguments", function() {
       expect(L.dropWhile(L.isNeg, [])).toEqual([]);
     });
-
   });
 
   describe("takeWhile", function() {
     it("should take all elements from an array until a given function goes truthy", function() {
       expect(L.takeWhile(L.isNeg, [-2,-1,0,1,2])).toEqual([-2,-1]);
+      expect(L.takeWhile(L.isNeg, [1,-2,-1,0,1,2])).toEqual([]);
+    });
+
+    it("should properly handle empty array arguments", function() {
+      expect(L.takeWhile(L.isNeg, [])).toEqual([]);
     });
   });
 });
