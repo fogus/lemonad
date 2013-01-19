@@ -14,6 +14,15 @@ describe("Reference types and functions", function() {
       it("should allow creation of a mutable 'cell' with a value that passes a validator", function() {
         expect(function(){ new L.Hole(42, constantly(true)); }).toThrow();
       });
+
+      it("should be a Hole and Object type", function() {
+        var v = new L.Hole(42);
+
+        expect(L.isInst((new L.Hole(42)), L.Hole)).toBeTruthy();
+        // TODO modify Hole so that it does not pass CAS check
+        expect(L.isInst((new L.Hole(42)), Object)).toBeTruthy();
+        expect(L.isInst((new L.Hole(42)), Array)).toBeFalsy();
+      });
     });
 
     describe("setValue", function() {
@@ -75,7 +84,7 @@ describe("Reference types and functions", function() {
         expect(v.__value__).toEqual(37);
       });
 
-      it("should be a Hole and CAS type", function() {
+      it("should be an Object, Hole and CAS type", function() {
         var v = new L.CAS(42);        
 
         expect(L.isInst((new L.CAS(42)), L.Hole)).toBeTruthy();

@@ -48,6 +48,7 @@ describe("Predicates", function() {
   describe("isInst", function() {
     it("should determine if an instance is of a given type", function() {
       expect(L.isInst([], Array)).toBeTruthy();
+      expect(L.isInst(null, Array)).toBe(false);
     });
   });
 
