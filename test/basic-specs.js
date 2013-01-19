@@ -15,6 +15,18 @@ describe("Basic functions", function() {
   });
 
   describe("cat", function() {
+    it("should return an empty array when given no args", function() {
+      expect(L.cat()).toEqual([]);
+    });
+
+    it("should concatenate one array", function() {
+      var a = [];
+      var b = [1,2,3];
+
+      expect(L.cat(a)).toEqual([]);
+      expect(L.cat(b)).toEqual([1,2,3]);
+    });
+
     it("should concatenate two arrays", function() {
       var a = [1,2,3];
       var b = [4,5,6];
