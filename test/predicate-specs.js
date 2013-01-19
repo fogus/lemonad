@@ -45,6 +45,12 @@ describe("Predicates", function() {
     });
   });
 
+  describe("isInst", function() {
+    it("should determine if an instance is of a given type", function() {
+      expect(L.isInst([], Array)).toBeTruthy();
+    });
+  });
+
   describe("isAssociative", function() {
     it("should know that arrays, functions and objects are associative", function() {
       expect(L.isAssociative({})).toBeTruthy();
