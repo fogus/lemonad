@@ -280,6 +280,10 @@ describe("Basic functions", function() {
     it("should throw an exception if not given a number as the first arg", function() {
       expect(function() { L.repeat(); }).toThrow();
     });
+
+    it("should return an empty array when given a negative repeat value", function() {
+      expect(L.repeat(-3,1)).toEqual([]);
+    });
   });
 
   describe("second", function() {
