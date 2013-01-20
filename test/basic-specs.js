@@ -280,11 +280,38 @@ describe("Basic functions", function() {
     it("should throw an exception if not given a number as the first arg", function() {
       expect(function() { L.repeat(); }).toThrow();
     });
+
+    it("should return an empty array when given a negative repeat value", function() {
+      expect(L.repeat(-3,1)).toEqual([]);
+    });
+  });
+
+  describe("nth", function() {
+    var a = ['a','b','c'];
+
+    it("should return the element at a given index into an array.", function() {
+      expect(L.nth(a, 0)).toEqual('a');
+    });
+
+    it("should throw an exception if not given an array as the first arg", function() {
+      expect(function() { L.nth("", 0); }).toThrow();
+    });
+
+    it("should throw an exception if not given a number as the second arg", function() {
+      expect(function() { L.nth(a,'a'); }).toThrow();
+      expect(function() { L.nth(a); }).toThrow();
+    });
+
+    it("should throw an exception if not given an index out of bounds.", function() {
+      expect(function() { L.nth(a, -1); }).toThrow();
+      expect(function() { L.nth(a, 10000); }).toThrow();
+    });
   });
 
   describe("second", function() {
+    var a = [1,2,3];
+
     it("should return the second element of the array given, undefined if outside of the bounds", function() {
-      var a = [1,2,3];
 
       expect(L.second(a)).toEqual(2);
       expect(L.second([1])).toEqual(undefined);

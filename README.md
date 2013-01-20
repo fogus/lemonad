@@ -68,6 +68,7 @@ currently available functions:
   'mapcat',
   'maxKey',
   'meth',
+  'nth',
   'partial$',
   'partial1',
   'partial2',
@@ -108,8 +109,7 @@ Todo
 
 * Promises
 * The rest of the things
-  - nth, cycle
-  - ...
+  - cycle, ...
 * Moar monadology
 * Other things that I can't think of right now
 * Generators?
