@@ -77,7 +77,7 @@
 
 \begin{document}
 
-\centerline{\Large{\textbf{Lemonad Cheat Sheet}}}
+\centerline{\Large{\textbf{Lemonad Cheat Sheet (v 0.3.2)}}}
 \centerline{{\large{\textbf{\textit{http://github.com/fogus/lemonad}}}}}
 
 \colouredbox{green}{
@@ -86,19 +86,16 @@
 }
 
 \lstset{
-language=Lisp,                             % Code langugage
+language=JavaScript,                             % Code langugage
 basicstyle=\ttfamily,
 keywordstyle=\color{OliveGreen},
-morekeywords={require, use, ns, require-macros, use-macros, as, only},
+morekeywords={_, L},
 frame=none,
 }
 
-\begin{lstlisting}[label=ns,caption=Example Namespace Declaration]
-(ns my-cool-lib
-  (:require [some-lib :as lib])
-  (:use [another-lib :only (a-func)])
-  (:require-macros [my.macros :as macs])
-  (:use-macros [mo.macs :only (my-mac)]))
+\begin{lstlisting}[label=incl,caption=Including Lemonad]
+<script type="text/javascript" src="underscore.js"></script>
+<script type="text/javascript" src="lemonad.js"></script>
 \end{lstlisting}
 
 
