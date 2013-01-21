@@ -113,6 +113,8 @@ Todo
 * The rest of the things
   - cycle, ...
 * Moar monadology
+* Logic vars?
+* Unification?
 * Other things that I can't think of right now
 * Generators?
 * Futures?
