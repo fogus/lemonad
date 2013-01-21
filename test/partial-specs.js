@@ -40,4 +40,18 @@ describe("Partial application functions", function() {
       expect(o3()).toEqual(1);
     });
   });
+
+  describe("meth", function() {
+    it("should wrap a method as a function and allow the target as the first arg", function() {
+      var str = L.meth(Array.prototype.toString);
+
+      expect(str([1])).toEqual('1');
+    });
+
+    it("should partially apply and given args.", function() {
+      var e = L.invoker(String.prototype.split, '');
+
+      expect(e("asd")).toEqual(['a','s','d']);
+    });
+  });
 });

@@ -40,9 +40,11 @@ currently available functions:
   'dropWhile',
   'everyPred',
   'existy',
+  'explode',
   'fnull',
   'frequencies',
   'gt',
+  'implode',
   'inc',
   'increasing',
   'increasingOrEq',
@@ -111,6 +113,8 @@ Todo
 * The rest of the things
   - cycle, ...
 * Moar monadology
+* Logic vars?
+* Unification?
 * Other things that I can't think of right now
 * Generators?
 * Futures?
