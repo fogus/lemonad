@@ -1,0 +1,242 @@
+\documentclass[footexclude,twocolumn,DIV25,fontsize=10pt]{scrreprt} 
+
+% Author: Fogus (based on Steve Tayon's Clojure, my own ClojureScript and David Liebke's Incanter cheat sheets)
+% Comments, errors, suggestions: fogus -at- clojure -dot- com
+
+% License
+% Eclipse Public License v1.0
+% http://opensource.org/licenses/eclipse-1.0.php
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{verbatim}
+\usepackage[table]{xcolor}
+
+% Set column space
+\setlength{\columnsep}{0.25em}
+
+% Define colours
+\definecolorset{hsb}{}{}{red,0,.4,0.95;orange,.1,.4,0.95;green,.25,.4,0.95;yellow,.15,.4,0.95}
+\definecolorset{hsb}{}{}{blue,.55,.4,0.95;purple,.7,.4,0.95;pink,.8,.4,0.95;blue2,.58,.4,0.95}
+\definecolorset{hsb}{}{}{magenta,.9,.4,0.95;green2,.29,.4,0.95}
+
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+\definecolor{lightlightgray}{gray}{0.9}
+
+% Redefine sections
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}
+  {-1.7ex}{0.7ex}{\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}
+  {-1.7ex}{0.5ex}{\normalfont\normalsize\bfseries}}
+\makeatother
+
+% No section numbers
+\setcounter{secnumdepth}{0}
+
+% No indentation
+\setlength{\parindent}{0em}
+
+% No header and footer
+\pagestyle{empty}
+
+
+% A few shortcuts
+\newcommand{\cmd}[1] {\texttt{\textbf{{#1}}}}
+\newcommand{\cmdline}[1] {
+  \begin{tabularx}{\hsize}{X}
+    \texttt{\textbf{{#1}}}
+    \end{tabularx}
+}
+
+\newcommand{\colouredbox}[2] {
+  \colorbox{#1!40}{
+    \begin{minipage}{0.95\linewidth}
+      {
+        \rowcolors[]{1}{#1!20}{#1!10}
+        #2
+        }
+      \end{minipage}
+    }
+}
+
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[small,bf]{caption}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{yellow}{\parbox{0.95\linewidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing}
+
+\begin{document}
+
+\centerline{\Large{\textbf{Lemonad Cheat Sheet (v 0.3.2)}}}
+\centerline{{\large{\textbf{\textit{http://github.com/fogus/lemonad}}}}}
+
+\colouredbox{green}{
+\section{Documentation}
+\textmd{\textrm{http://www.functionaljs.org}}
+}
+
+\lstset{
+language=c,                             % Code langugage
+basicstyle=\ttfamily,
+keywordstyle=\color{OliveGreen},
+morekeywords={_, L},
+frame=none,
+}
+
+\begin{lstlisting}[label=incl,caption=Including Lemonad]
+<script type="text/javascript" 
+             src="underscore.js"></script>
+<script type="text/javascript" 
+             src="lemonad.js"></script>
+\end{lstlisting}
+
+
+\colouredbox{red}{
+\section{Rich Data Literals}
+\begin{tabularx}{\hsize}{lX}
+Maps: & \cmd{\{:key1 :val1, :key2 :val2\}} \\
+Vectors: & \cmd{[1 2 3 4 :a :b :c 1 2]} \\
+Sets: & \cmd{\#\{:a :b :c 1 2 3\}} \\
+Truth and nullity: & \cmd{true, false, nil} \\
+Keywords: & \cmd{:kw, :a-2, :prefix/kw, ::pi} \\
+Symbols: & \cmd{sym, sym-2, prefix/sym} \\
+Characters: & \cmd{\textbackslash a, \textbackslash u1123, \textbackslash space} \\
+Numbers/Strings: & same as in JavaScript \\
+\end{tabularx}
+
+}
+
+
+\colouredbox{blue}{
+\section{Frequently Used Functions}
+\begin{tabularx}{\hsize}{lX}
+Math:& \cmd{+ - * / quot rem mod inc dec max min}\\
+Comparison:& \cmd{= == not= < > <= >=}\\
+Tests:& \cmd{nil? identical? zero? pos? neg? even? odd? true? false? nil?} \\
+Keywords:& \cmd{keyword keyword?} \\
+Symbols:& \cmd{symbol symbol? gensym} \\
+Data Processing:& \cmd{map reduce filter partition split-at split-with} \\
+Data Create:& \cmd{vector vec hash-map set list list* for} \\
+Data Examination:& \cmd{first rest count get nth get get-in contains? find keys vals} \\
+Data Manipulation:& \cmd{seq into conj cons assoc assoc-in dissoc zipmap merge merge-with select-keys update-in}\\
+Arrays:& \cmd{into-array to-array aget aset amap areduce alength}\\
+\end{tabularx}
+
+\subsection{More information}
+\begin{tabularx}{\hsize}{lX}
+\centerline{{\large{\textbf{\textit{http://clojuredocs.org}}}}}
+\end{tabularx}
+
+}
+
+
+\colouredbox{pink}{
+\section{Frequently Used Macros}
+\begin{tabularx}{\hsize}{lX}
+Defining:& \cmd{defmacro}\\
+Macros:& \cmd{if if-let cond and or -> ->> doto when when-let ..}\\
+Implementation:& Must be written in Clojure \\
+Emission:& Must emit ClojureScript \\
+\end{tabularx}
+
+}
+
+
+\colouredbox{orange}{
+\section{Abstraction (http://clojure.org/protocols)}
+
+\subsection{Protocols}
+\begin{tabularx}{\hsize}{lX}
+Definition:& \cmd{(defprotocol Slicey (slice [at]))} \\
+Extend:& \cmd{(extend-type js/String Slicey (slice [at] ...))} \\
+Extend null:& \cmd{(extend-type nil Slicey (slice [\_] nil))} \\
+Reify:& \cmd{(reify Slicey (slice [at] ...))}\\
+\end{tabularx}
+
+\subsection{Records}
+\begin{tabularx}{\hsize}{lX}
+Definition:& \cmd{(defrecord Pair [h t])} \\
+Access:& \cmd{(:h (Pair. 1 2)) ;=> 1} \\
+Constructing:& \cmd{Pair. ->Pair map->Pair} \\
+\end{tabularx}
+
+\subsection{Types}
+\begin{tabularx}{\hsize}{lX}
+Definition:& \cmd{(deftype Pair [h t])} \\
+Access:& \cmd{(.-h (Pair. 1 2)) ;=> 1} \\
+Constructing:& \cmd{Pair. ->Pair} \\
+With Method(s):& \cmd{(deftype Pair [h t] Object (toString [] ...))} \\
+\end{tabularx}
+
+\subsection{Multimethods}
+\begin{tabularx}{\hsize}{lX}
+Definition:& \cmd{(defmulti my-mm dispatch-function)}\\
+Method Define:& \cmd{(defmethod my-mm :dispatch-value [args] ...)}\\
+\end{tabularx}
+
+}
+
+\colouredbox{yellow}{
+\section{JS Interop (http://fogus.me/cljs-js)}
+\begin{tabularx}{\hsize}{lX}
+Method Call: & \cmd{(.meth obj args)} \\
+Method Call: & \cmd{(. obj (meth args))} \\
+Property Access: & \cmd{(. obj -prop)} \\
+Property Access: & \cmd{(.-prop obj)} \\
+Set Property: & \cmd{(set! (.-prop obj) val)} \\
+JS Global Access: & \cmd{js/window} \\
+JS \cmd{this}: & \cmd{(this-as me (.method me))} \\
+Create JS Object: & \cmd{(js-obj)} \\
+\end{tabularx}
+
+}
+
+
+\colouredbox{blue2}{
+\section{Compilation (http://fogus.me/cljsc)}
+\begin{tabularx}{\hsize}{lX}
+Simple Compile: & \cmdline{cljsc src-home '\{:optimizations :simple :pretty-print true\}'} \\
+Advanced Compile: & \cmdline{cljsc src-home '\{:optimizations :advanced\}'} \\
+\end{tabularx}
+
+}
+
+
+\colouredbox{pink}{
+\section{Extra ClojureScript Libraries}
+\cmd{clojure.\{string set zipper\} clojure.browser.\{dom event net repl\}}\\
+
+}
+
+
+\colouredbox{green}{
+\section{Other Useful Libraries}
+\begin{tabularx}{\hsize}{lX}
+App Sample: & http://clojurescriptone.com \\
+Client/Server: & http://github.com/ibdknox/fetch \\
+Data Viz: & http://github.com/lynaghk/cljs-d3 \\
+DOM: & http://github.com/levand/domina \\
+jQuery: & http://github.com/ibdknox/jayq \\
+Templating: & http://github.com/ibdknox/crate \\
+\end{tabularx}
+
+}
+
+
+\begin{flushright}
+\footnotesize
+\rule{0.7\linewidth}{0.25pt}
+\verb!$Revision: 1.0, $Date: Feb 08, 2012!\\
+\verb!Fogus (fogus -at- clojure -dot- com)!
+\end{flushright}
+\end{document}

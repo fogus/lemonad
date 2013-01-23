@@ -29,6 +29,7 @@ currently available functions:
   'conjoin',
   'cons',
   'constantly',
+  'ctor',
   'curry2',
   'curry3',
   'dec',
@@ -39,30 +40,38 @@ currently available functions:
   'dropWhile',
   'everyPred',
   'existy',
+  'explode',
   'fnull',
   'frequencies',
+  'gt',
+  'implode',
   'inc',
   'increasing',
   'increasingOrEq',
   'interleave',
   'interpose',
   'into',
+  'invokeAll',
   'isAssociative',
   'isEven',
+  'isIndexed',
   'isOdd',
   'isNeg',
   'isPos',
   'isReference',
   'isSeq',
+  'isInst',
   'isZero',
   'iterateUntil',
   'juxt',
   'k',
   'keep',
   'keepIndexed',
+  'lt',
   'mapcat',
   'maxKey',
   'meth',
+  'nth',
   'partial$',
   'partial1',
   'partial2',
@@ -103,7 +112,10 @@ Todo
 
 * Promises
 * The rest of the things
+  - cycle, ...
 * Moar monadology
+* Logic vars?
+* Unification?
 * Other things that I can't think of right now
 * Generators?
 * Futures?

@@ -45,6 +45,13 @@ describe("Predicates", function() {
     });
   });
 
+  describe("isInst", function() {
+    it("should determine if an instance is of a given type", function() {
+      expect(L.isInst([], Array)).toBeTruthy();
+      expect(L.isInst(null, Array)).toBe(false);
+    });
+  });
+
   describe("isAssociative", function() {
     it("should know that arrays, functions and objects are associative", function() {
       expect(L.isAssociative({})).toBeTruthy();
@@ -63,6 +70,29 @@ describe("Predicates", function() {
       expect(L.isAssociative(NaN)).toBeFalsy();
       expect(L.isAssociative(Infinity)).toBeFalsy();
       expect(L.isAssociative(true)).toBeFalsy();
+    });
+  });
+
+  describe("isIndexed", function() {
+    it("should recognize an element allowing numerical index access", function() {
+      expect(L.isIndexed([])).toBeTruthy();
+      expect(L.isIndexed([1,2,3])).toBeTruthy();
+      expect(L.isIndexed(new Array(10))).toBeTruthy();
+      expect(L.isIndexed("")).toBeTruthy();
+      expect(L.isIndexed("abc")).toBeTruthy();
+    });
+
+    it("should recognize non-indexed objects", function() {
+      expect(L.isIndexed(1)).toBeFalsy();
+      expect(L.isIndexed(0)).toBeFalsy();
+      expect(L.isIndexed(-1)).toBeFalsy();
+      expect(L.isIndexed(3.14)).toBeFalsy();
+      expect(L.isIndexed(undefined)).toBeFalsy();
+      expect(L.isIndexed(NaN)).toBeFalsy();
+      expect(L.isIndexed(Infinity)).toBeFalsy();
+      expect(L.isIndexed(true)).toBeFalsy();
+      expect(L.isIndexed(false)).toBeFalsy();
+      expect(L.isIndexed(function(){})).toBeFalsy();
     });
   });
 

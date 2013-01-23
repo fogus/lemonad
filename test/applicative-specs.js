@@ -4,6 +4,10 @@ describe("Applicative functions", function() {
   });
 
   describe("splitWith", function() {
+    it("should return an array", function() {
+      expect(L.splitWith(L.isPos, []).constructor).toBe(Array);
+    });
+
     it("should split a sequence at the point when the given function goes falsey", function() {
       var a = [1,2,3,4,5];
       var lessThanEq3p = function(n) { return n <= 3; };
@@ -25,6 +29,10 @@ describe("Applicative functions", function() {
       expect(function() { L.splitWith(function(){}, 2); }).toThrow();
       expect(function() { L.splitWith(function(){}); }).toThrow();
       expect(function() { L.splitWith(); }).toThrow();
+    });
+
+    it("should split an empty array to [[],[]]]", function() {
+      expect(L.splitWith(L.isPos, [])).toEqual([[],[]]);
     });
   });
 
@@ -103,9 +111,13 @@ describe("Applicative functions", function() {
   describe("keepIndexed", function() {
     it("should return the arg for which the given function returns the largest value", function() {
       var a = ['a', 'b', 'c', 'd', 'e'];
+      var b = [-9, 0, 29, -7, 45, 3, -8];
       var oddy = function(k, v) { return L.isOdd(k) ? v : undefined; };
+      var posy = function(k, v) { return L.isPos(v) ? k : undefined; };
 
       expect(L.keepIndexed(oddy, a)).toEqual(['b', 'd']);
+      expect(L.keepIndexed(posy, b)).toEqual([2,4,5]);
+      expect(L.keepIndexed(oddy, _.range(10))).toEqual([1,3,5,7,9]);
     });
   });
 
@@ -157,12 +169,24 @@ describe("Applicative functions", function() {
   describe("dropWhile", function() {
     it("should drop all elements from an array until a given function goes truthy", function() {
       expect(L.dropWhile(L.isNeg, [-2,-1,0,1,2])).toEqual([0,1,2]);
+      expect(L.dropWhile(L.isNeg, [0,1,2])).toEqual([0,1,2]);
+      expect(L.dropWhile(L.isNeg, [-2,-1])).toEqual([]);
+      expect(L.dropWhile(L.isNeg, [1, -2,-1,0,1,2])).toEqual([1,-2,-1,0,1,2]);
+    });
+
+    it("should properly handle empty array arguments", function() {
+      expect(L.dropWhile(L.isNeg, [])).toEqual([]);
     });
   });
 
   describe("takeWhile", function() {
     it("should take all elements from an array until a given function goes truthy", function() {
       expect(L.takeWhile(L.isNeg, [-2,-1,0,1,2])).toEqual([-2,-1]);
+      expect(L.takeWhile(L.isNeg, [1,-2,-1,0,1,2])).toEqual([]);
+    });
+
+    it("should properly handle empty array arguments", function() {
+      expect(L.takeWhile(L.isNeg, [])).toEqual([]);
     });
   });
 });

@@ -1,8 +1,4 @@
 describe("Higher-order functions", function() {
-  beforeEach(function() {
-
-  });
-
   describe("best", function() {
     it("should return the 'best' value according to the criteria encapsulated in a function", function() {
       var a = [1,2,3,4,5];
@@ -39,8 +35,10 @@ describe("Higher-order functions", function() {
   describe("frequencies", function() {
     it("should return an object of the elements in an array keyed to their counts.", function() {
       var a = ['a','a','b','a'];
+      var m = L.explode("mississippi");
 
       expect(L.frequencies(a)).toEqual({a: 3, b: 1});
+      expect(L.frequencies(m)).toEqual({p: 2, s: 4, i: 4, m: 1});
     });
   });
 });
