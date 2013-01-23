@@ -54,6 +54,7 @@ currently available functions:
   'invokeAll',
   'isAssociative',
   'isEven',
+  'isIndexed',
   'isOdd',
   'isNeg',
   'isPos',
