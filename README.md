@@ -34,6 +34,7 @@ currently available functions:
   'curry2',
   'curry3',
   'curry4',
+  'cycle',
   'dec',
   'decreasing',
   'decreasingOrEq',
@@ -112,9 +113,8 @@ Influences / References
 Todo
 -----
 
-* Promises
 * The rest of the things
-  - cycle, ...
+* Promises
 * Moar monadology
 * Logic vars?
 * Unification?
