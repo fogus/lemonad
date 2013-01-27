@@ -286,6 +286,24 @@ describe("Basic functions", function() {
     });
   });
 
+  describe("cycle", function() {
+    it("should build an array of some size filled with the elements of the given array repeated", function() {
+      var a = [1,2,3];
+
+      expect(L.cycle(3,a)).toEqual([1,2,3,1,2,3,1,2,3]);
+      expect(L.cycle(0,a)).toEqual([]);
+      expect(_.take(L.cycle(33,a), 3)).toEqual([1,2,3]);
+    });
+
+    it("should throw an exception if not given a number as the first arg", function() {
+      expect(function() { L.cycle(); }).toThrow();
+    });
+
+    it("should return an empty array when given a negative repeat value", function() {
+      expect(L.cycle(-3,1)).toEqual([]);
+    });
+  });
+
   describe("nth", function() {
     var a = ['a','b','c'];
 
