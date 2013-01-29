@@ -17,7 +17,7 @@ Lemonad can be installed via [[http://npmjs.org/package/lemonad][NPM]] by adding
 
 #+begin_src javascript
 "dependencies": {
-  "lemonad": ">= 0.3.5",
+  "lemonad": ">= 0.3.6",
 }
 #+end_src
 
