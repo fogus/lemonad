@@ -21,4 +21,14 @@ describe("Relational algebra functions", function() {
       expect(result).toEqual([1,3,5]);
     });
   });
+
+  describe("L.$.project", function() {
+    it("should return an array of objects with only the keys wanted", function() {
+      var s = L.$({a: 1, b: 2}, {a: 2, b: 4});
+      var result = L.$.project(s, ['a']);
+
+      expect(result.constructor).toBe(Array);
+      expect(result).toEqual([{a: 1}, {a: 2}]);
+    });
+  });
 });
