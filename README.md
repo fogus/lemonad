@@ -9,6 +9,8 @@ currently available functions:
 
 ```javascript
 [ '$',
+  '$.select',
+  '$.project',
   'CAS',
   'CASProtocol',
   'L',
