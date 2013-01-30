@@ -77,7 +77,7 @@
 
 \begin{document}
 
-\centerline{\Large{\textbf{Lemonad Cheat Sheet (v 0.3.5)}}}
+\centerline{\Large{\textbf{Lemonad Cheat Sheet (v 0.4.0)}}}
 \centerline{{\large{\textbf{\textit{http://github.com/fogus/lemonad}}}}}
 
 \colouredbox{green}{
@@ -102,7 +102,7 @@ frame=none,
 
 
 \colouredbox{red}{
-\section{Rich Data Literals}
+\section{Basic functions}
 \begin{tabularx}{\hsize}{lX}
 Maps: & \cmd{\{:key1 :val1, :key2 :val2\}} \\
 Vectors: & \cmd{[1 2 3 4 :a :b :c 1 2]} \\
@@ -118,7 +118,7 @@ Numbers/Strings: & same as in JavaScript \\
 
 
 \colouredbox{blue}{
-\section{Frequently Used Functions}
+\section{Higher-order functions}
 \begin{tabularx}{\hsize}{lX}
 Math:& \cmd{+ - * / quot rem mod inc dec max min}\\
 Comparison:& \cmd{= == not= < > <= >=}\\
@@ -141,7 +141,7 @@ Arrays:& \cmd{into-array to-array aget aset amap areduce alength}\\
 
 
 \colouredbox{pink}{
-\section{Frequently Used Macros}
+\section{Applicative functions}
 \begin{tabularx}{\hsize}{lX}
 Defining:& \cmd{defmacro}\\
 Macros:& \cmd{if if-let cond and or -> ->> doto when when-let ..}\\
@@ -153,9 +153,9 @@ Emission:& Must emit ClojureScript \\
 
 
 \colouredbox{orange}{
-\section{Abstraction (http://clojure.org/protocols)}
+\section{Sub libraries}
 
-\subsection{Protocols}
+\subsection{Monads}
 \begin{tabularx}{\hsize}{lX}
 Definition:& \cmd{(defprotocol Slicey (slice [at]))} \\
 Extend:& \cmd{(extend-type js/String Slicey (slice [at] ...))} \\
@@ -163,14 +163,14 @@ Extend null:& \cmd{(extend-type nil Slicey (slice [\_] nil))} \\
 Reify:& \cmd{(reify Slicey (slice [at] ...))}\\
 \end{tabularx}
 
-\subsection{Records}
+\subsection{Relational algebra}
 \begin{tabularx}{\hsize}{lX}
 Definition:& \cmd{(defrecord Pair [h t])} \\
 Access:& \cmd{(:h (Pair. 1 2)) ;=> 1} \\
 Constructing:& \cmd{Pair. ->Pair map->Pair} \\
 \end{tabularx}
 
-\subsection{Types}
+\subsection{Protocols}
 \begin{tabularx}{\hsize}{lX}
 Definition:& \cmd{(deftype Pair [h t])} \\
 Access:& \cmd{(.-h (Pair. 1 2)) ;=> 1} \\
@@ -178,7 +178,7 @@ Constructing:& \cmd{Pair. ->Pair} \\
 With Method(s):& \cmd{(deftype Pair [h t] Object (toString [] ...))} \\
 \end{tabularx}
 
-\subsection{Multimethods}
+\subsection{TBD}
 \begin{tabularx}{\hsize}{lX}
 Definition:& \cmd{(defmulti my-mm dispatch-function)}\\
 Method Define:& \cmd{(defmethod my-mm :dispatch-value [args] ...)}\\
