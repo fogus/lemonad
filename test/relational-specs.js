@@ -50,4 +50,19 @@ describe("Relational algebra functions", function() {
       expect(s).toEqual(target);
     });
   });
+
+  describe("L.$.lookup", function() {
+    it("should return an array of objects matching the key given in the index", function() {
+      var testIndex = [[{a: 1}, {name: 'foo', a: 1}, {name: 'bar', a: 1}], [{a: 2}, {a: 2, name: 'baz'}]];
+      var result1   = L.$.lookup(testIndex, {a: 1});
+      var result2   = L.$.lookup(testIndex, {a: 2});
+      var resultNo  = L.$.lookup(testIndex, {a: 'not there'});
+
+      expect(result1.constructor).toBe(Array);
+      expect(result1).toEqual([{a: 1, name: 'foo'}, {a: 1, name: 'bar'}]);
+      expect(result2.constructor).toBe(Array);
+      expect(result2).toEqual([{a: 2, name: 'baz'}]);
+      expect(resultNo).toBe(undefined);
+    });
+  });
 });
