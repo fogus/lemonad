@@ -9,8 +9,12 @@ currently available functions:
 
 ```javascript
 [ '$',
-  '$.select',
+  '$.index',
+  '$.lookup',
   '$.project',
+  '$.put',
+  '$.rename',
+  '$.select',
   'CAS',
   'CASProtocol',
   'L',
@@ -46,7 +50,7 @@ currently available functions:
   'everyPred',
   'existy',
   'explode',
-  'flip2',  
+  'flip2',
   'fnull',
   'frequencies',
   'gt',
