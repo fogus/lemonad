@@ -46,6 +46,7 @@ currently available functions:
   'everyPred',
   'existy',
   'explode',
+  'flip2',  
   'fnull',
   'frequencies',
   'gt',
