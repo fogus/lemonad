@@ -424,4 +424,10 @@ describe("Basic functions", function() {
       expect(function() { L.takeSkipping(); }).toThrow();
     });
   });
+
+  describe("renameKeys", function() {
+    it("should rename the keys in the first object to the mapping in the second object", function() {
+      expect(L.renameKeys({'a': 1, 'b': 2}, {'a': 'A'})).toEqual({'b': 2, 'A': 1});
+    });
+  });
 });
