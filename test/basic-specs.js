@@ -429,5 +429,12 @@ describe("Basic functions", function() {
     it("should rename the keys in the first object to the mapping in the second object", function() {
       expect(L.renameKeys({'a': 1, 'b': 2}, {'a': 'A'})).toEqual({'b': 2, 'A': 1});
     });
+
+    it("should not modify the original", function() {
+      var a = {'a': 1, 'b': 2};
+      var _ = L.renameKeys(a, {'a': 'A'});
+
+      expect(a).toEqual({'a': 1, 'b': 2});
+    });
   });
 });
