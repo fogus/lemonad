@@ -82,4 +82,20 @@ describe("Relational algebra functions", function() {
       expect(L.$.put(testIndex, {a: 1}, 42)).toEqual(exp);
     });
   });
+
+  describe("L.$.index", function() {
+    it("should return an index of the objects based on the keys given", function() {
+      var db = L.$({name: 'Burial', genre: 'dubstep'},
+                   {name: 'Donovan', genre: 'folk'},
+                   {name: 'Ikonika', genre: 'dubstep'});
+
+      var index = L.$.index(db, ['genre']);
+
+      var folk = L.$.lookup(index, {genre: 'folk'});
+
+      expect(index[0].length).toBe(2);
+      expect(index[1].length).toBe(3);
+      expect(folk).toEqual([{name: 'Donovan', genre: 'folk'}]);
+    });
+  });
 });
