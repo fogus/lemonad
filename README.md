@@ -87,6 +87,7 @@ currently available functions:
   'reductions',
   'remove',
   'removeWatch',
+  'renameKeys',
   'repeat',
   'repeatedly',
   'second',
