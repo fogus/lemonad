@@ -60,8 +60,10 @@ describe("Relational algebra functions", function() {
 
       expect(result1.constructor).toBe(Array);
       expect(result1).toEqual([{a: 1, name: 'foo'}, {a: 1, name: 'bar'}]);
+
       expect(result2.constructor).toBe(Array);
       expect(result2).toEqual([{a: 2, name: 'baz'}]);
+
       expect(resultNo).toBe(undefined);
     });
   });
