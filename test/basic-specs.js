@@ -437,4 +437,24 @@ describe("Basic functions", function() {
       expect(a).toEqual({'a': 1, 'b': 2});
     });
   });
+
+  describe("selectKeys", function() {
+    it("should return an object filled with the entries of the keys array given", function() {
+      expect(L.selectKeys({'a': 1, 'b': 2}, ['a'])).toEqual({'a': 1});
+    });
+  });
+
+  describe("merge", function() {
+    it("should merge two objects", function() {
+      expect(L.merge({'a': 1, 'b': 2}, {b: 42})).toEqual({'a': 1, b: 42});
+    });
+
+    it("should not modify the original", function() {
+      var a = {'a': 1, 'b': 2};
+      var _ = L.merge(a, {'a': 42});
+
+      expect(a).toEqual({'a': 1, 'b': 2});
+    });
+  });
+
 });
