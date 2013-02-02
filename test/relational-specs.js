@@ -14,7 +14,7 @@ describe("Relational algebra functions", function() {
 
   describe("L.$.set", function() {
     it("should return an array of uniq elements", function() {
-      var s = L.$.set([1,2,3,4,5,3,4,5,8,2,3]);
+      var s = L.$.toSet([1,2,3,4,5,3,4,5,8,2,3]);
 
       expect(s.constructor).toBe(Array);
       expect(s).toEqual([1,2,3,4,5,8]);
