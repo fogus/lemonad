@@ -449,11 +449,10 @@ describe("Basic functions", function() {
       expect(L.merge({'a': 1, 'b': 2}, {b: 42})).toEqual({'a': 1, b: 42});
     });
 
-    it("should return the original object if given only one", function() {
+    it("should return a copy of the object if given only one", function() {
       var o = {'a': 1, 'b': 2};
 
       expect(L.merge(o)).toEqual({a: 1, b: 2});
-      
     });
 
     it("should not modify the original", function() {
