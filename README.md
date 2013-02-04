@@ -88,6 +88,7 @@ currently available functions:
   'partial$',
   'partial1',
   'partial2',
+  'partition',
   'pipeline',
   'plucker',
   'pour',
