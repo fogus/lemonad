@@ -445,8 +445,19 @@ describe("Basic functions", function() {
   });
 
   describe("merge", function() {
+    it("should return a copy of the object if given only one", function() {
+      var o = {'a': 1, 'b': 2};
+
+      expect(L.merge(o)).toEqual({a: 1, b: 2});
+    });
+
     it("should merge two objects", function() {
       expect(L.merge({'a': 1, 'b': 2}, {b: 42})).toEqual({'a': 1, b: 42});
+    });
+
+    it("should merge three or more objects", function() {
+      expect(L.merge({a: 1, b: 2}, {b: 42}, {c: 3})).toEqual({a: 1, b: 42, c: 3});
+      expect(L.merge({a: 1, b: 2}, {b: 42}, {c: 3}, {c: 4})).toEqual({a: 1, b: 42, c: 4});
     });
 
     it("should not modify the original", function() {

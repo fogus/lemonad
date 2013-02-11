@@ -9,14 +9,6 @@ currently available functions:
 
 ```javascript
 [ '$',
-  '$.index',
-  '$.lookup',
-  '$.naturalJoin',
-  '$.project',
-  '$.put',
-  '$.rename',
-  '$.select',
-  '$.toSet',
   'CAS',
   'CASProtocol',
   'L',
@@ -49,6 +41,7 @@ currently available functions:
   'def',
   'disjoin',
   'dropWhile',
+  'eq',
   'everyPred',
   'existy',
   'explode',
@@ -65,6 +58,7 @@ currently available functions:
   'into',
   'invokeAll',
   'isAssociative',
+  'is',
   'isEven',
   'isIndexed',
   'isOdd',
@@ -88,6 +82,7 @@ currently available functions:
   'partial$',
   'partial1',
   'partial2',
+  'partition',
   'pipeline',
   'plucker',
   'pour',
@@ -143,3 +138,10 @@ Todo
 * `into` for objects
 * make sure that anything that works for array also works for `arguments`
 * Make sure I say, *sequence* on input and *array* on output
+* cod
+* yggdrasil
+* undermine
+* reb
+* cljs
+* tables
+* bach.js
