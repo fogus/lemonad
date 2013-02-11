@@ -9,14 +9,6 @@ currently available functions:
 
 ```javascript
 [ '$',
-  '$.index',
-  '$.lookup',
-  '$.naturalJoin',
-  '$.project',
-  '$.put',
-  '$.rename',
-  '$.select',
-  '$.toSet',
   'CAS',
   'CASProtocol',
   'L',
