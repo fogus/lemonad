@@ -23,6 +23,7 @@ currently available functions:
   'best',
   'butLast',
   'cat',
+  'comparator',
   'compareAndSwap',
   'complement',
   'compose',
