@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Lemonad</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Lemonad"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-02-12 09:49:14 EST"/>
+<meta name="author" content="Fogus"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+
+<link rel="stylesheet" type="text/css" href="common.css" />
+<link rel="stylesheet" type="text/css" href="screen.css" />
+
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Lemonad</h1>
+
+
+<center>
+<p>
+<img src="logo.png"  alt="logo.png" />
+</p>
+<p>
+<a href="http://fogus.github.com/lemonad">home page</a> | <a href="http://www.github.com/fogus/lemonad">source code</a> | <a href="http://fogus.github.com/lemonad/test.html">test status</a> | <a href="https://github.com/fogus/lemonad/issues">tickets</a>
+</center>
+
+</p>
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> a functional JavaScript library</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+Lemonad is a JavaScript library supporting functional programming inspired by <a href="http://clojure.org">Clojure</a>, <a href="http://github.com/clojure/clojurescript">ClojureScript</a>, <a href="http://osteele.com/sources/javascript/functional/">Functional JavaScript</a> and <a href="http://underscorejs.org/">Underscore</a>.  It is built on top of Underscore and as a result requires it be present.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> why?</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+The main motivation for Lemonad is that my current work requires the use of JavaScript on the client side and ClojureScript is not an option.  As a result I decided to try and capture the "feel" of a ClojureScript experience in the guise of JavaScript.  I thought this might be useful for others, so here it is.  Enjoy.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> getting</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+Lemonad can be installed via <a href="http://npmjs.org/package/lemonad">NPM</a> by adding the following to your <code>package.json</code> file:
+</p>
+
+
+
+<pre class="src src-javascript"><span style="color: #87005f;">"dependencies"</span>: {
+  <span style="color: #87005f;">"lemonad"</span>: <span style="color: #87005f;">"&gt;= 0.4.3"</span>,
+}
+</pre>
+
+
+<p>
+You can also find the Lemonad source code on Github at  <a href="http://github.com/fogus/lemonad">http://github.com/fogus/lemonad</a>.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> including</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+Whether you use Lemonad via <a href="http://nodejs.org">Node.js</a>, within a web page or some other method, including the <code>lemonad.js</code> file defines a global variable named <code>L</code> that is used as the module for its capabilities.
+</p>
+<p>
+On a web page, you'll need to do the following:
+</p>
+
+
+
+<pre class="src src-html">&lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"underscore.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+&lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"lemonad.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+</pre>
+
+
+<p>
+An explicit dependency on Underscore version 1.4.0 or greater is required for now.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> using</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+Documentation for using Lemonad is in development.  For now you can look at the <a href="http://fogus.github.com/lemonad/test.html">Lemonad specs</a> and <a href="https://github.com/fogus/lemonad/tree/master/test">their source code</a> to get a feel for using it.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> thanks</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+Remember, <a href="https://github.com/fogus/lemonad/issues">contibutions welcomed</a>.
+</p>
+
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2013-02-12 09:49:14 EST</p>
+<p class="author">Author: Fogus</p>
+<p class="creator">Org version 7.8.11 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
