@@ -380,6 +380,28 @@ describe("Basic functions", function() {
     });
   });
 
+  describe("partition", function() {
+    it("should partition an array into sub-arrays of the size given", function() {
+      var a = _.range(4);
+      var b = _.range(5);
+
+      expect(L.partition(2, a)).toEqual([[0,1], [2,3]]);
+    });
+
+    it("should not modify the original", function() {
+      var a = [1,2,3,4,5];
+      var _ = L.splitAt(2, a);
+
+      expect(a).toEqual([1,2,3,4,5]);
+    });
+
+    it("should throw an exception if not given a number as the first arg or an array as the second", function() {
+      expect(function() { L.splitAt('a', []); }).toThrow();
+      expect(function() { L.splitAt(1); }).toThrow();
+      expect(function() { L.splitAt(); }).toThrow();
+    });
+  });
+
   describe("splitAt", function() {
     it("should bifurcate an array at a given index, returning an array of the parts", function() {
       var a = [1,2,3,4,5];
