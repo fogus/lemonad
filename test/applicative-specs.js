@@ -189,4 +189,20 @@ describe("Applicative functions", function() {
       expect(L.takeWhile(L.isNeg, [])).toEqual([]);
     });
   });
+
+  describe("partitionBy", function() {
+    it("should partition an array as a given predicate changes truth sense.", function() {
+      var a = [1, 2, null, false, undefined, 3, 4];
+
+      expect(L.partitionBy(L.truthy, a)).toEqual([[1,2], [null, false, undefined], [3,4]]);
+    });
+
+    it("should not modify the original array", function() {
+      var a = [1, 2, null, false, undefined, 3, 4];
+      var _ = L.partitionBy(L.truthy, a);
+
+      expect(a).toEqual([1, 2, null, false, undefined, 3, 4]);
+    });
+  });
+
 });
