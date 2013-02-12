@@ -381,24 +381,31 @@ describe("Basic functions", function() {
   });
 
   describe("partition", function() {
-    it("should partition an array into sub-arrays of the size given", function() {
+    it("should partition an array into sub-arrays of the size given. Extras are dropped", function() {
       var a = _.range(4);
       var b = _.range(5);
 
       expect(L.partition(2, a)).toEqual([[0,1], [2,3]]);
+      expect(L.partition(2, b)).toEqual([[0,1], [2,3]]);
     });
 
     it("should not modify the original", function() {
       var a = [1,2,3,4,5];
-      var _ = L.splitAt(2, a);
+      var _ = L.partition(2, a);
 
       expect(a).toEqual([1,2,3,4,5]);
     });
 
-    it("should throw an exception if not given a number as the first arg or an array as the second", function() {
-      expect(function() { L.splitAt('a', []); }).toThrow();
-      expect(function() { L.splitAt(1); }).toThrow();
-      expect(function() { L.splitAt(); }).toThrow();
+    it("should allow one to specify a padding array to fill in the end gaps", function() {
+      var b = _.range(7);
+
+      expect(L.partition(3, b, L.repeat(5, "_"))).toEqual([[0,1,2], [3,4,5], [6,"_", "_"]]);
+    });
+
+    it("should allow one to specify a padding value to fill in the end", function() {
+      var b = _.range(5);
+
+      expect(L.partition(3, b, "_")).toEqual([[0,1,2], [3,4,"_"]]);
     });
   });
 
