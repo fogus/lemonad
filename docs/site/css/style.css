@@ -5,11 +5,12 @@
   text-align: center;
   margin: 0;
   padding: 0;
-  color: #777;
+  color: #3A2E85;
+  background-color: #FFFE73;
 }
 
 header {
-  margin: 3em;
+  margin: 2em;
 }
 
 section {
