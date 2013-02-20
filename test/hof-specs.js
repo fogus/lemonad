@@ -10,6 +10,7 @@ describe("Higher-order functions", function() {
   describe("complement", function() {
     var _e = L.complement(L.isOdd);
     var _o = L.complement(L.isEven);
+    var _n = L.complement(L.eq(5), L.eq(0));
 
     it("should return a predicate that gives the opposite result of a given predicate", function() {
       expect(_e(4)).toBeTruthy();
@@ -18,6 +19,11 @@ describe("Higher-order functions", function() {
       expect(_o(5)).toBeTruthy();
       expect(_o(1)).toBeTruthy();
       expect(_o(0)).toBeFalsy();
+    });
+
+    it("should return a predicate that gives the opposite result of the composition of multiple predicates", function() {
+      expect(_n(5)).toBeTruthy();
+      expect(_n(0)).toBeTruthy();
     });
   });
 
