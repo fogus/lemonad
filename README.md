@@ -80,6 +80,7 @@ currently available functions:
   'merge',
   'meth',
   'nth',
+  'not',
   'partial$',
   'partial1',
   'partial2',
