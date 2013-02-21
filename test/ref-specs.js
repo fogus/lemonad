@@ -87,7 +87,7 @@ describe("Reference types and functions", function() {
       it("should be an Object, Hole and CAS type", function() {
         var v = new L.CAS(42);        
 
-        expect(L.isInst((new L.CAS(42)), L.Hole)).toBeTruthy();
+        expect(L.isReference(new L.CAS(42))).toBeTruthy();
         expect(L.isInst((new L.CAS(42)), L.CAS)).toBeTruthy();
         expect(L.isInst((new L.CAS(42)), Object)).toBeTruthy();
         expect(L.isInst((new L.CAS(42)), Array)).toBeFalsy();
@@ -102,7 +102,6 @@ describe("Reference types and functions", function() {
       it("should also work with Holes (i.e. define in terms of Hole as base)", function() {
         var v = new L.Hole(42);
 
-        expect(L.compareAndSwap(v, 42, L.inc)).toBeTruthy();
         expect(L.compareAndSwap(v, 0,  L.inc)).toBeFalsy();
       });
 
