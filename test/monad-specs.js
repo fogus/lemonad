@@ -5,13 +5,13 @@ describe("Monadic functions", function() {
     };
   };
 
-  var push = L.def(
+  var push = L.unit(
     function(e, stack) {
       return [e].concat(stack);
     },
     L.constantly(undefined));
 
-  var pop = L.def(
+  var pop = L.unit(
     function(stack) {
       return stack[0];
     },
