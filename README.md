@@ -73,6 +73,7 @@ currently available functions:
   'k',
   'keep',
   'keepIndexed',
+  'lift',
   'lt',
   'mapcat',
   'maxKey',
@@ -106,7 +107,6 @@ currently available functions:
   'takeWhile',
   'thrush',
   'truthy',
-  'unit',
   'update' ]
 ```
 
