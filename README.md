@@ -39,7 +39,6 @@ currently available functions:
   'dec',
   'decreasing',
   'decreasingOrEq',
-  'def',
   'disjoin',
   'dropWhile',
   'eq',
@@ -107,6 +106,7 @@ currently available functions:
   'takeWhile',
   'thrush',
   'truthy',
+  'unit',
   'update' ]
 ```
 
