@@ -7,6 +7,18 @@ describe("Higher-order functions", function() {
     });
   });
 
+  describe("comparator", function() {
+    it("should return a function to convert a predicate to a comparator", function() {
+      var lessOrEqual = function(x, y) { return x <= y; };
+
+      var a = [0, 1, -2];
+      var b = [100, 1, 0, 10, -1, -2, -1];
+
+      expect( a.sort(L.comparator(lessOrEqual)) ).toEqual([-2, 0, 1]);
+      expect( b.sort(L.comparator(lessOrEqual)) ).toEqual([-2, -1, -1, 0, 1, 10, 100]);
+    });
+  });
+
   describe("complement", function() {
     var _e = L.complement(L.isOdd);
     var _o = L.complement(L.isEven);
