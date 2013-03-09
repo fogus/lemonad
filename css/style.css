@@ -1,0 +1,50 @@
+* {
+  font-family: "Lato", "Helvetica", serif;
+  font-weight: 300;
+  font-size: 1em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #3A2E85;
+  background-color: #FFFE73;
+}
+
+header {
+  margin: 2em;
+}
+
+section {
+  margin: 1em;
+}
+
+footer {
+  margin: 4em;
+}
+
+h1 {
+  font-size: 10em;
+  color: #444;
+}
+
+h2 {
+  font-size: 2em;
+  color: #444;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #444;
+  padding: 0.4em
+}
+
+p {
+  padding: 0.2em;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/KT3KS9Aol4WfR6Vas8kNcg.woff) format('woff');
+}
+
