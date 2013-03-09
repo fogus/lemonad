@@ -105,7 +105,7 @@ currently available functions:
   't',
   'takeSkipping',
   'takeWhile',
-  'thrush',
+  'trampoline',
   'truthy',
   'update' ]
 ```
