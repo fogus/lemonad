@@ -39,7 +39,6 @@ currently available functions:
   'dec',
   'decreasing',
   'decreasingOrEq',
-  'def',
   'disjoin',
   'dropWhile',
   'eq',
@@ -74,6 +73,7 @@ currently available functions:
   'k',
   'keep',
   'keepIndexed',
+  'lift',
   'lt',
   'mapcat',
   'maxKey',
@@ -105,7 +105,7 @@ currently available functions:
   't',
   'takeSkipping',
   'takeWhile',
-  'thrush',
+  'trampoline',
   'truthy',
   'update' ]
 ```
