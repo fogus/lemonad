@@ -7,10 +7,12 @@
 
   <script language="javascript" type="text/javascript">
     function feed() {
-      setInterval("poetry(JSON.stringify({seed: _.random(1,100)}))", 1000);
+      setInterval(function(){ 
+        poetry(JSON.stringify({seed: _.random(1,100)})) 
+      }, 1000);
     }
   </script>
 </head>
-<body onload="poetry()">
+<body onload="feed()">
 </body>
 </html>
