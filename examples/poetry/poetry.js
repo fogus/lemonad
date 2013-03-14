@@ -1,5 +1,13 @@
 function poetry(packet) {
   L.pipeline(JSON.parse(packet)
     , L.plucker('seed')
-    , function(n) { console.log(n); });
+    , doit);
+}
+
+var locale = {
+
+};
+
+function doit(seed) {
+
 }
