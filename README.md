@@ -107,6 +107,7 @@ currently available functions:
   'takeWhile',
   'trampoline',
   'truthy',
+  'unzip',
   'update' ]
 ```
 
