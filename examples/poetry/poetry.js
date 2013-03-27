@@ -52,6 +52,20 @@ function site() {
   return words;
 }
 
+function cave() {
+  var adjs = ('encompassing,'+choose(texture)+',sinuous,straight,objective,arched,cool,clear,dim,driven').split(',');
+  var target = 1 + _.random(3);
+
+  while (adjs.length>target) {
+    adjs.splice(_.random(adjs.length),1);
+  }
+
+  var words = '\u00a0\u00a0'+choose(imper)+' the '+adjs.join(' ')+' \u2014';
+  return words;
+}
+
+
+
 function doit(seed) {
   var prose = document.getElementById('prose');
 }
