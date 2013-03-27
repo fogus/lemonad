@@ -39,6 +39,18 @@ function path() {
   return words;
 }
 
+function site() {
+  var words = '';
+
+  if (_.random(2) === 1)
+    words += choose(above);
+  else
+    words += choose(below);
+
+  words += 's ' + choose(intrans) + '.';
+
+  return words;
+}
 
 function doit(seed) {
   var prose = document.getElementById('prose');
