@@ -26,6 +26,20 @@ function choose(array) { // curry nth?
   return array[_.random(_.size(array) - 1)];
 }
 
+function path() {
+  var p = _.random(1);
+  var words = choose(above);
+
+  if ((words === 'forest') && (_.random(3) === 1))
+    words = ['monkeys', choose(trans)].join(' ');
+  else
+    words += [s[p], (choose(trans)+s[(p+1)%2])].join(' ');
+
+  words += ['', 'the', choose(below)].join(' ') + choose(s) + ".";
+  return words;
+}
+
+
 function doit(seed) {
   var prose = document.getElementById('prose');
 }
