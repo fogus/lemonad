@@ -107,6 +107,7 @@ currently available functions:
   'takeWhile',
   'trampoline',
   'truthy',
+  'unzip',
   'update' ]
 ```
 
@@ -147,3 +148,8 @@ Todo
 * cljs
 * tables
 * bach.js
+* datalog
+* poems
+* shape decls
+* cheatsheet
+* site
