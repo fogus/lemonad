@@ -64,8 +64,36 @@ function cave() {
   return words;
 }
 
+function doLine() {
+  if (n === 0)
+    text=' ';
+  else if (n == 1) {
+    paths = 2 + _.random(2);
+    text  = path();
+  }
+  else if (n < paths)
+    text = site();
+  else if ( n == paths)
+    text = path();
+  else if (n == paths + 1)
+    text=' ';
+  else if (n==paths+2)
+    text = cave();
+  else {
+    text = ' ';
+    n = 0;
+  }
 
+  n+=1;
+
+  return text.substring(0,1).toUpperCase()+text.substring(1,text.length);
+}
 
 function doit(seed) {
   var prose = document.getElementById('prose');
+  var text  = doLine(prose);
+
+  last = document.createElement('div');
+  last.appendChild(document.createTextNode(text));
+  prose.appendChild(last);
 }
