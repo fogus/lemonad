@@ -1,10 +1,4 @@
 describe("Monadic functions", function() {
-  var result = function (values) {
-    return function (state) {
-      return { value: values, state: state };
-    };
-  };
-
   var push = L.lift(function(stack, e) {
     return L.cons(e, stack);
   });
@@ -16,11 +10,10 @@ describe("Monadic functions", function() {
     push(5),
     push(6),
     pop(),
-    pop(),
     pop()],
 
-    function (pop1, pop2, pop3) {
-      return result([pop1, pop2, pop3]);
+    function (values, state) {
+      return values;
     }
   );
 
@@ -28,8 +21,8 @@ describe("Monadic functions", function() {
 
   describe("actions", function() {
     it("should return a monadic value, based on the actions embedded within", function() {
-      expect(answer.value).toEqual([6,5,4]);
-      expect(answer.state).toEqual([]);
+      expect(answer).toEqual([6,5,4]);
+//      expect(answer.state).toEqual([]);
     });
   });
 });
