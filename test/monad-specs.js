@@ -13,7 +13,7 @@ describe("Monadic functions", function() {
     pop()],
 
     function (values, state) {
-      return values;
+      return state;
     }
   );
 
@@ -21,8 +21,7 @@ describe("Monadic functions", function() {
 
   describe("actions", function() {
     it("should return a monadic value, based on the actions embedded within", function() {
-      expect(answer).toEqual([6,5,4]);
-//      expect(answer.state).toEqual([]);
+      expect(answer).toEqual([4]);
     });
   });
 });
