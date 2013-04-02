@@ -4,12 +4,6 @@ function poetry(packet) {
     , doit);
 }
 
-var locale = {
-  path: function() {
-    var p = _.random(1);
-  }
-};
-
 var t = 0;
 var n = 0;
 var paths = 0;
@@ -26,14 +20,16 @@ function choose(array) { // curry nth?
   return array[_.random(_.size(array) - 1)];
 }
 
+function fragment() {
+  var args = _.toArray(arguments);
+  return args.join(' ');
+}
+
 function path() {
   var p = _.random(1);
   var words = choose(above);
 
-  if ((words === 'forest') && (_.random(3) === 1))
-    words = ['monkeys', choose(trans)].join(' ');
-  else
-    words += [s[p], (choose(trans)+s[(p+1)%2])].join(' ');
+  words += fragment(s[p], (choose(trans)+s[(p+1)%2]));
 
   words += ['', 'the', choose(below)].join(' ') + choose(s) + ".";
   return words;
