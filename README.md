@@ -125,7 +125,7 @@ Todo
 -----
 
 * The rest of the things
-* Promises
+* Promises/A-compatible functions (http://wiki.commonjs.org/wiki/Promises/A)
 * Moar monadology
 * Logic vars?
 * Unification?
