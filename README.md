@@ -79,6 +79,7 @@ currently available functions:
   'maxKey',
   'merge',
   'meth',
+  'mix',
   'nth',
   'not',
   'partial$',
