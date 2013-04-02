@@ -25,6 +25,8 @@ function fragment() {
   return args.join(' ');
 }
 
+// l@@k https://github.com/jeremyruppel/underscore.inflection
+
 function path() {
   var p = _.random(1);
   var words = choose(above);
