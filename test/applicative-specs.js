@@ -1,8 +1,4 @@
 describe("Applicative functions", function() {
-  beforeEach(function() {
-
-  });
-
   describe("splitWith", function() {
     it("should return an array", function() {
       expect(L.splitWith(L.isPos, []).constructor).toBe(Array);
