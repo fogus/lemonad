@@ -4,7 +4,7 @@ describe("Reference types and functions", function() {
       it("should create a mutable 'cell' with a value field", function() {
         var v = new L.Hole(42);
 
-        expect(v.__value__).toEqual(42);
+        expect(v._value).toEqual(42);
       });
 
       it("should not allow creation of a mutable 'cell' with a value that fails a validator", function() {
@@ -30,7 +30,7 @@ describe("Reference types and functions", function() {
         var v = new L.Hole(42);
         L.setValue(v, 36);
 
-        expect(v.__value__).toEqual(36);
+        expect(v._value).toEqual(36);
       });
 
       it("should return the new value", function() {
@@ -51,10 +51,10 @@ describe("Reference types and functions", function() {
         var v = new L.Hole(42);
 
         L.swap(v, L.k(36));
-        expect(v.__value__).toEqual(36);
+        expect(v._value).toEqual(36);
 
         L.swap(v, L.inc);
-        expect(v.__value__).toEqual(37);
+        expect(v._value).toEqual(37);
       });
 
       it("should return the new value", function() {
@@ -78,10 +78,10 @@ describe("Reference types and functions", function() {
         var v = new L.CAS(42);
 
         L.compareAndSwap(v, 42, L.k(36));
-        expect(v.__value__).toEqual(36);
+        expect(v._value).toEqual(36);
 
         L.compareAndSwap(v, 36, L.inc);
-        expect(v.__value__).toEqual(37);
+        expect(v._value).toEqual(37);
       });
 
       it("should be an Object, Hole and CAS type", function() {
@@ -117,10 +117,10 @@ describe("Reference types and functions", function() {
         var v = new L.CAS(42);
 
         L.swap(v, L.k(36));
-        expect(v.__value__).toEqual(36);
+        expect(v._value).toEqual(36);
 
         L.swap(v, L.inc);
-        expect(v.__value__).toEqual(37);
+        expect(v._value).toEqual(37);
       });
 
       it("should return the new value", function() {
@@ -141,7 +141,7 @@ describe("Reference types and functions", function() {
         var v = new L.CAS(42);
         L.setValue(v, 36);
 
-        expect(v.__value__).toEqual(36);
+        expect(v._value).toEqual(36);
       });
 
       it("should return the new value", function() {
