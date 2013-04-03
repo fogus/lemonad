@@ -1,13 +1,13 @@
 {
   "name": "lemonad",
-  "version": "0.4.9",
+  "version": "0.5.1",
   "description": "JavaScript functional programming library, inspired by the Clojure core and contrib libraries",
   "homepage": "http://www.fogus.me/",
   "contributors": [
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"
   ],
   "dependencies": {
-    "underscore": ">= 1.4.2",
+    "underscore": ">= 1.4.3",
     "swank-js": ">=0.0.1"
   },
   "devDependencies": {

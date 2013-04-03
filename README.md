@@ -79,6 +79,7 @@ currently available functions:
   'maxKey',
   'merge',
   'meth',
+  'mix',
   'nth',
   'not',
   'partial$',
@@ -125,7 +126,7 @@ Todo
 -----
 
 * The rest of the things
-* Promises
+* Promises/A-compatible functions (http://wiki.commonjs.org/wiki/Promises/A)
 * Moar monadology
 * Logic vars?
 * Unification?
@@ -148,3 +149,8 @@ Todo
 * cljs
 * tables
 * bach.js
+* datalog
+* poems
+* shape decls
+* cheatsheet
+* site
