@@ -129,7 +129,7 @@ Todo
 * Logic vars?
 * Unification?
 * Other things that I can't think of right now
-* Generators?
+* Generators / iterators?
 * Futures?
 * Laziness?
 * Badass memoize
