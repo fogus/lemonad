@@ -85,6 +85,7 @@ currently available functions:
   'partial1',
   'partial2',
   'partition',
+  'partitionAll',
   'pipeline',
   'plucker',
   'pour',
@@ -135,7 +136,6 @@ Todo
 * Badass memoize
 * Some data generators?
 * merges
-* partitions
 * walking
 * rel alg
 * `into` for objects
