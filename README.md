@@ -40,12 +40,13 @@ currently available functions:
   'decreasing',
   'decreasingOrEq',
   'disjoin',
+  'dispatcher',
   'dropWhile',
   'eq',
   'everyPred',
   'existy',
   'explode',
-  'flip2',
+  'flip',
   'fnull',
   'frequencies',
   'gt',
@@ -79,12 +80,14 @@ currently available functions:
   'maxKey',
   'merge',
   'meth',
+  'mix',
   'nth',
   'not',
   'partial$',
   'partial1',
   'partial2',
   'partition',
+  'partitionAll',
   'pipeline',
   'plucker',
   'pour',
@@ -94,6 +97,7 @@ currently available functions:
   'renameKeys',
   'repeat',
   'repeatedly',
+  'rot',
   'second',
   'selectKeys',
   'setValue',
@@ -124,18 +128,17 @@ Todo
 -----
 
 * The rest of the things
-* Promises
+* Promises/A-compatible functions (http://wiki.commonjs.org/wiki/Promises/A)
 * Moar monadology
 * Logic vars?
 * Unification?
 * Other things that I can't think of right now
-* Generators?
+* Generators / iterators?
 * Futures?
 * Laziness?
 * Badass memoize
 * Some data generators?
 * merges
-* partitions
 * walking
 * rel alg
 * `into` for objects
