@@ -103,6 +103,7 @@ currently available functions:
   'setValue',
   'snapshot',
   'someFun',
+  'splat',
   'splitAt',
   'splitWith',
   'swap',
@@ -111,6 +112,7 @@ currently available functions:
   'takeWhile',
   'trampoline',
   'truthy',
+  'unsplat',
   'unzip',
   'update' ]
 ```
