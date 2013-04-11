@@ -1,7 +1,7 @@
 lemonad
 =======
 
-a functional programming library built on, and extending, [Underscore.js](http://underscorejs.org) -- inspired by the [Clojure](http://www.clojure.org) core and contrib libraries.
+A functional programming library built on, and extending, [Underscore.js](http://underscorejs.org) -- inspired by [Clojure](http://www.clojure.org), [Haskell](http://www.haskell.org/), [SML](http://www.smlnj.org/) and [Forth](http://www.forth.com/forth/).
 
 ![lemonad](https://raw.github.com/fogus/lemonad/master/docs/logo.png)
 
@@ -103,6 +103,7 @@ currently available functions:
   'setValue',
   'snapshot',
   'someFun',
+  'splat',
   'splitAt',
   'splitWith',
   'swap',
@@ -111,6 +112,7 @@ currently available functions:
   'takeWhile',
   'trampoline',
   'truthy',
+  'unsplat',
   'unzip',
   'update' ]
 ```
@@ -144,7 +146,6 @@ Todo
 * `into` for objects
 * make sure that anything that works for array also works for `arguments`
 * Make sure I say, *sequence* on input and *array* on output
-* cod
 * yggdrasil
 * undermine
 * reb

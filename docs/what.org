@@ -5,11 +5,11 @@
 
 * a functional JavaScript library
 
-Lemonad is a JavaScript library supporting functional programming inspired by [[http://clojure.org][Clojure]], [[http://github.com/clojure/clojurescript][ClojureScript]], [[http://osteele.com/sources/javascript/functional/][Functional JavaScript]] and [[http://underscorejs.org/][Underscore]].  It is built on top of Underscore and as a result requires it be present.
+Lemonad is a JavaScript library supporting functional programming inspired by [[http://clojure.org][Clojure]], [[http://github.com/clojure/clojurescript][ClojureScript]], [[http://osteele.com/sources/javascript/functional/][Functional JavaScript]], ML, Haskell, Forth and [[http://underscorejs.org/][Underscore]].  It requires the presence of either Underscore or [[http://lodash.com/][Lo-Dash]].
 
 * why?
 
-The main motivation for Lemonad is that my current work requires the use of JavaScript on the client side and ClojureScript is not an option.  As a result I decided to try and capture the "feel" of a ClojureScript experience in the guise of JavaScript.  I thought this might be useful for others, so here it is.  Enjoy.
+The main motivation for Lemonad is that my current work requires the use of JavaScript on the client side and ClojureScript is not an option.  As a result I decided to try and capture the "feel" of a ClojureScript experience in the guise of JavaScript.  Over time the library evolved to incorporate other influences while maintaining an adherence to operating with JavaScript core types.  I thought this might be useful for others, so here it is.  Enjoy.
 
 * getting
 
