@@ -262,12 +262,6 @@ describe("Basic functions", function() {
 
       expect(a).toEqual([1,2,3]);
     });
-
-    it("should throw an exception if not given arrays", function() {
-      expect(function() { L.interleave(0,1); }).toThrow();
-      expect(function() { L.interleave(0); }).toThrow();
-      expect(function() { L.interleave(); }).toThrow();
-    });
   });
 
   describe("repeat", function() {
