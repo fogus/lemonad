@@ -30,7 +30,7 @@
       
         
         
-<p><em>the secret JavaScript sauce</em></p>
+<p><em>Always start with the secret JavaScript sauce...</em></p>
 
         
           <div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span></pre></div>
@@ -44,7 +44,7 @@
       
         
         
-<p>Require Underscore.js if not already available.</p>
+<p>I want to require Underscore.js if it&#39;s not already available.</p>
 
         
           <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_</span> <span class="o">||</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;underscore&#39;</span><span class="p">);</span></pre></div>
@@ -58,8 +58,7 @@
       
         
         
-<p>Establish the root object, <code>window</code> in the browser, or <code>global</code> on the server.
-<em>taken from <a href="http://underscorejs.org/">Underscore.js</a></em></p>
+<p>Establish the root object, <code>window</code> in the browser, or <code>global</code> on the server.</p>
 
         
           <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span></pre></div>
@@ -69,7 +68,13 @@
         
 <p>The namespace object <code>L</code> is a function in its own right that returns
 a partially applied function of an arbitrary number of arguments.
-(any<em> -&gt; a) -&gt; any</em> -&gt; (any* -&gt; a)</p>
+For example, you can use <code>L</code> to partially apply the first argument to the
+<code>_.template</code> function:</p>
+<pre><code>var hi = L(_.template, &quot;Hello &lt;%= name %&gt;&quot;);
+_.map([{name: &#39;Joe&#39;}, {name: &#39;Bob&#39;}, {name: &#39;Cleveland&#39;}], hi);
+
+//=&gt; [&quot;Hello Joe&quot;, &quot;Hello Bob&quot;, &quot;Hello Cleveland&quot;]</code></pre>
+<p><em>signature:</em> <code>(any* -&gt; a) -&gt; any* -&gt; (any* -&gt; a)</code></p>
 
         
           <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">L</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fun</span> <span class="cm">/*, args */</span><span class="p">)</span> <span class="p">{</span>
@@ -80,7 +85,7 @@ a partially applied function of an arbitrary number of arguments.
       
         
         
-<p>default to the native <code>bind</code> if available</p>
+<p>Default to the native <code>bind</code> if available</p>
 
         
           <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span><span class="nx">L</span><span class="p">.</span><span class="nx">existy</span><span class="p">(</span><span class="nx">fun</span><span class="p">.</span><span class="nx">bind</span><span class="p">))</span> <span class="p">{</span>
@@ -100,7 +105,7 @@ a partially applied function of an arbitrary number of arguments.
 <p>Current version</p>
 
         
-          <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">VERSION</span> <span class="o">=</span> <span class="s1">&#39;0.5.4&#39;</span><span class="p">;</span></pre></div>
+          <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">VERSION</span> <span class="o">=</span> <span class="s1">&#39;0.5.5&#39;</span><span class="p">;</span></pre></div>
         
       
         
@@ -121,28 +126,9 @@ a partially applied function of an arbitrary number of arguments.
       
         
         
-<p>A portable way to get the prototype of an object based on
-Dave Herman&#39;s excellent &quot;Effective JavaScript&quot;</p>
-
-        
-          <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">getProto</span> <span class="o">=</span> <span class="p">(</span><span class="k">typeof</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="o">?</span>
-    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">obj</span><span class="p">;</span>
-
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">obj</span> <span class="o">||</span> <span class="p">(</span><span class="nx">t</span> <span class="o">!==</span> <span class="s1">&#39;object&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">t</span> <span class="o">!==</span> <span class="s1">&#39;function&#39;</span><span class="p">))</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nx">TypeError</span><span class="p">(</span><span class="s2">&quot;not an object&quot;</span><span class="p">);</span>
-
-      <span class="k">return</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">;</span>
-    <span class="p">})</span>
-    <span class="o">:</span>
-    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">});</span></pre></div>
-        
-      
-        
-        
 <p>Clones an object. Based on the version by
 <a href="http://keithdevens.com/weblog/archive/2007/Jun/07/javascript.clone">Keith Devens</a>
-until I can find a more efficient way to do it.</p>
+until I can find a more efficient and robust way to do it.</p>
 
         
           <div class="highlight"><pre>  <span class="kd">function</span> <span class="nx">theClonusHorror</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
@@ -199,8 +185,8 @@ or clones the object outright if not.</p>
         
         
 <p>Used as a unique value to signify certain conditions in Lemonad.
-Also takes a number of args and returns an array of unique values.
-any<em> -&gt; [any</em>]</p>
+Also takes a number of args and returns an array of unique values.</p>
+<p><em>signature:</em> <code>any* -&gt; [any*]</code></p>
 
         
           <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">$</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
@@ -210,7 +196,7 @@ any<em> -&gt; [any</em>]</p>
       
         
         
-<p>boolean -&gt; boolean</p>
+<p><em>signature:</em> <code>boolean -&gt; boolean</code></p>
 
         
           <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">not</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">b</span><span class="p">){</span> <span class="k">return</span> <span class="o">!</span><span class="nx">b</span><span class="p">;</span> <span class="p">};</span></pre></div>
@@ -219,7 +205,7 @@ any<em> -&gt; [any</em>]</p>
         
         
 <p>increment, decrement and halve
-number -&gt; number</p>
+<em>signature:</em> <code>number -&gt; number</code></p>
 
         
           <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">inc</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="p">};</span>
@@ -229,8 +215,8 @@ number -&gt; number</p>
       
         
         
-<p>type
-{any: any} -&gt; (any* -&gt; any)</p>
+<p>Returns the type constrcutor
+<em>signature:</em> <code>{any: any} -&gt; (any* -&gt; any)</code></p>
 
         
           <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">ctor</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
@@ -240,8 +226,8 @@ number -&gt; number</p>
       
         
         
-<p>a function to get at an index into an array
-[any] -&gt; number -&gt; any</p>
+<p>A function to get at an index into an array
+<em>signature:</em> <code>[any] -&gt; number -&gt; any</code></p>
 
         
           <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">nth</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
@@ -255,8 +241,8 @@ number -&gt; number</p>
       
         
         
-<p>&#39;explodes&#39; a string into an array of chars
-string -&gt; [string]</p>
+<p>Explodes a string into an array of chars
+<em>signature:</em> <code>string -&gt; [string]</code></p>
 
         
           <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">explode</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
@@ -266,8 +252,8 @@ string -&gt; [string]</p>
       
         
         
-<p>&#39;implodes&#39; and array of strings into a string
-[string] -&gt; string</p>
+<p>Implodes and array of chars into a string
+<em>signature:</em> <code>[string] -&gt; string</code></p>
 
         
           <div class="highlight"><pre>  <span class="nx">L</span><span class="p">.</span><span class="nx">implode</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
