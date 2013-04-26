@@ -10,12 +10,9 @@
     "underscore": ">= 1.4.3",
     "swank-js": ">=0.0.1"
   },
-  "devDependencies": {
-    "vows"    :  "0.6.x"
-  },
+  "devDependencies": {},
   "scripts": {
     "swank": "node node_modules/swank-js",
-    "test": "vows test/lemonad-test.js --spec"
   },
   "main": "./lib/lemonad",
   "keywords": [
