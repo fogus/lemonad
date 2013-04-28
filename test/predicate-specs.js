@@ -1,29 +1,4 @@
 describe("Predicates", function() {
-  beforeEach(function() {
-
-  });
-
-  describe("existy", function() {
-    it("should know that null and undefined are not existy", function() {
-      expect(L.existy(null)).toBeFalsy();
-      expect(L.existy(undefined)).toBeFalsy();
-    });
-
-    it("should know that everything else is existy", function() {
-      expect(L.existy(1)).toBeTruthy();
-      expect(L.existy(0)).toBeTruthy();
-      expect(L.existy(-1)).toBeTruthy();
-      expect(L.existy(3.14)).toBeTruthy();
-      expect(L.existy('undefined')).toBeTruthy();
-      expect(L.existy('')).toBeTruthy();
-      expect(L.existy(NaN)).toBeTruthy();
-      expect(L.existy(Infinity)).toBeTruthy();
-      expect(L.existy(true)).toBeTruthy();
-      expect(L.existy(false)).toBeTruthy();
-      expect(L.existy(function(){})).toBeTruthy();
-    });
-  });
-
   describe("truthy", function() {
     it("should know that null, false and undefined are not truthy", function() {
       expect(L.truthy(null)).toBeFalsy();
