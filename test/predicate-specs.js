@@ -1,25 +1,3 @@
-describe("Predicates", function() {
-  describe("truthy", function() {
-    it("should know that null, false and undefined are not truthy", function() {
-      expect(L.truthy(null)).toBeFalsy();
-      expect(L.truthy(undefined)).toBeFalsy();
-      expect(L.truthy(false)).toBeFalsy();
-    });
-
-    it("should know that everything else is truthy", function() {
-      expect(L.truthy(1)).toBeTruthy();
-      expect(L.truthy(0)).toBeTruthy();
-      expect(L.truthy(-1)).toBeTruthy();
-      expect(L.truthy(3.14)).toBeTruthy();
-      expect(L.truthy('undefined')).toBeTruthy();
-      expect(L.truthy('')).toBeTruthy();
-      expect(L.truthy(NaN)).toBeTruthy();
-      expect(L.truthy(Infinity)).toBeTruthy();
-      expect(L.truthy(true)).toBeTruthy();
-      expect(L.truthy(function(){})).toBeTruthy();
-    });
-  });
-
   describe("isInst", function() {
     it("should determine if an instance is of a given type", function() {
       expect(L.isInst([], Array)).toBeTruthy();
