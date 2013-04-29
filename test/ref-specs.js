@@ -18,10 +18,10 @@ describe("Reference types and functions", function() {
       it("should be a Hole and Object type", function() {
         var v = new L.Hole(42);
 
-        expect(L.isInst((new L.Hole(42)), L.Hole)).toBeTruthy();
+        expect(_.isInstanceOf((new L.Hole(42)), L.Hole)).toBeTruthy();
         // TODO modify Hole so that it does not pass CAS check
-        expect(L.isInst((new L.Hole(42)), Object)).toBeTruthy();
-        expect(L.isInst((new L.Hole(42)), Array)).toBeFalsy();
+        expect(_.isInstanceOf((new L.Hole(42)), Object)).toBeTruthy();
+        expect(_.isInstanceOf((new L.Hole(42)), Array)).toBeFalsy();
       });
     });
 
@@ -88,9 +88,9 @@ describe("Reference types and functions", function() {
         var v = new L.CAS(42);        
 
         expect(L.isReference(new L.CAS(42))).toBeTruthy();
-        expect(L.isInst((new L.CAS(42)), L.CAS)).toBeTruthy();
-        expect(L.isInst((new L.CAS(42)), Object)).toBeTruthy();
-        expect(L.isInst((new L.CAS(42)), Array)).toBeFalsy();
+        expect(_.isInstanceOf((new L.CAS(42)), L.CAS)).toBeTruthy();
+        expect(_.isInstanceOf((new L.CAS(42)), Object)).toBeTruthy();
+        expect(_.isInstanceOf((new L.CAS(42)), Array)).toBeFalsy();
       });
 
       it("should return true if successful", function() {
