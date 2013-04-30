@@ -1,78 +1,4 @@
 describe("Applicative functions", function() {
-  describe("splitWith", function() {
-    it("should return an array", function() {
-      expect(L.splitWith(_.isPositive, []).constructor).toBe(Array);
-    });
-
-    it("should split a sequence at the point when the given function goes falsey", function() {
-      var a = [1,2,3,4,5];
-      var lessThanEq3p = function(n) { return n <= 3; };
-      var lessThanEq3p$ = function(n) { return (n <= 3) ? true : null; };
-
-      expect(L.splitWith(lessThanEq3p, a)).toEqual([[1,2,3], [4,5]]);
-      expect(L.splitWith(lessThanEq3p$, a)).toEqual([[1,2,3], [4,5]]);
-    });
-
-    it("should not modify the originals", function() {
-      var a = [1,2,3,4,5];
-      var lessThanEq3p = function(n) { return n <= 3; };
-      var ___ = L.splitWith(lessThanEq3p, a);
-
-      expect(a).toEqual([1,2,3,4,5]);
-    });
-
-    it("should throw an exception if the second arg is not a sequence", function() {
-      expect(function() { L.splitWith(function(){}, 2); }).toThrow();
-      expect(function() { L.splitWith(function(){}); }).toThrow();
-      expect(function() { L.splitWith(); }).toThrow();
-    });
-
-    it("should split an empty array to [[],[]]]", function() {
-      expect(L.splitWith(_.isPositive, [])).toEqual([[],[]]);
-    });
-  });
-
-  describe("keep", function() {
-    it("should return an array of existy results from the given function over a sequence", function() {
-      var a = _.range(10);
-      var eveny = function(e) { return (_.isEven(e)) ? e : undefined; };
-
-      expect(L.keep(eveny, a)).toEqual([0, 2, 4, 6, 8]);
-      expect(L.keep(_.isEven, a)).toEqual([true, false, true, false, true, false, true, false, true, false]);
-    });
-
-    it("should not modify the original", function() {
-      var a = _.range(10);
-      var eveny = function(e) { return (_.isEven(e)) ? e : undefined; };
-      var $ = L.keep(eveny, a);
-
-      expect(a).toEqual(_.range(10));
-    });
-
-    it("should throw an exception if the second arg is not a sequence", function() {
-      expect(function() { L.keep(_.isEven); }).toThrow();
-    });
-  });
-
-  describe("remove", function() {
-    it("should return an array of elements from the original where the predicate returned true", function() {
-      var a = [0,1,2,-1,3];
-
-      expect(L.remove(_.isPositive, a)).toEqual([0, -1]);
-    });
-
-    it("should not modify the original", function() {
-      var a = [0,1,2,-1,3];
-      var ___ = L.remove(_.isPositive, a);
-
-      expect(a).toEqual([0,1,2,-1,3]);
-    });
-
-    it("should throw an exception if the second arg is not a sequence", function() {
-      expect(function() { L.remove(_.isEven); }).toThrow();
-    });
-  });
-
   describe("maxKey", function() {
     it("should return the arg for which the given function returns the largest value", function() {
       expect(L.maxKey(_.size, [1,2], [2], [4,5,6])).toEqual([4,5,6]);
@@ -89,15 +15,6 @@ describe("Applicative functions", function() {
       expect(L.keepIndexed(oddy, a)).toEqual(['b', 'd']);
       expect(L.keepIndexed(posy, b)).toEqual([2,4,5]);
       expect(L.keepIndexed(oddy, _.range(10))).toEqual([1,3,5,7,9]);
-    });
-  });
-
-  describe("mapcat", function() {
-    it("should return the arg for which the given function returns the largest value", function() {
-      var a = [1,2,3];
-      var commaize = function(e) { return _.cons(e, [","]); };
-
-      expect(L.mapcat(commaize, a)).toEqual([1, ",", 2, ",", 3, ","]);
     });
   });
 
