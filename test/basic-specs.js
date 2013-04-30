@@ -298,28 +298,6 @@ describe("Basic functions", function() {
     });
   });
 
-  describe("nth", function() {
-    var a = ['a','b','c'];
-
-    it("should return the element at a given index into an array.", function() {
-      expect(L.nth(a, 0)).toEqual('a');
-    });
-
-    it("should throw an exception if not given an array as the first arg", function() {
-      expect(function() { L.nth("", 0); }).toThrow();
-    });
-
-    it("should throw an exception if not given a number as the second arg", function() {
-      expect(function() { L.nth(a,'a'); }).toThrow();
-      expect(function() { L.nth(a); }).toThrow();
-    });
-
-    it("should throw an exception if not given an index out of bounds.", function() {
-      expect(function() { L.nth(a, -1); }).toThrow();
-      expect(function() { L.nth(a, 10000); }).toThrow();
-    });
-  });
-
   describe("second", function() {
     var a = [1,2,3];
 
