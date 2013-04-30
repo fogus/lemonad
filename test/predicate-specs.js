@@ -1,25 +1,4 @@
 describe("Predicate functions", function() {
-  describe("isAssociative", function() {
-    it("should know that arrays, functions and objects are associative", function() {
-      expect(L.isAssociative({})).toBeTruthy();
-      expect(L.isAssociative(function(){})).toBeTruthy();
-      expect(L.isAssociative([])).toBeTruthy();
-      expect(L.isAssociative(new Array(10))).toBeTruthy();
-    });
-
-    it("should know that everything else is not associative", function() {
-      expect(L.isAssociative(1)).toBeFalsy();
-      expect(L.isAssociative(0)).toBeFalsy();
-      expect(L.isAssociative(-1)).toBeFalsy();
-      expect(L.isAssociative(3.14)).toBeFalsy();
-      expect(L.isAssociative('undefined')).toBeFalsy();
-      expect(L.isAssociative('')).toBeFalsy();
-      expect(L.isAssociative(NaN)).toBeFalsy();
-      expect(L.isAssociative(Infinity)).toBeFalsy();
-      expect(L.isAssociative(true)).toBeFalsy();
-    });
-  });
-
   describe("isIndexed", function() {
     it("should recognize an element allowing numerical index access", function() {
       expect(L.isIndexed([])).toBeTruthy();
