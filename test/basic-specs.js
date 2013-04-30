@@ -10,22 +10,6 @@ describe("Basic functions", function() {
     });
   });
 
-  describe("repeat", function() {
-    it("should build an array of some size with the specified element in each slot", function() {
-      expect(L.repeat(3,1)).toEqual([1,1,1]);
-      expect(L.repeat(0)).toEqual([]);
-      expect(L.repeat(0,1)).toEqual([]);
-    });
-
-    it("should throw an exception if not given a number as the first arg", function() {
-      expect(function() { L.repeat(); }).toThrow();
-    });
-
-    it("should return an empty array when given a negative repeat value", function() {
-      expect(L.repeat(-3,1)).toEqual([]);
-    });
-  });
-
   describe("cycle", function() {
     it("should build an array of some size filled with the elements of the given array repeated", function() {
       var a = [1,2,3];
