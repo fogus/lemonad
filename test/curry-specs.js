@@ -1,8 +1,4 @@
 describe("Currying functions", function() {
-  beforeEach(function() {
-
-  });
-
   describe("curry2", function() {
     it("should return a function curried for two args", function() {
       var div10 = L.curry2(function(n, d) { return n / d; })(10);
