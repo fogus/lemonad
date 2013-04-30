@@ -3,14 +3,6 @@ describe("Combinators", function() {
 
   });
 
-  describe("constantly", function() {
-    it("should return a function that always returns the same value", function() {
-      var f = L.constantly(42);
-
-      expect(f(1,2)).toEqual(42);
-    });
-  });
-
   describe("pipeline", function() {
     it("should apply a series of functions to an initial value", function() {
       var result = L.pipeline(42, function(n) { return -n; }, function(n) { return "" + n; });

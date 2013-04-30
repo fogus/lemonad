@@ -103,7 +103,7 @@ describe("Applicative functions", function() {
 
   describe("repeatedly", function() {
     it("should return an array of the size given with the function given called for each cell", function() {
-      expect(L.repeatedly(3, L.k(42))).toEqual([42,42,42]);
+      expect(L.repeatedly(3, _.always(42))).toEqual([42,42,42]);
     });
   });
 
