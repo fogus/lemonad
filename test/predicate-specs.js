@@ -1,27 +1,4 @@
 describe("Predicate functions", function() {
-  describe("isIndexed", function() {
-    it("should recognize an element allowing numerical index access", function() {
-      expect(L.isIndexed([])).toBeTruthy();
-      expect(L.isIndexed([1,2,3])).toBeTruthy();
-      expect(L.isIndexed(new Array(10))).toBeTruthy();
-      expect(L.isIndexed("")).toBeTruthy();
-      expect(L.isIndexed("abc")).toBeTruthy();
-    });
-
-    it("should recognize non-indexed objects", function() {
-      expect(L.isIndexed(1)).toBeFalsy();
-      expect(L.isIndexed(0)).toBeFalsy();
-      expect(L.isIndexed(-1)).toBeFalsy();
-      expect(L.isIndexed(3.14)).toBeFalsy();
-      expect(L.isIndexed(undefined)).toBeFalsy();
-      expect(L.isIndexed(NaN)).toBeFalsy();
-      expect(L.isIndexed(Infinity)).toBeFalsy();
-      expect(L.isIndexed(true)).toBeFalsy();
-      expect(L.isIndexed(false)).toBeFalsy();
-      expect(L.isIndexed(function(){})).toBeFalsy();
-    });
-  });
-
   describe("isReference", function() {
     it("should know that Holes and CAS are references", function() {
       expect(L.isReference(new L.Hole())).toBeTruthy();
