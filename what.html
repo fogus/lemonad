@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Lemonad"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-04-11 09:55:53 EDT"/>
+<meta name="generated" content="2013-04-30 12:29:03 EDT"/>
 <meta name="author" content="Fogus"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -42,7 +42,7 @@
 
 
 <p>
-Lemonad is a JavaScript library supporting functional programming inspired by <a href="http://clojure.org">Clojure</a>, <a href="http://github.com/clojure/clojurescript">ClojureScript</a>, <a href="http://osteele.com/sources/javascript/functional/">Functional JavaScript</a>, ML, Haskell, Forth and <a href="http://underscorejs.org/">Underscore</a>.  It requires the presence of either Underscore or <a href="http://lodash.com/">Lo-Dash</a>.
+Lemonad is a JavaScript library supporting functional programming inspired by <a href="http://clojure.org">Clojure</a>, <a href="http://github.com/clojure/clojurescript">ClojureScript</a>, <a href="http://osteele.com/sources/javascript/functional/">Functional JavaScript</a>, ML, Haskell, Forth and <a href="http://underscorejs.org/">Underscore</a>.  It requires the presence of either Underscore or <a href="http://lodash.com/">Lo-Dash</a> and the <a href="https://www.github.com/documentcloud/underscore-contrib">Underscore-contrib</a> libraries.
 </p>
 </div>
 
@@ -72,7 +72,7 @@ Lemonad can be installed via <a href="http://npmjs.org/package/lemonad">NPM</a> 
 
 
 <pre class="src src-javascript"><span style="color: #87005f;">"dependencies"</span>: {
-  <span style="color: #87005f;">"lemonad"</span>: <span style="color: #87005f;">"&gt;= 0.5.5"</span>,
+  <span style="color: #87005f;">"lemonad"</span>: <span style="color: #87005f;">"&gt;= 0.6.0"</span>,
 }
 </pre>
 
@@ -99,6 +99,11 @@ On a web page, you'll need to do the following:
 
 
 <pre class="src src-html">&lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"underscore.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+&lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"underscore.array.builders.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+&lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"underscore.array.selectors.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+&lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"underscore.function.combinators.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+&lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"underscore.function.predicates.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
+&lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"underscore.util.existential.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
 &lt;<span style="color: #0000ff;">script</span> <span style="color: #af5f00;">type</span>=<span style="color: #87005f;">"text/javascript"</span> <span style="color: #af5f00;">src</span>=<span style="color: #87005f;">"lemonad.js"</span>&gt;&lt;/<span style="color: #0000ff;">script</span>&gt;
 </pre>
 
@@ -137,7 +142,7 @@ Remember, <a href="https://github.com/fogus/lemonad/issues">contibutions welcome
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2013-04-11 09:55:53 EDT</p>
+<p class="date">Date: 2013-04-30 12:29:03 EDT</p>
 <p class="author">Author: Fogus</p>
 <p class="creator">Org version 7.8.11 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
