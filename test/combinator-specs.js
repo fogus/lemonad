@@ -1,24 +1,4 @@
 describe("Combinators", function() {
-  beforeEach(function() {
-
-  });
-
-  describe("pipeline", function() {
-    it("should apply a series of functions to an initial value", function() {
-      var result = L.pipeline(42, function(n) { return -n; }, function(n) { return "" + n; });
-
-      expect(result).toEqual("-42");
-    });
-  });
-
-  describe("compose", function() {
-    it("should compose a series of functions and return a function applying each from right to left", function() {
-      var f = L.compose(function(n) { return "" + n; }, function(n) { return -n; });
-
-      expect(f(42)).toEqual("-42");
-    });
-  });
-
   describe("conjoin", function() {
     it("should compose a series of predicates and return a function that checks an arg against everyone, returning true if they *all* match", function() {
       var isPositiveEven = L.conjoin(_.isPositive, _.isEven);
