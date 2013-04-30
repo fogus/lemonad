@@ -17,44 +17,4 @@ describe("Applicative functions", function() {
       expect(L.keepIndexed(oddy, _.range(10))).toEqual([1,3,5,7,9]);
     });
   });
-
-  describe("dropWhile", function() {
-    it("should drop all elements from an array until a given function goes truthy", function() {
-      expect(L.dropWhile(_.isNegative, [-2,-1,0,1,2])).toEqual([0,1,2]);
-      expect(L.dropWhile(_.isNegative, [0,1,2])).toEqual([0,1,2]);
-      expect(L.dropWhile(_.isNegative, [-2,-1])).toEqual([]);
-      expect(L.dropWhile(_.isNegative, [1, -2,-1,0,1,2])).toEqual([1,-2,-1,0,1,2]);
-    });
-
-    it("should properly handle empty array arguments", function() {
-      expect(L.dropWhile(_.isNegative, [])).toEqual([]);
-    });
-  });
-
-  describe("takeWhile", function() {
-    it("should take all elements from an array until a given function goes truthy", function() {
-      expect(L.takeWhile(_.isNegative, [-2,-1,0,1,2])).toEqual([-2,-1]);
-      expect(L.takeWhile(_.isNegative, [1,-2,-1,0,1,2])).toEqual([]);
-    });
-
-    it("should properly handle empty array arguments", function() {
-      expect(L.takeWhile(_.isNegative, [])).toEqual([]);
-    });
-  });
-
-  describe("partitionBy", function() {
-    it("should partition an array as a given predicate changes truth sense.", function() {
-      var a = [1, 2, null, false, undefined, 3, 4];
-
-      expect(L.partitionBy(_.truthy, a)).toEqual([[1,2], [null, false, undefined], [3,4]]);
-    });
-
-    it("should not modify the original array", function() {
-      var a = [1, 2, null, false, undefined, 3, 4];
-      var $ = L.partitionBy(_.truthy, a);
-
-      expect(a).toEqual([1, 2, null, false, undefined, 3, 4]);
-    });
-  });
-
 });
