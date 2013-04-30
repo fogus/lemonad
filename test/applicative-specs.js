@@ -18,21 +18,6 @@ describe("Applicative functions", function() {
     });
   });
 
-  describe("repeatedly", function() {
-    it("should return an array of the size given with the function given called for each cell", function() {
-      expect(L.repeatedly(3, _.always(42))).toEqual([42,42,42]);
-    });
-  });
-
-  describe("plucker", function() {
-    it("should return a function that will pluck a specified property from any object given", function() {
-      var f = L.plucker('a');
-
-      expect(f({a: 42})).toEqual(42);
-      expect(f({z: 42})).toEqual(undefined);
-    });
-  });
-
   describe("juxt", function() {
     it("should return a function that returns an array of the originally supplied functions called", function() {
       var f = L.juxt(_.isPositive, _.isEven, _.isZero);
