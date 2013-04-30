@@ -20,8 +20,8 @@ describe("Higher-order functions", function() {
   });
 
   describe("complement", function() {
-    var _e = L.complement(L.isOdd);
-    var _o = L.complement(L.isEven);
+    var _e = L.complement(_.isOdd);
+    var _o = L.complement(_.isEven);
     var _n = L.complement(L.eq(5), L.eq(0));
 
     it("should return a predicate that gives the opposite result of a given predicate", function() {

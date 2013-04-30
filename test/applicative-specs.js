@@ -1,7 +1,7 @@
 describe("Applicative functions", function() {
   describe("splitWith", function() {
     it("should return an array", function() {
-      expect(L.splitWith(L.isPos, []).constructor).toBe(Array);
+      expect(L.splitWith(_.isPositive, []).constructor).toBe(Array);
     });
 
     it("should split a sequence at the point when the given function goes falsey", function() {
@@ -16,7 +16,7 @@ describe("Applicative functions", function() {
     it("should not modify the originals", function() {
       var a = [1,2,3,4,5];
       var lessThanEq3p = function(n) { return n <= 3; };
-      var _ = L.splitWith(lessThanEq3p, a);
+      var ___ = L.splitWith(lessThanEq3p, a);
 
       expect(a).toEqual([1,2,3,4,5]);
     });
@@ -28,7 +28,7 @@ describe("Applicative functions", function() {
     });
 
     it("should split an empty array to [[],[]]]", function() {
-      expect(L.splitWith(L.isPos, [])).toEqual([[],[]]);
+      expect(L.splitWith(_.isPositive, [])).toEqual([[],[]]);
     });
   });
 
@@ -49,7 +49,7 @@ describe("Applicative functions", function() {
       var obj = {a: {b: {c: 42, d: 108}}};
       var ary = ['a', ['b', ['c', 'd'], 'e']];
 
-      var _   = L.update(obj, ['a', 'b', 'c'], L.k(9));
+      var ___   = L.update(obj, ['a', 'b', 'c'], L.k(9));
       var __  = L.update(ary, [1, 1, 0], L.k(9));
 
       expect(obj).toEqual({a: {b: {c: 42, d: 108}}});
@@ -60,22 +60,22 @@ describe("Applicative functions", function() {
   describe("keep", function() {
     it("should return an array of existy results from the given function over a sequence", function() {
       var a = _.range(10);
-      var eveny = function(e) { return (L.isEven(e)) ? e : undefined; };
+      var eveny = function(e) { return (_.isEven(e)) ? e : undefined; };
 
       expect(L.keep(eveny, a)).toEqual([0, 2, 4, 6, 8]);
-      expect(L.keep(L.isEven, a)).toEqual([true, false, true, false, true, false, true, false, true, false]);
+      expect(L.keep(_.isEven, a)).toEqual([true, false, true, false, true, false, true, false, true, false]);
     });
 
     it("should not modify the original", function() {
       var a = _.range(10);
-      var eveny = function(e) { return (L.isEven(e)) ? e : undefined; };
-      var $ = L.keep(eveny, a); 
+      var eveny = function(e) { return (_.isEven(e)) ? e : undefined; };
+      var $ = L.keep(eveny, a);
 
       expect(a).toEqual(_.range(10));
     });
 
     it("should throw an exception if the second arg is not a sequence", function() {
-      expect(function() { L.keep(L.isEven); }).toThrow();
+      expect(function() { L.keep(_.isEven); }).toThrow();
     });
   });
 
@@ -83,18 +83,18 @@ describe("Applicative functions", function() {
     it("should return an array of elements from the original where the predicate returned true", function() {
       var a = [0,1,2,-1,3];
 
-      expect(L.remove(L.isPos, a)).toEqual([0, -1]);
+      expect(L.remove(_.isPositive, a)).toEqual([0, -1]);
     });
 
     it("should not modify the original", function() {
       var a = [0,1,2,-1,3];
-      var _ = L.remove(L.isPos, a);
+      var ___ = L.remove(_.isPositive, a);
 
       expect(a).toEqual([0,1,2,-1,3]);
     });
 
     it("should throw an exception if the second arg is not a sequence", function() {
-      expect(function() { L.remove(L.isEven); }).toThrow();
+      expect(function() { L.remove(_.isEven); }).toThrow();
     });
   });
 
@@ -108,8 +108,8 @@ describe("Applicative functions", function() {
     it("should return the arg for which the given function returns the largest value", function() {
       var a = ['a', 'b', 'c', 'd', 'e'];
       var b = [-9, 0, 29, -7, 45, 3, -8];
-      var oddy = function(k, v) { return L.isOdd(k) ? v : undefined; };
-      var posy = function(k, v) { return L.isPos(v) ? k : undefined; };
+      var oddy = function(k, v) { return _.isOdd(k) ? v : undefined; };
+      var posy = function(k, v) { return _.isPositive(v) ? k : undefined; };
 
       expect(L.keepIndexed(oddy, a)).toEqual(['b', 'd']);
       expect(L.keepIndexed(posy, b)).toEqual([2,4,5]);
@@ -143,7 +143,7 @@ describe("Applicative functions", function() {
 
   describe("juxt", function() {
     it("should return a function that returns an array of the originally supplied functions called", function() {
-      var f = L.juxt(L.isPos, L.isEven, L.isZero);
+      var f = L.juxt(_.isPositive, _.isEven, _.isZero);
 
       expect(f(1)).toEqual([true, false, false]);
       expect(f()).toEqual([false, false, false]);
@@ -152,7 +152,7 @@ describe("Applicative functions", function() {
 
   describe("iterateUntil", function() {
     it("should call a function recursively f(f(f(args))) until a given function goes falsey", function() {
-      expect(L.iterateUntil(function(n){ return n-1; }, L.isPos, 6)).toEqual([5,4,3,2,1]);
+      expect(L.iterateUntil(function(n){ return n-1; }, _.isPositive, 6)).toEqual([5,4,3,2,1]);
     });
   });
 
@@ -164,25 +164,25 @@ describe("Applicative functions", function() {
 
   describe("dropWhile", function() {
     it("should drop all elements from an array until a given function goes truthy", function() {
-      expect(L.dropWhile(L.isNeg, [-2,-1,0,1,2])).toEqual([0,1,2]);
-      expect(L.dropWhile(L.isNeg, [0,1,2])).toEqual([0,1,2]);
-      expect(L.dropWhile(L.isNeg, [-2,-1])).toEqual([]);
-      expect(L.dropWhile(L.isNeg, [1, -2,-1,0,1,2])).toEqual([1,-2,-1,0,1,2]);
+      expect(L.dropWhile(_.isNegative, [-2,-1,0,1,2])).toEqual([0,1,2]);
+      expect(L.dropWhile(_.isNegative, [0,1,2])).toEqual([0,1,2]);
+      expect(L.dropWhile(_.isNegative, [-2,-1])).toEqual([]);
+      expect(L.dropWhile(_.isNegative, [1, -2,-1,0,1,2])).toEqual([1,-2,-1,0,1,2]);
     });
 
     it("should properly handle empty array arguments", function() {
-      expect(L.dropWhile(L.isNeg, [])).toEqual([]);
+      expect(L.dropWhile(_.isNegative, [])).toEqual([]);
     });
   });
 
   describe("takeWhile", function() {
     it("should take all elements from an array until a given function goes truthy", function() {
-      expect(L.takeWhile(L.isNeg, [-2,-1,0,1,2])).toEqual([-2,-1]);
-      expect(L.takeWhile(L.isNeg, [1,-2,-1,0,1,2])).toEqual([]);
+      expect(L.takeWhile(_.isNegative, [-2,-1,0,1,2])).toEqual([-2,-1]);
+      expect(L.takeWhile(_.isNegative, [1,-2,-1,0,1,2])).toEqual([]);
     });
 
     it("should properly handle empty array arguments", function() {
-      expect(L.takeWhile(L.isNeg, [])).toEqual([]);
+      expect(L.takeWhile(_.isNegative, [])).toEqual([]);
     });
   });
 
