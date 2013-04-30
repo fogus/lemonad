@@ -1,8 +1,4 @@
 describe("Basic functions", function() {
-  beforeEach(function() {
-
-  });
-
   describe("ctor", function() {
     it("should return the constructor of the object", function() {
       var O = function() { this.foo = 42; };
@@ -11,78 +7,6 @@ describe("Basic functions", function() {
       expect(L.ctor({})).toBe(Object);
       expect(L.ctor(new O())).toBe(O);
       expect(L.ctor(null)).toBe(null);
-    });
-  });
-
-  describe("cat", function() {
-    it("should return an empty array when given no args", function() {
-      expect(L.cat()).toEqual([]);
-    });
-
-    it("should concatenate one array", function() {
-      var a = [];
-      var b = [1,2,3];
-
-      expect(L.cat(a)).toEqual([]);
-      expect(L.cat(b)).toEqual([1,2,3]);
-    });
-
-    it("should concatenate two arrays", function() {
-      var a = [1,2,3];
-      var b = [4,5,6];
-
-      expect(L.cat(a,b)).toEqual([1,2,3,4,5,6]);
-    });
-
-    it("should concatenate any number of arrays", function() {
-      var a = [1,2,3];
-      var b = [4,5,6];
-      var c = [7,8,9];
-
-      expect(L.cat(a,b,c)).toEqual([1,2,3,4,5,6,7,8,9]);
-      expect(L.cat(a,b,c,a,b,c)).toEqual([1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]);
-    });
-
-    it("should not modify the originals", function() {
-      var a = [1,2,3];
-      var b = [4,5,6];
-      var _ = L.cat(a,b);
-
-      expect(a).toEqual([1,2,3]);
-      expect(b).toEqual([4,5,6]);
-    });
-
-    it("should concatenate two items, as long as the first is an array", function() {
-      var a = [1];
-      var b = 2;
-
-      expect(L.cat(a,b)).toEqual([1,2]);
-    });
-
-    it("should concatenate 3 or more arrays", function() {
-      var a = [1,2,3];
-      var b = [4,5,6];
-      var c = [7,8,9];
-      var d = [0,0,0];
-
-      expect(L.cat(a,b,c)).toEqual([1,2,3,4,5,6,7,8,9]);
-      expect(L.cat(a,b,c,d)).toEqual([1,2,3,4,5,6,7,8,9,0,0,0]);
-    });
-
-    it("should concatenate three or more items, as long as the first is an array", function() {
-      var a = [1];
-      var b = 2;
-      var c = 3;
-      var d = [4];
-
-      expect(L.cat(a,b,c)).toEqual([1,2,3]);
-      expect(L.cat(a,b,c,d)).toEqual([1,2,3,4]);
-    });
-
-    it("should throw an exception if the first arg is not an array", function() {
-      expect(function() { L.cat(1,2); }).toThrow();
-      expect(function() { L.cat(1,[2]); }).toThrow();
-
     });
   });
 
