@@ -10,30 +10,6 @@ describe("Basic functions", function() {
     });
   });
 
-  describe("butLast", function() {
-    it("should give all but the last element in an array", function() {
-      var a = [1,2,3];
-
-      expect(L.butLast(a)).toEqual([1,2]);
-      expect(L.butLast([1])).toEqual([]);
-    });
-
-    it("should properly handle empty array arguments", function() {
-      expect(L.butLast([])).toEqual([]);
-    });
-
-    it("should not modify the original", function() {
-      var a = [1,2,3];
-      var _ = L.butLast(a);
-
-      expect(a).toEqual([1,2,3]);
-    });
-
-    it("should throw an exception if not given an array", function() {
-      expect(function() { L.butLast(1); }).toThrow();
-    });
-  });
-
   describe("cons", function() {
     it("should insert the first arg into the array given as the second arg", function() {
       var a = [1,2,3];
