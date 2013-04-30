@@ -1,18 +1,6 @@
 describe("Partial application functions", function() {
   var over = function(t, m, b) { return t / m / b; };
 
-  describe("partial$", function() {
-    it("should return a function partially applied for some number of arbitrary args marked by L.$", function() {
-      var t = L.partial$(over, 10, L.$, L.$);
-      var m = L.partial$(over, L.$, 5, L.$);
-      var b = L.partial$(over, L.$, L.$, 2);
-
-      expect(t(5,2)).toEqual(1);
-      expect(m(10,2)).toEqual(1);
-      expect(b(10,5)).toEqual(1);
-    });
-  });
-
   describe("partial1", function() {
     it("should return a function partially applied for the first arg", function() {
       var t = L.partial1(over, 10);

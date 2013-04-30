@@ -5,7 +5,7 @@
 
 * a functional JavaScript library
 
-Lemonad is a JavaScript library supporting functional programming inspired by [[http://clojure.org][Clojure]], [[http://github.com/clojure/clojurescript][ClojureScript]], [[http://osteele.com/sources/javascript/functional/][Functional JavaScript]], ML, Haskell, Forth and [[http://underscorejs.org/][Underscore]].  It requires the presence of either Underscore or [[http://lodash.com/][Lo-Dash]].
+Lemonad is a JavaScript library supporting functional programming inspired by [[http://clojure.org][Clojure]], [[http://github.com/clojure/clojurescript][ClojureScript]], [[http://osteele.com/sources/javascript/functional/][Functional JavaScript]], ML, Haskell, Forth and [[http://underscorejs.org/][Underscore]].  It requires the presence of either Underscore or [[http://lodash.com/][Lo-Dash]] and the [[https://www.github.com/documentcloud/underscore-contrib][Underscore-contrib]] libraries.
 
 * why?
 
@@ -17,7 +17,7 @@ Lemonad can be installed via [[http://npmjs.org/package/lemonad][NPM]] by adding
 
 #+begin_src javascript
 "dependencies": {
-  "lemonad": ">= 0.5.5",
+  "lemonad": ">= 0.6.0",
 }
 #+end_src
 
@@ -31,6 +31,11 @@ On a web page, you'll need to do the following:
 
 #+begin_src html
 <script type="text/javascript" src="underscore.js"></script>
+<script type="text/javascript" src="underscore.array.builders.js"></script>
+<script type="text/javascript" src="underscore.array.selectors.js"></script>
+<script type="text/javascript" src="underscore.function.combinators.js"></script>
+<script type="text/javascript" src="underscore.function.predicates.js"></script>
+<script type="text/javascript" src="underscore.util.existential.js"></script>
 <script type="text/javascript" src="lemonad.js"></script>
 #+end_src
 

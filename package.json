@@ -1,7 +1,7 @@
 {
   "name": "lemonad",
-  "version": "0.5.5",
-  "description": "JavaScript functional programming library, inspired by the Clojure, ML, Haskell and Forth. Underscore turned to 11.",
+  "version": "0.6.0",
+  "description": "JavaScript functional programming library, inspired by the Clojure, ML, Haskell and Forth. Built on Underscore and its contrib library.",
   "homepage": "http://www.fogus.me/",
   "contributors": [
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"
@@ -10,12 +10,9 @@
     "underscore": ">= 1.4.3",
     "swank-js": ">=0.0.1"
   },
-  "devDependencies": {
-    "vows"    :  "0.6.x"
-  },
+  "devDependencies": {},
   "scripts": {
     "swank": "node node_modules/swank-js",
-    "test": "vows test/lemonad-test.js --spec"
   },
   "main": "./lib/lemonad",
   "keywords": [
