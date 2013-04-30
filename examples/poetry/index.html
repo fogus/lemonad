@@ -2,12 +2,20 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <script language="javascript" src="http://raw.github.com/documentcloud/underscore/master/underscore.js"></script>
+  <script type="text/javascript" src="../../test/lib/underscore.array.builders.js"></script>
+  <script type="text/javascript" src="../../test/lib/underscore.array.selectors.js"></script>
+  <script type="text/javascript" src="../../test/lib/underscore.function.combinators.js"></script>
+  <script type="text/javascript" src="../../test/lib/underscore.function.predicates.js"></script>
+  <script type="text/javascript" src="../../test/lib/underscore.object.selectors.js"></script>
+  <script type="text/javascript" src="../../test/lib/underscore.util.existential.js"></script>
+  <script type="text/javascript" src="../../test/lib/underscore.util.strings.js"></script>
+
   <script language="javascript" src="../../lib/lemonad.js"></script>
   <script language="javascript" src="poetry.js"></script>
 
   <script language="javascript" type="text/javascript">
     function feed() {
-      setInterval(function(){ 
+      setInterval(function(){
         poetry(JSON.stringify({seed: _.random(1,100)})) 
       }, 1000);
     }

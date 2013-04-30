@@ -7,13 +7,10 @@
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"
   ],
   "dependencies": {
-    "underscore": ">= 1.4.3",
-    "swank-js": ">=0.0.1"
+    "underscore": ">= 1.4.3"
   },
   "devDependencies": {},
-  "scripts": {
-    "swank": "node node_modules/swank-js",
-  },
+  "scripts": { },
   "main": "./lib/lemonad",
   "keywords": [
     "underscore",
