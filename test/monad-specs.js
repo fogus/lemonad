@@ -2,7 +2,7 @@ describe("Monadic functions", function() {
   describe("actions", function() {
     it("should carry forward the intermediate state properly", function() {
       var push = L.lift(function(stack, e) {
-        return L.cons(e, stack);
+        return _.cons(e, stack);
       });
 
       var pop = L.lift(_.first, _.rest);

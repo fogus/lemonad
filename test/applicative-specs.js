@@ -120,7 +120,7 @@ describe("Applicative functions", function() {
   describe("mapcat", function() {
     it("should return the arg for which the given function returns the largest value", function() {
       var a = [1,2,3];
-      var commaize = function(e) { return L.cons(e, [","]); };
+      var commaize = function(e) { return _.cons(e, [","]); };
 
       expect(L.mapcat(commaize, a)).toEqual([1, ",", 2, ",", 3, ","]);
     });

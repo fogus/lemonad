@@ -10,29 +10,6 @@ describe("Basic functions", function() {
     });
   });
 
-  describe("cons", function() {
-    it("should insert the first arg into the array given as the second arg", function() {
-      var a = [1,2,3];
-      var b = [0];
-
-      expect(L.cons(0, a)).toEqual([0,1,2,3]);
-      expect(L.cons(b, a)).toEqual([[0],1,2,3]);
-      expect(L.cons(0, [])).toEqual([0]);
-    });
-
-    it("should create a pair if the second is not an array", function() {
-      expect(L.cons(1, 2)).toEqual([1,2]);
-      expect(L.cons([1], 2)).toEqual([[1],2]);
-    });
-
-    it("should not modify the original", function() {
-      var a = [1,2,3];
-      var _ = L.cons(0, a);
-
-      expect(a).toEqual([1,2,3]);
-    });
-  });
-
   describe("interpose", function() {
     it("should inject the first arg in-between the elements of the second array arg", function() {
       var a = [1,2,3];
