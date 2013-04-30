@@ -10,55 +10,6 @@ describe("Basic functions", function() {
     });
   });
 
-  describe("cycle", function() {
-    it("should build an array of some size filled with the elements of the given array repeated", function() {
-      var a = [1,2,3];
-
-      expect(L.cycle(3,a)).toEqual([1,2,3,1,2,3,1,2,3]);
-      expect(L.cycle(0,a)).toEqual([]);
-      expect(_.take(L.cycle(33,a), 3)).toEqual([1,2,3]);
-    });
-
-    it("should throw an exception if not given a number as the first arg", function() {
-      expect(function() { L.cycle(); }).toThrow();
-    });
-
-    it("should return an empty array when given a negative repeat value", function() {
-      expect(L.cycle(-3,1)).toEqual([]);
-    });
-  });
-
-  describe("second", function() {
-    var a = [1,2,3];
-
-    it("should return the second element of the array given, undefined if outside of the bounds", function() {
-
-      expect(L.second(a)).toEqual(2);
-      expect(L.second([1])).toEqual(undefined);
-      expect(L.second([])).toEqual(undefined);
-    });
-
-    it("should throw an exception if not given a number as the first arg", function() {
-      expect(function() { L.second(1); }).toThrow();
-    });
-  });
-
-  describe("increasing / increasingOrEq / decreasing / decreasingOrEq", function() {
-    it("should recognize if the arguments are monotonically increasing or decreasing", function() {
-      var inc = [1,2,3];
-      var incAlso = [1,2,3,3,4];
-      var dec = [5,4,3,2,1];
-      var decAlso = [5,4,3,3,2,1];
-
-      expect(L.increasing.apply(null, inc)).toBeTruthy();
-      expect(L.increasingOrEq.apply(null, incAlso)).toBeTruthy();
-      expect(L.increasing.apply(null, dec)).toBeFalsy();
-      expect(L.decreasing.apply(null, dec)).toBeTruthy();
-      expect(L.decreasingOrEq.apply(null, decAlso)).toBeTruthy();
-      expect(L.decreasing.apply(null, inc)).toBeFalsy();
-    });
-  });
-
   describe("assoc", function() {
     it("should allow the placement of a value at any depth in an associative structure", function() {
       var obj = {a: {b: {c: 42, d: 108}}};
