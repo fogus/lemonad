@@ -18,12 +18,6 @@ describe("Applicative functions", function() {
     });
   });
 
-  describe("reductions", function() {
-    it("should perform a reduce and collect the intermediate results in an array", function() {
-      expect(L.reductions(function(agg, n){ return agg+n; }, 0, [1,2,3,4,5])).toEqual([1,3,6,10,15]);
-    });
-  });
-
   describe("dropWhile", function() {
     it("should drop all elements from an array until a given function goes truthy", function() {
       expect(L.dropWhile(_.isNegative, [-2,-1,0,1,2])).toEqual([0,1,2]);
