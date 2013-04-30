@@ -10,61 +10,6 @@ describe("Basic functions", function() {
     });
   });
 
-  describe("interpose", function() {
-    it("should inject the first arg in-between the elements of the second array arg", function() {
-      var a = [1,2,3];
-      var b = [1,2];
-      var c = [1];
-
-      expect(L.interpose(0, a)).toEqual([1,0,2,0,3]);
-      expect(L.interpose(0, [1])).toEqual([1]);
-      expect(L.interpose(0, b)).toEqual([1,0,2]);
-      expect(L.interpose(0, c)).toEqual([1]);
-    });
-
-    it("should properly handle empty array arguments", function() {
-      expect(L.interpose(0, [])).toEqual([]);
-    });
-
-    it("should not modify the original", function() {
-      var a = [1,2,3];
-      var _ = L.interpose(0, a);
-
-      expect(a).toEqual([1,2,3]);
-    });
-
-    it("should throw an exception if not given an array", function() {
-      expect(function() { L.interpose(0,1); }).toThrow();
-      expect(function() { L.interpose(0); }).toThrow();
-    });
-  });
-
-  describe("interleave", function() {
-    it("should weave the arrays together", function() {
-      var a = [1,2,3];
-      var b = [1,2];
-      var c = ['a', 'b', 'c'];
-
-      expect(L.interleave(a,b)).toEqual([1,1,2,2,3]);
-      expect(L.interleave(a,a)).toEqual([1,1,2,2,3,3]);
-      expect(L.interleave(c,a)).toEqual(['a',1,'b',2,'c',3]);
-      expect(L.interleave(a,b,c)).toEqual([1,1,'a',2,2,'b',3,'c']);
-    });
-
-    it("should properly handle empty arguments", function() {
-      expect(L.interleave([], [])).toEqual([]);
-      expect(L.interleave([1,2,3], [])).toEqual([1,2,3]);
-      expect(L.interleave([], [1,2,3])).toEqual([1,2,3]);
-    });
-
-    it("should not modify the original", function() {
-      var a = [1,2,3];
-      var _ = L.interleave(a, a);
-
-      expect(a).toEqual([1,2,3]);
-    });
-  });
-
   describe("repeat", function() {
     it("should build an array of some size with the specified element in each slot", function() {
       expect(L.repeat(3,1)).toEqual([1,1,1]);
