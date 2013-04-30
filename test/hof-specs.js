@@ -1,12 +1,4 @@
 describe("Higher-order functions", function() {
-  describe("best", function() {
-    it("should return the 'best' value according to the criteria encapsulated in a function", function() {
-      var a = [1,2,3,4,5];
-
-      expect(L.best(function(x,y) { return x > y; }, a)).toEqual(5);
-    });
-  });
-
   describe("comparator", function() {
     it("should return a function to convert a predicate to a comparator", function() {
       var lessOrEqual = function(x, y) { return x <= y; };
@@ -16,26 +8,6 @@ describe("Higher-order functions", function() {
 
       expect( a.sort(L.comparator(lessOrEqual)) ).toEqual([-2, 0, 1]);
       expect( b.sort(L.comparator(lessOrEqual)) ).toEqual([-2, -1, -1, 0, 1, 10, 100]);
-    });
-  });
-
-  describe("complement", function() {
-    var _e = L.complement(_.isOdd);
-    var _o = L.complement(_.isEven);
-    var _n = L.complement(L.eq(5), L.eq(0));
-
-    it("should return a predicate that gives the opposite result of a given predicate", function() {
-      expect(_e(4)).toBeTruthy();
-      expect(_e(0)).toBeTruthy();
-      expect(_e(-4)).toBeTruthy();
-      expect(_o(5)).toBeTruthy();
-      expect(_o(1)).toBeTruthy();
-      expect(_o(0)).toBeFalsy();
-    });
-
-    it("should return a predicate that gives the opposite result of the composition of multiple predicates", function() {
-      expect(_n(5)).toBeTruthy();
-      expect(_n(0)).toBeTruthy();
     });
   });
 
