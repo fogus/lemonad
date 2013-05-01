@@ -221,8 +221,8 @@ _.map([{name: &#39;Joe&#39;}, {name: &#39;Bob&#39;}, {name: &#39;Cleveland&#39;}
               </div>
               
 <p>A temporary way to derive the name of a function. I hope to
-eliminate the need sooner rather than later.
-(a -&gt; b) -&gt; string</p>
+eliminate the need sooner rather than later.</p>
+<p><em>signature:</em> <code>(a -&gt; b) -&gt; string</code></p>
 
             </div>
             
@@ -303,8 +303,8 @@ Also takes a number of args and returns an array of unique values.</p>
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               
-<p>increment, decrement and halve
-<em>signature:</em> <code>number -&gt; number</code></p>
+<p>increment, decrement and halve</p>
+<p><em>signature:</em> <code>number -&gt; number</code></p>
 
             </div>
             
@@ -322,8 +322,8 @@ Also takes a number of args and returns an array of unique values.</p>
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               
-<p>Returns the type constrcutor
-<em>signature:</em> <code>{any: any} -&gt; (any* -&gt; any)</code></p>
+<p>Returns the type constructor</p>
+<p><em>signature:</em> <code>{any: any} -&gt; (any* -&gt; any)</code></p>
 
             </div>
             
@@ -369,8 +369,8 @@ Also takes a number of args and returns an array of unique values.</p>
                 <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               
-<p>A reference is something that derives from a Lemonad Hole object
-a -&gt; boolean</p>
+<p>A reference is something that derives from a Lemonad Hole object</p>
+<p><em>signature:</em> <code>a -&gt; boolean</code></p>
 
             </div>
             
@@ -389,7 +389,7 @@ a -&gt; boolean</p>
               </div>
               
 <p>Returns a function that will invoke the given method
-on any object that it receives as a argument.</p>
+on any object that it receives as an argument.</p>
 
             </div>
             
@@ -760,11 +760,11 @@ passed a truthy test by a given predicate.</p>
               </div>
               
 <p>Creates a function that works within the context of the
-<code>actions</code> logic.  <code>lift</code> accepts 1 or two functions:</p>
+<code>actions</code> logic.  <code>lift</code> accepts one or two functions:</p>
 <ol>
-<li>an answer function that serves as a way to calculate a
+<li>a required answer function that serves as a way to calculate a
 result based on the given managed structure.</li>
-<li>a state function that &#39;modifies&#39; the managed structure
+<li>an optional state function that &#39;modifies&#39; the managed structure
 to represent its current state.</li>
 </ol>
 <p>If a state function is not given then the result given by the
