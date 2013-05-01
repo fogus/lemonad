@@ -1,7 +1,5 @@
 function poetry(packet) {
-  L.pipeline(JSON.parse(packet)
-    , L.plucker('seed')
-    , doit);
+  _.pipeline(_.accessor('seed'), doit)(JSON.parse(packet));
 }
 
 var t = 0;
