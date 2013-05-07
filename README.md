@@ -34,7 +34,6 @@ currently available functions:
   'keepIndexed',
   'lift',
   'lt',
-  'maxKey',
   'meth',
   'mix',
   'partial1',
