@@ -31,7 +31,6 @@ currently available functions:
   'invokeAll',
   'is',
   'isReference',
-  'keepIndexed',
   'lift',
   'lt',
   'meth',
