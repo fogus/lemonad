@@ -83,3 +83,8 @@ Todo
 * shape decls
 * cheatsheet
 * site
+
+License
+=======
+
+This software is provided as-is under the [MIT license](http://opensource.org/licenses/MIT).
