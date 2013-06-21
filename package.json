@@ -7,7 +7,7 @@
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"
   ],
   "dependencies": {
-    "underscore": ">= 1.4.3"
+    "underscore-contrib": ">= 0.1.4"
   },
   "devDependencies": {},
   "scripts": { },
