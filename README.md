@@ -34,6 +34,7 @@ currently available functions:
   'lift',
   'lt',
   'meth',
+  'walterWhite',
   'mix',
   'partial1',
   'partial2',
