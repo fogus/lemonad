@@ -1,4 +1,10 @@
 describe("Currying functions", function() {
+  describe("parseInt", function() {
+      it("should restrict parseInt to the first parameter", function() {
+        expect([1, 11, 12, 4].map(L.parseInt)[2]).toEqual(12);
+      });
+    });
+    
   describe("curry2", function() {
     it("should return a function curried for two args", function() {
       var div10 = L.curry2(function(n, d) { return n / d; })(10);
