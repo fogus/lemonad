@@ -5,7 +5,15 @@ A functional programming library built on, and extending, [Underscore.js](http:/
 
 ![lemonad](https://raw.github.com/fogus/lemonad/master/docs/logo.png)
 
-currently available functions:
+## Using
+
+Add the following to your 'package.json' file in the `"dependencies"` section:
+
+    "lemonad": "0.6.2"
+
+Lemonad currently depends on [underscore-contrib](https://www.github.com/documentcloud/underscore-contrib), which in turn depends on [Underscore.js](https://www.github.com/documentcloud/underscore).
+
+## Currently available functions
 
 ```javascript
 [ '$',
