@@ -9,7 +9,7 @@ A functional programming library built on, and extending, [Underscore.js](http:/
 
 Add the following to your 'package.json' file in the `"dependencies"` section:
 
-    "lemonad": "0.6.2"
+    "lemonad": "0.6.3"
 
 Lemonad currently depends on [underscore-contrib](https://www.github.com/documentcloud/underscore-contrib), which in turn depends on [Underscore.js](https://www.github.com/documentcloud/underscore).
 
@@ -45,6 +45,7 @@ Lemonad currently depends on [underscore-contrib](https://www.github.com/documen
   'invoker',
   'walterWhite',
   'mix',
+  'nth',
   'partial1',
   'partial2',
   'removeWatch',
