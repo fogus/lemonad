@@ -1,7 +1,7 @@
 describe("Currying functions", function() {
   describe("parseInt", function() {
       it("should restrict parseInt to the first parameter", function() {
-        expect([1, 11, 12, 4].map(L.parseInt)[2]).toEqual(12);
+        expect([1, 11, 12, 4].map(L.parseInt(10))[2]).toEqual(12);
       });
     });
     
