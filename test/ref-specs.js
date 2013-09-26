@@ -18,10 +18,10 @@ describe("Reference types and functions", function() {
       it("should be a Hole and Object type", function() {
         var v = new L.Hole(42);
 
-        expect(_.isInstanceOf((new L.Hole(42)), L.Hole)).toBeTruthy();
+        expect(L.isInstanceOf((new L.Hole(42)), L.Hole)).toBeTruthy();
         // TODO modify Hole so that it does not pass CAS check
-        expect(_.isInstanceOf((new L.Hole(42)), Object)).toBeTruthy();
-        expect(_.isInstanceOf((new L.Hole(42)), Array)).toBeFalsy();
+        expect(L.isInstanceOf((new L.Hole(42)), Object)).toBeTruthy();
+        expect(L.isInstanceOf((new L.Hole(42)), Array)).toBeFalsy();
       });
     });
 
@@ -40,7 +40,7 @@ describe("Reference types and functions", function() {
       });
 
       it("should fail if an invalid value is provided", function() {
-        var v = new L.Hole("", _.isString);
+        var v = new L.Hole("", L.isString);
 
         expect(function(){ L.setValue(v, 36); }).toThrow();
       });
@@ -50,7 +50,7 @@ describe("Reference types and functions", function() {
       it("should set a Hole's value based on the result of a function given its current value", function() {
         var v = new L.Hole(42);
 
-        L.swap(v, _.always(36));
+        L.swap(v, function() { return 36 });
         expect(v._value).toEqual(36);
 
         L.swap(v, L.inc);
@@ -64,7 +64,7 @@ describe("Reference types and functions", function() {
       });
 
       it("should fail if an invalid value is provided", function() {
-        var v = new L.Hole("", _.isString);
+        var v = new L.Hole("", L.isString);
 
         expect(function(){ L.swap(v, k(36)); }).toThrow();
       });
@@ -77,7 +77,7 @@ describe("Reference types and functions", function() {
       it("should set a CAS value based on a presumed current value the result of a function given its current value", function() {
         var v = new L.CAS(42);
 
-        L.compareAndSwap(v, 42, _.always(36));
+        L.compareAndSwap(v, 42, function() { return 36 });
         expect(v._value).toEqual(36);
 
         L.compareAndSwap(v, 36, L.inc);
@@ -88,9 +88,9 @@ describe("Reference types and functions", function() {
         var v = new L.CAS(42);
 
         expect(L.isReference(new L.CAS(42))).toBeTruthy();
-        expect(_.isInstanceOf((new L.CAS(42)), L.CAS)).toBeTruthy();
-        expect(_.isInstanceOf((new L.CAS(42)), Object)).toBeTruthy();
-        expect(_.isInstanceOf((new L.CAS(42)), Array)).toBeFalsy();
+        expect(L.isInstanceOf((new L.CAS(42)), L.CAS)).toBeTruthy();
+        expect(L.isInstanceOf((new L.CAS(42)), Object)).toBeTruthy();
+        expect(L.isInstanceOf((new L.CAS(42)), Array)).toBeFalsy();
       });
 
       it("should return true if successful", function() {
@@ -106,7 +106,7 @@ describe("Reference types and functions", function() {
       });
 
       it("should fail if an invalid value is provided", function() {
-        var v = new L.CAS("", _.isString);
+        var v = new L.CAS("", L.isString);
 
         expect(function(){ L.compareAndSwap(v, k(36)); }).toThrow();
       });
@@ -116,7 +116,7 @@ describe("Reference types and functions", function() {
       it("should set a CAS's value based on the result of a function given its current value", function() {
         var v = new L.CAS(42);
 
-        L.swap(v, _.always(36));
+        L.swap(v, function() { return 36 });
         expect(v._value).toEqual(36);
 
         L.swap(v, L.inc);
@@ -130,7 +130,7 @@ describe("Reference types and functions", function() {
       });
 
       it("should fail if an invalid value is provided", function() {
-        var v = new L.CAS("", _.isString);
+        var v = new L.CAS("", L.isString);
 
         expect(function(){ L.swap(v, k(36)); }).toThrow();
       });
@@ -151,7 +151,7 @@ describe("Reference types and functions", function() {
       });
 
       it("should fail if an invalid value is provided", function() {
-        var v = new L.CAS("", _.isString);
+        var v = new L.CAS("", L.isString);
 
         expect(function(){ L.setValue(v, 36); }).toThrow();
       });
