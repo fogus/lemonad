@@ -2,10 +2,10 @@ describe("Monadic functions", function() {
   describe("actions", function() {
     it("should carry forward the intermediate state properly", function() {
       var push = L.lift(function(stack, e) {
-        return _.cons(e, stack);
+        return L.cons(e)(stack);
       });
 
-      var pop = L.lift(_.first, _.rest);
+      var pop = L.lift(L.first, L.tail);
 
       var computation = L.actions([
         push(4),
