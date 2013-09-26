@@ -7,7 +7,15 @@ describe("Currying functions", function() {
     
   describe("curry2", function() {
     it("should return a function curried for two args", function() {
-      var div10 = L.curry2(function(n, d) { return n / d; })(10);
+      var over10 = L.curry2(function(n, d) { return n / d; })(10);
+
+      expect(over10(50)).toEqual(0.2);
+    });
+  });
+
+  describe("rcurry2", function() {
+    it("should return a function curried for two args", function() {
+      var div10 = L.rcurry2(function(n, d) { return n / d; })(10);
 
       expect(div10(50)).toEqual(5);
     });
@@ -16,11 +24,11 @@ describe("Currying functions", function() {
   describe("curry3", function() {
     it("should return a function curried for three args", function() {
       var hexColor = function(r, g, b) { return [r,g,b].join(''); };
-      var blue = L.curry3(hexColor)('FF');
-      var blueGreen = L.curry3(hexColor)('FF')('EE');
+      var red = L.curry3(hexColor)('FF');
+      var redGreen = L.curry3(hexColor)('FF')('EE');
 
-      expect(blue('01')('00')).toEqual('0001FF');
-      expect(blueGreen('00')).toEqual('00EEFF');
+      expect(red('01')('00')).toEqual('FF0100');
+      expect(redGreen('00')).toEqual('FFEE00');
     });
   });
   
