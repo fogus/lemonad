@@ -37,11 +37,11 @@ describe("Currying functions", function() {
         var hexColor = function(r, g, b, h, s, l) {
         	return [r,g,b].join('') + ' - ' + [h,s,l].join(',');
         };
-        var blue = L.curry(hexColor, 6)('50')('100')('240');
-        var blueGreen = L.curry(hexColor, 6)('50')('100')('184')('FF');
+        var red = L.curry(hexColor, 6)('FF')('01')('00');
+        var redGreen = L.curry(hexColor, 6)('FF')('EE')('00')('184');
   
-        expect(blue('FF')('01')('00')).toEqual('0001FF - 240,100,50');
-        expect(blueGreen('EE')('00')).toEqual('00EEFF - 184,100,50');
+        expect(red('240')('100')('50')).toEqual('FF0100 - 240,100,50');
+        expect(redGreen('100')('50')).toEqual('FFEE00 - 184,100,50');
       });
     });
   
@@ -50,11 +50,11 @@ describe("Currying functions", function() {
         var hexColor = function(r, g, b, h, s, l) {
         	return [r,g,b].join('') + ' - ' + [h,s,l].join(',');
         };
-        var blue = L.curry(hexColor)('50')('100')('240');
-        var blueGreen = L.curry(hexColor)('50')('100')('184')('FF');
+        var red = L.curry(hexColor)('FF')('01')('00');
+        var redGreen = L.curry(hexColor)('FF')('EE')('00')('184');
   
-        expect(blue('FF')('01')('00')).toEqual('0001FF - 240,100,50');
-        expect(blueGreen('EE')('00')).toEqual('00EEFF - 184,100,50');
+        expect(red('240')('100')('50')).toEqual('FF0100 - 240,100,50');
+        expect(redGreen('100')('50')).toEqual('FFEE00 - 184,100,50');
       });
     });
 });
