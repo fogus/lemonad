@@ -1,7 +1,7 @@
 lemonad
 =======
 
-A functional programming library built on, and extending, [Underscore.js](http://underscorejs.org) and [Underscore-contrib](https://www.github.com/documentcloud/underscore-contrib) -- inspired by [Clojure](http://www.clojure.org), [Haskell](http://www.haskell.org/), [SML](http://www.smlnj.org/) and [Forth](http://www.forth.com/forth/).
+A functional programming library for JavaScript inspired by [Clojure](http://www.clojure.org), [Haskell](http://www.haskell.org/), [SML](http://www.smlnj.org/) and [Forth](http://www.forth.com/forth/).
 
 ![lemonad](https://raw.github.com/fogus/lemonad/master/docs/logo.png)
 
@@ -9,7 +9,7 @@ A functional programming library built on, and extending, [Underscore.js](http:/
 
 Add the following to your 'package.json' file in the `"dependencies"` section:
 
-    "lemonad": "0.6.3"
+    "lemonad": "0.7.0"
 
 Lemonad currently depends on [underscore-contrib](https://www.github.com/documentcloud/underscore-contrib), which in turn depends on [Underscore.js](https://www.github.com/documentcloud/underscore).
 
@@ -26,6 +26,7 @@ Lemonad currently depends on [underscore-contrib](https://www.github.com/documen
   'WatchableMixin',
   'actions',
   'addWatch',
+  'checker',
   'compareAndSwap',
   'ctor',
   'curry',
@@ -35,12 +36,16 @@ Lemonad currently depends on [underscore-contrib](https://www.github.com/documen
   'dec',
   'dispatcher',
   'eq',
+  'filter',
   'gt',
+  'gte',
   'invokeAll',
   'is',
   'isReference',
   'lift',
   'lt',
+  'lte',
+  'map',
   'meth',
   'invoker',
   'walterWhite',
@@ -48,10 +53,16 @@ Lemonad currently depends on [underscore-contrib](https://www.github.com/documen
   'nth',
   'partial1',
   'partial2',
+  'rcurry',
+  'rcurry2',
+  'rcurry3',
+  'rcurry4',
+  'reduce', 
   'removeWatch',
   'rot',
   'setValue',
-  'swap' ]
+  'swap', 
+  'typed' ]
 ```
 
 Influences / References
