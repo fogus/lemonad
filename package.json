@@ -1,17 +1,11 @@
 {
   "name": "lemonad",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "description": "JavaScript functional programming library, inspired by the Clojure, ML, Haskell and Forth. Built on Underscore and its contrib library.",
   "homepage": "http://www.fogus.me/",
   "contributors": [
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"
   ],
-  "dependencies": {
-    "underscore-contrib": ">= 0.1.4"
-  },
-  "devDependencies": {
-    "lodash": ">= 1.3.1"
-  },
   "scripts": { },
   "main": "./lib/lemonad",
   "keywords": [
