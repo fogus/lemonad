@@ -9,7 +9,7 @@ A functional programming library for JavaScript inspired by [Clojure](http://www
 
 Add the following to your 'package.json' file in the `"dependencies"` section:
 
-    "lemonad": "0.7.2"
+    "lemonad": "0.7.3"
 
 Lemonad currently depends on [underscore-contrib](https://www.github.com/documentcloud/underscore-contrib), which in turn depends on [Underscore.js](https://www.github.com/documentcloud/underscore).
 
