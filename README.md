@@ -11,8 +11,6 @@ Add the following to your 'package.json' file in the `"dependencies"` section:
 
     "lemonad": "0.7.3"
 
-Lemonad currently depends on [underscore-contrib](https://www.github.com/documentcloud/underscore-contrib), which in turn depends on [Underscore.js](https://www.github.com/documentcloud/underscore).
-
 ## Currently available functions
 
 ```javascript
