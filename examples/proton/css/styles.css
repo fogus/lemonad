@@ -9,7 +9,7 @@ fieldset {
     margin: 0 0 30px 0;
     padding: 18px;
     border: 2px solid #ddd;
-    background-color: white;
+    background-color: black;
     border-radius: 10px;
     display: inline-block;
 }
@@ -29,12 +29,12 @@ ul {
 /* Puzzle widgets */
 
 .sliding-puzzle {
-    border: 1px solid #ccc;
+    border: 1px solid gray;
     border-spacing: 0;
 }
 .sliding-puzzle td {
     border-collapse: collapse;
-    border: 2px outset white;
+    border: 2px outset gray;
     cursor: pointer;
     padding: 0;
 }
@@ -44,35 +44,4 @@ ul {
 }
 .sliding-puzzle.puzzle-solved td {
     border: none;
-}
-
-/* Application */
-
-#sliding-advanced > div {
-    float: left;
-    margin: 0 40px 0 0;
-    min-width: 300px;
-}
-#sliding-advanced .sliding-puzzle {
-    clear: both;
-    margin-top: 30px;
-}
-#sliding-advanced h2 {
-    margin: 0 0 10px 0;
-    font-weight: bold;
-}
-#sliding-advanced .status {
-    float: left;
-    width: 40%;
-    height: 50px;
-}
-#sliding-advanced .size {
-    float: right;
-    height: 50px;
-    text-align: right;
-}
-#sliding-advanced .src input {
-    width: 98%;
-    font-family: "Courier New";
-    margin-bottom: 4px;
 }
