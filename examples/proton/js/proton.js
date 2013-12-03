@@ -7,19 +7,6 @@
      * Service
      */
     module.factory('slidingPuzzle', function() {
-        function shuffle(a) {
-            var j, x;
-
-            for (var i = a.length - 1; i >= 0; i--) {
-                j = parseInt(Math.random() * i, 10);
-                x = a[i]; 
-                a[i] = a[j];
-                a[j] = x;
-            }
-
-            return a;
-        }
-
         function SlidingPuzzle(rows, cols) {
             /**
              * Puzzle grid
@@ -56,13 +43,17 @@
 
             this.shuffle = function() {
                 var tiles = [];
+                
                 this.traverse(function(tile) {
                     tiles.push(tile);
                 });
-                shuffle(tiles);
+
+                tiles = L.shuffle(tiles);
+                
                 this.traverse(function(tile, row, col) {
                     this.grid[row][col] = tiles.shift();
                 });
+
                 this.moves = 0;
             };
 
