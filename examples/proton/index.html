@@ -1,2 +1,23 @@
 <!-- Proton Puzzle Demo -->
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proton.js</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="js/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="js/puzzle/slidingPuzzle.js"></script>
+	<script type="text/javascript" src="js/puzzle/wordSearchPuzzle.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body ng-app="puzzleApp">
+	<div ng-include="type"></div>
+
+	<script type="text/ng-template" id="sliding-puzzle">
+		<fieldset id="sliding-simple">
+			<sliding-puzzle size="4x4" src="img/proton.jpg"></sliding-puzzle>
+		</fieldset><br/>
+	</script>
+</body>
+</html>
