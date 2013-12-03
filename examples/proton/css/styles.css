@@ -1,0 +1,78 @@
+/* General */
+body {
+    font: 12pt 'Arial', 'Helvetica';
+    background-color: #f7f7f7;
+    margin-top: 110px;
+    margin-left: 20px;
+}
+fieldset {
+    margin: 0 0 30px 0;
+    padding: 18px;
+    border: 2px solid #ddd;
+    background-color: white;
+    border-radius: 10px;
+    display: inline-block;
+}
+legend {
+    font-weight: bold;
+    padding: 3px 12px;
+    display: block;
+    background-color: #e4e4e4;
+    border-radius: 6px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Puzzle widgets */
+
+.sliding-puzzle {
+    border: 1px solid #ccc;
+    border-spacing: 0;
+}
+.sliding-puzzle td {
+    border-collapse: collapse;
+    border: 2px outset white;
+    cursor: pointer;
+    padding: 0;
+}
+.sliding-puzzle .puzzle-empty {
+    border: none;
+    background-color: #ddd !important;
+}
+.sliding-puzzle.puzzle-solved td {
+    border: none;
+}
+
+/* Application */
+
+#sliding-advanced > div {
+    float: left;
+    margin: 0 40px 0 0;
+    min-width: 300px;
+}
+#sliding-advanced .sliding-puzzle {
+    clear: both;
+    margin-top: 30px;
+}
+#sliding-advanced h2 {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+#sliding-advanced .status {
+    float: left;
+    width: 40%;
+    height: 50px;
+}
+#sliding-advanced .size {
+    float: right;
+    height: 50px;
+    text-align: right;
+}
+#sliding-advanced .src input {
+    width: 98%;
+    font-family: "Courier New";
+    margin-bottom: 4px;
+}
