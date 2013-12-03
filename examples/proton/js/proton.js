@@ -9,7 +9,14 @@
     module.factory('slidingPuzzle', function() {
         function shuffle(a) {
             var q;
-            for (var j, x, i = a.length; i; j = parseInt(Math.random() * i, 10), x = a[--i], a[i] = a[j], a[j] = x) { q = 0; }
+            for (var j, x, i = a.length; i; 
+                 j = parseInt(Math.random() * i, 10), 
+                 x = a[--i], 
+                 a[i] = a[j], 
+                 a[j] = x) { 
+              q = 0; 
+            }
+            
             return a;
         }
 
