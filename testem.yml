@@ -1,0 +1,12 @@
+framework: jasmine
+
+src_files:
+  - lib/*.js
+  - test/*.js
+
+launch_in_ci:
+  - PhantomJS
+
+launch_in_dev:
+  - PhantomJS
+  - Chrome

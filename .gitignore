@@ -1,3 +1,9 @@
 node_modules
 npm-debug.log
 libpeerconnection.log
+
+# Jet Brains IDEs
+.idea/
+
+# vim swap files.
+*.swp
