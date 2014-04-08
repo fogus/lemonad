@@ -6,7 +6,9 @@
   "contributors": [
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"
   ],
-  "scripts": { },
+  "scripts": {
+    "test": "testem ci -l PhantomJS"
+  },
   "main": "./lib/lemonad",
   "keywords": [
     "underscore",
@@ -20,6 +22,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/fogus/lemonad.git"
+  },
+  "devDependencies": {
+    "phantomjs": "1.9",
+    "testem": "0.6"
   }
 }
 
