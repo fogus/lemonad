@@ -47,7 +47,7 @@ Documentation for using Lemonad is in development.  For now you can look at the 
 
 * thanks
 
-Remember, [[https://github.com/fogus/lemonad/issues][contibutions welcomed]].
+Remember, [[https://github.com/fogus/lemonad/issues][contributions welcomed]].
 
 
 #+STYLE: <link rel="stylesheet" type="text/css" href="common.css" />
