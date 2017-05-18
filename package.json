@@ -1,7 +1,7 @@
 {
   "name": "lemonad",
-  "version": "0.7.4",
-  "description": "JavaScript functional programming library, inspired by the Clojure, ML, Haskell and Forth. Built on Underscore and its contrib library.",
+  "version": "0.8.0",
+  "description": "JavaScript functional programming library, inspired by the Clojure, ML, Haskell and Forth. Built on Immutable.js.",
   "homepage": "http://www.fogus.me/",
   "contributors": [
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"
@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "phantomjs": "1.9",
-    "testem": "0.6"
+    "testem": "0.6",
+    "immutable": "4.0.0-rc.2"
   }
 }
 
