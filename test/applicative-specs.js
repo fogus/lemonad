@@ -1,3 +1,0 @@
-describe("Applicative functions", function() {
-
-});

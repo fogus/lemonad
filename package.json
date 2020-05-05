@@ -23,9 +23,10 @@
     "type": "git",
     "url": "https://github.com/fogus/lemonad.git"
   },
+  "dependencies": {
+    "immutable": "4.0.0-rc.12"
+  },
   "devDependencies": {
-    "immutable": "4.0.0-rc.12",
-    "phantomjs": "2.1",
-    "testem": "^3.1.0"
+    "jasmine": "3.5.0"
   }
 }
