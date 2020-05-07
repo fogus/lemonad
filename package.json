@@ -6,9 +6,7 @@
   "contributors": [
     "Fogus <me@fogus.me> (<http://www.fogus.me>)"
   ],
-  "scripts": {
-    "test": "testem ci -l PhantomJS"
-  },
+  "scripts": {},
   "main": "./lib/lemonad",
   "keywords": [
     "underscore",
