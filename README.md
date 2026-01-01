@@ -11,40 +11,6 @@ Add the following to your 'package.json' file in the `"dependencies"` section:
 
     "lemonad": "0.7.4"
 
-## Development 💡
-
-To set up the project for development and install dev tools run:
-
-```bash
-npm install
-```
-
-This installs production dependencies and devDependencies (including Jest).
-
-## Running tests ✅
-
-- Run the entire test suite:
-
-```bash
-npm test
-```
-
-- Run a single spec file:
-
-```bash
-npx jest test/specs/<name>.spec.js
-```
-
-- Run Jest in watch mode while editing:
-
-```bash
-npx jest --watch
-```
-
-Notes:
-
-- Tests are powered by **Jest**. Spec files live under `test/specs/*.spec.js`.
-- `test/jest.setup.js` exposes the library global `L` so existing specs continue to work.
 ## Currently available functions
 
 ```javascript
@@ -101,6 +67,45 @@ Notes:
   'swap', 
   'typed' ]
 ```
+
+## Development 💡
+
+To set up the project for development and install dev tools run:
+
+```bash
+npm install
+```
+
+This installs production dependencies and devDependencies (including Jest).
+
+## Running tests ✅
+
+- Run the entire test suite:
+
+```bash
+npm test
+```
+
+- Run a single spec file:
+
+```bash
+npx jest test/specs/<name>.spec.js
+```
+
+- Run Jest in watch mode while editing:
+
+```bash
+npx jest --watch
+```
+
+Notes:
+
+- Tests are powered by **Jest**. Spec files live under `test/specs/*.spec.js`.
+- `test/jest.setup.js` exposes the library global `L` so existing specs continue to work.
+
+## Generating annotations
+
+    npx docco -o docs/site lib/lemonad.js
 
 Influences / References
 -----------------------

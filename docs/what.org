@@ -5,11 +5,11 @@
 
 * a functional JavaScript library
 
-Lemonad is a JavaScript library supporting functional programming inspired by [[http://clojure.org][Clojure]], [[http://github.com/clojure/clojurescript][ClojureScript]], [[http://osteele.com/sources/javascript/functional/][Functional JavaScript]], ML, Haskell, Forth and [[http://underscorejs.org/][Underscore]].  It requires the presence of either Underscore or [[http://lodash.com/][Lo-Dash]] and the [[https://www.github.com/documentcloud/underscore-contrib][Underscore-contrib]] libraries.
+Lemonad is a JavaScript library supporting functional programming inspired by [[http://clojure.org][Clojure]], [[http://github.com/clojure/clojurescript][ClojureScript]], [[http://osteele.com/sources/javascript/functional/][Functional JavaScript]], ML, Haskell, Forth and [[http://underscorejs.org/][Underscore]].
 
 * why?
 
-The main motivation for Lemonad is that my current work requires the use of JavaScript on the client side and ClojureScript is not an option.  As a result I decided to try and capture the "feel" of a ClojureScript experience in the guise of JavaScript.  Over time the library evolved to incorporate other influences while maintaining an adherence to operating with JavaScript core types.  I thought this might be useful for others, so here it is.  Enjoy.
+I thought this might be useful for others, so here it is.  Enjoy.
 
 * getting
 
@@ -17,11 +17,11 @@ Lemonad can be installed via [[http://npmjs.org/package/lemonad][NPM]] by adding
 
 #+begin_src javascript
 "dependencies": {
-  "lemonad": ">= 0.6.2",
+  "lemonad": ">= 0.7.4",
 }
 #+end_src
 
-You can also find the Lemonad source code on Github at  http://github.com/fogus/lemonad.
+You can also find the Lemonad source code on Github at  https://github.com/fogus/lemonad.
 
 * including
 
@@ -30,16 +30,8 @@ Whether you use Lemonad via [[http://nodejs.org][Node.js]], within a web page or
 On a web page, you'll need to do the following:
 
 #+begin_src html
-<script type="text/javascript" src="underscore.js"></script>
-<script type="text/javascript" src="underscore.array.builders.js"></script>
-<script type="text/javascript" src="underscore.array.selectors.js"></script>
-<script type="text/javascript" src="underscore.function.combinators.js"></script>
-<script type="text/javascript" src="underscore.function.predicates.js"></script>
-<script type="text/javascript" src="underscore.util.existential.js"></script>
 <script type="text/javascript" src="lemonad.js"></script>
 #+end_src
-
-An explicit dependency on Underscore version 1.4.0 or greater is required for now.
 
 * using
 

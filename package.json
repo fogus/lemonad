@@ -1,7 +1,7 @@
 {
   "name": "lemonad",
   "version": "0.8.0-alpha.0",
-  "description": "JavaScript functional programming library, inspired by the Clojure, ML, Haskell and Forth. Built on Immutable.js.",
+  "description": "JavaScript functional programming library, inspired by the Clojure, ML, Haskell and Forth.",
   "homepage": "http://www.fogus.me/",
   "contributors": [
     "Fogus <me@fogus.me> (<https://www.fogus.me>)"
