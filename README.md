@@ -10,6 +10,7 @@ A functional programming library for JavaScript inspired by [Clojure](http://www
 Add the following to your 'package.json' file in the `"dependencies"` section:
 
     "lemonad": "0.7.4"
+
 ## Development 💡
 
 To set up the project for development and install dev tools run:
