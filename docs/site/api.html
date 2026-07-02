@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lemonad API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+<p><a name="L"></a></p>
+<h2>L : <code>object</code></h2>
+<p>Lemonad public API.</p>
+<p><strong>Kind</strong>: global namespace  </p>
+<ul>
+<li><a href="#L">L</a> : <code>object</code><ul>
+<li><a href="#L.not">.not(pred)</a> ⇒ <code>function</code></li>
+<li><a href="#L.map">.map(fun, [coll])</a> ⇒ <code>Array</code> | <code>function</code></li>
+</ul>
+</li>
+</ul>
+<p><a name="L.not"></a></p>
+<h3>L.not(pred) ⇒ <code>function</code></h3>
+<p>Returns a function that returns the logical negation of a predicate.</p>
+<p>The returned function calls <code>pred</code> with its received arguments and
+returns the opposite of Lemonad truthiness for the result.</p>
+<p><strong>Kind</strong>: static method of <a href="#L"><code>L</code></a><br><strong>Returns</strong>: <code>function</code> - A predicate that returns <code>true</code> when <code>pred</code> returns a falsey value, and <code>false</code> otherwise.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pred</td>
+<td><code>function</code></td>
+<td>Predicate function to negate.</td>
+</tr>
+</tbody></table>
+<p><strong>Example</strong>  </p>
+<pre><code class="language-js">L.not(L.isEven)(3)
+//=&gt; true
+</code></pre>
+<p><strong>Example</strong>  </p>
+<pre><code class="language-js">var isNotString = L.not(L.isString);
+
+isNotString(42)
+//=&gt; true
+</code></pre>
+<p><a name="L.map"></a></p>
+<h3>L.map(fun, [coll]) ⇒ <code>Array</code> | <code>function</code></h3>
+<p>Applies a function to each element of a collection.</p>
+<p>May be called with both arguments:</p>
+<pre><code>L.map(L.inc, [1, 2, 3])
+//=&gt; [2, 3, 4]
+</code></pre>
+<p>Or partially applied:</p>
+<pre><code>L.map(L.inc)([1, 2, 3])
+//=&gt; [2, 3, 4]
+</code></pre>
+<p><strong>Kind</strong>: static method of <a href="#L"><code>L</code></a><br><strong>Returns</strong>: <code>Array</code> | <code>function</code> - An array when <code>coll</code> is supplied, otherwise a function expecting <code>coll</code>.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fun</td>
+<td><code>function</code></td>
+<td>Function applied to each element.</td>
+</tr>
+<tr>
+<td>[coll]</td>
+<td><code>Array</code></td>
+<td>Optional collection to map over.</td>
+</tr>
+</tbody></table>
+
+</body>
+</html>
